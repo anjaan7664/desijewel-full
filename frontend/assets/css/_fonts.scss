@@ -1,0 +1,27 @@
+.jewellery_design_tagline {
+  @apply text-3xl;
+
+  &:before,
+  &:after {
+    content: url("~/assets/img/after.png");
+    top: 5px;
+  }
+
+  &:before {
+    left: 20%;
+  }
+
+  &:after {}
+
+  @media screen and (max-width: 768px) {
+
+    &:before,
+    &:after {
+      display: block;
+    }
+  }
+}
+
+.hmain {
+  @apply mx-auto border-b-2 border-red w-auto inline-block text-4xl;
+}

@@ -1,0 +1,340 @@
+{
+    "categories": [
+        {
+            "metal": "gold",
+            "image": "aad.png",
+            "name": "category.aad",
+            "part": "neck",
+            "url": "aad",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "aawla.png",
+            "name": "category.aawla",
+            "part": "hand",
+            "url": "aawla",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "bhujbandh.png",
+            "name": "category.bhujbandh",
+            "part": "hand",
+            "url": "bhujbandh",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "baajubandh.png",
+            "name": "category.baajubandh",
+            "part": "hand",
+            "url": "baajubandh",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "bangles.png",
+            "name": "category.bangles",
+            "part": "hand",
+            "url": "bangles",
+            "sorting": "desi,fancy,kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "bala.png",
+            "name": "category.bala",
+            "part": "ear",
+            "url": "bala",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "bracelet.png",
+            "name": "category.bracelet",
+            "part": "hand",
+            "url": "bracelet",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "baali.png",
+            "name": "category.baali",
+            "part": "ear",
+            "url": "baali",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "chain.png",
+            "name": "category.chain",
+            "part": "neck",
+            "url": "chain",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "chik-set.png",
+            "name": "category.chik-set",
+            "part": "neck",
+            "url": "chik-set",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "desi-aad.png",
+            "name": "category.desi-aad",
+            "part": "neck",
+            "url": "desi-aad",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "hathphool.png",
+            "name": "category.hathphool",
+            "part": "hand",
+            "url": "hathphool",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "jhoomariya.png",
+            "name": "category.jhoomariya",
+            "part": "ear",
+            "url": "jhoomariya",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "jodha-haar.png",
+            "name": "category.jodha-haar",
+            "part": "neck",
+            "url": "jodha-haar",
+            "sorting": "fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "kandora.png",
+            "name": "category.kandora",
+            "part": "waist",
+            "url": "kandora",
+            "sorting": "fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "kanti.png",
+            "name": "category.kanti",
+            "part": "neck",
+            "url": "kanti",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "mangalsutra.png",
+            "name": "category.mangalsutra",
+            "part": "neck",
+            "url": "mangalsutra",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "mohan-mala.png",
+            "name": "category.mohan-mala",
+            "part": "neck",
+            "url": "mohan-mala",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "nath.png",
+            "name": "category.nath",
+            "part": "nose",
+            "url": "nath",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "necklace.png",
+            "name": "category.necklace",
+            "part": "neck",
+            "url": "necklace",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "nogariya.png",
+            "name": "category.nogariya",
+            "part": "hand",
+            "url": "nogariya",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "punach.png",
+            "name": "category.punach",
+            "part": "hand",
+            "url": "punach",
+            "sorting": "desi"
+        },
+        {
+            "metal": "gold",
+            "image": "pendal.png",
+            "name": "category.pendal",
+            "part": "neck",
+            "url": "pendal",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "rakhdi-set.png",
+            "name": "category.rakhdi-set",
+            "part": "head",
+            "url": "rakhdi-set",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "gents-ring.png",
+            "name": "category.gents-ring",
+            "part": "hand",
+            "url": "gents-ring",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "ladies-ring.png",
+            "name": "category.ladies-ring",
+            "part": "hand",
+            "url": "ladies-ring",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "ram-navmi.png",
+            "name": "category.ram-navmi",
+            "part": "neck",
+            "url": "ram-navmi",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "sohan-kanthi.png",
+            "name": "category.sohan-kanthi",
+            "part": "neck",
+            "url": "sohan-kanthi",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "sheeshphool.png",
+            "name": "category.sheeshphool",
+            "part": "head",
+            "url": "sheeshphool",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "thusi.png",
+            "name": "category.thusi",
+            "part": "neck",
+            "url": "thusi",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "timaniya.png",
+            "name": "category.timaniya",
+            "part": "neck",
+            "url": "timaniya",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "gold",
+            "image": "teeka.png",
+            "name": "category.teeka",
+            "part": "head",
+            "url": "teeka",
+            "sorting": "desi, fancy, kundan"
+        },
+        {
+            "metal": "gold",
+            "image": "tops.png",
+            "name": "category.tops",
+            "part": "ear",
+            "url": "tops",
+            "sorting": "desi, fancy"
+        },
+        {
+            "metal": "silver",
+            "image": "silver-bangles.png",
+            "name": "category.bangles",
+            "part": "hand",
+            "url": "bangles",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-utensil.png",
+            "name": "category.utensil",
+            "part": "others",
+            "url": "utensil",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-bracelet.png",
+            "name": "category.bracelet",
+            "part": "hand",
+            "url": "bracelet",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-ring.png",
+            "name": "category.ring",
+            "part": "hand",
+            "url": "ring",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-payal.png",
+            "name": "category.paayal",
+            "part": "legs",
+            "url": "paayal",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-kada.png",
+            "name": "category.kada",
+            "part": "hand",
+            "url": "kada",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-kandora.png",
+            "name": "category.kandora",
+            "part": "waist",
+            "url": "kandora",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-idol.png",
+            "name": "category.idol",
+            "part": "others",
+            "url": "idol",
+            "sorting": ""
+        },
+        {
+            "metal": "silver",
+            "image": "silver-others.png",
+            "name": "category.others",
+            "part": "others",
+            "url": "others",
+            "sorting": ""
+        }
+    ]
+}
