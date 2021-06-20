@@ -4,8 +4,11 @@
 
 <script>
 export default {
-    name:"admin",
-    middleware:'auth'
-
-}
+  name: "admin",
+  middleware: "auth",
+  computed: {},
+  created() {
+    console.log(this.$auth.user);
+  }
+};
 </script>

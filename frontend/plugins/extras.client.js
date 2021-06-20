@@ -4,6 +4,9 @@ import VueImg from 'v-img';
 import BackToTop from 'vue-backtotop';
 require('aos/dist/aos.css');
 
+
+
+
 Vue.use(AOS.init())
 const vueImgConfig = {
   // Use `alt` attribute as gallery slide title

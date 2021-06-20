@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 import i18n from './plugins/i18n';
 export default {
   target: 'static',
@@ -36,7 +36,6 @@ export default {
     '~/plugins/axios.js',
     '~plugins/i18n',
     '~/plugins/extras.client.js',
-    '~/plugins/extras.js',
     '~/plugins/vform.js',
     '~/plugins/fontawesome.js',
     '~/plugins/vue-tailwind.client.js'
@@ -66,20 +65,13 @@ export default {
       vueI18n: i18n
     }],
     '@nuxtjs/auth-next',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'vue-sweetalert2/nuxt'
   ],
   axios: {
 
     proxy: true,
     credentials: true
-  },
-  proxy: {
-    '/laravel': {
-      target: 'http://localhost:8000',
-      pathRewrite: {
-        '^/laravel': '/'
-      }
-    }
   },
 
   auth: {
@@ -89,19 +81,15 @@ export default {
         url: process.env.API_URL,
         endpoints: {
           login: {
-            url: '/login',
-          }
-        }
-      },
-      cookie: {
-        cookie: {
-          // (optional) If set we check this cookie exsistence for loggedIn check
-          name: 'XSRF-TOKEN',
-        },
-        endpoints: {
-          // (optional) If set, we send a get request to this endpoint before login
-          csrf: {
-            url: ''
+            url: '/api/login',
+          },
+          logout: {
+            url: '/api/logout',
+            method: 'post'
+          },
+          user: {
+            url: '/api/user',
+            method: 'get'
           }
         }
       }

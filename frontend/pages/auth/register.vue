@@ -86,6 +86,13 @@
                   >
                     {{ $t("register") }}
                   </button>
+                  <button
+                    class="mt-3 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black"
+                  >
+                    <nuxtLink :to="localePath('/auth/login')">
+                      {{ $t("login") }}
+                    </nuxtLink>
+                  </button>
                 </div>
               </form>
             </div>
@@ -126,21 +133,13 @@ export default {
       if (data.status) {
         this.mustVerifyEmail = true;
       } else {
-        // Log in the user.
-        const {
-          data: { token }
-        } = await this.$auth.loginWith("laravelSanctum", {
-          data:this.form
-        });
-        console.log(token);
-        // // Save the token.
-        // this.$store.dispatch("auth/saveToken", { token });
-
-        // // Update the user.
-        // await this.$store.dispatch("auth/updateUser", { user: data });
-
-        // // Redirect home.
-        // this.$router.push({ name: "home" });
+        try {
+          let response = await this.$auth.loginWith("laravelSanctum", {
+            data: this.form
+          });
+        } catch (err) {
+          console.log(err);
+        }
       }
     }
   }

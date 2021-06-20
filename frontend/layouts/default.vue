@@ -1,6 +1,6 @@
 <template>
   <div>
-      <the-header />
+     <the-header/>
       <Nuxt  class="max-size container m-auto mx-2 lg:mx-auto" />
       <back-to-top bottom="50px" right="30px">
         <div
@@ -12,7 +12,7 @@
           />
         </div>
       </back-to-top>
-      <the-footer />
+     <the-footer/>
   </div>
 </template>
 <style>

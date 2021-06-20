@@ -73,24 +73,24 @@
           <div class="mt-6">
             <ul>
               <li class="my-2">
-                <router-link to="/">
+                <nuxt-link to="/">
                   Home
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
-                <router-link to="/About">
+                <nuxt-link to="/About">
                   About Us
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
-                <router-link to="/Contact">
+                <nuxt-link to="/Contact">
                   Contact Us
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
-                <router-link to="/">
+                <nuxt-link to="/">
                   Our Sources
-                </router-link>
+                </nuxt-link>
               </li>
             </ul>
           </div>
@@ -103,28 +103,33 @@
           <div class="mt-6">
             <ul>
               <li class="my-2">
-                <router-link to="/">
+                <nuxt-link to="/">
                   Blogs
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
-                <router-link to="/Disclaimer">
+                <nuxt-link to="/Disclaimer">
                   Disclaimer
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
-                <router-link to="/TOS">
+                <nuxt-link to="/TOS">
                   Terms Of Service
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
-                <router-link to="/Privacy-Policy">
+                <nuxt-link to="/Privacy-Policy">
                   Privacy Policy
-                </router-link>
+                </nuxt-link>
               </li>
               <li class="my-2">
                 <a href="http://hbjodhpur.com" target="_blank"
                   >Live Gold Rate</a
+                >
+              </li>
+              <li class="my-2">
+                <nuxtLink to="/auth/login"
+                  >Login</nuxtLink
                 >
               </li>
             </ul>

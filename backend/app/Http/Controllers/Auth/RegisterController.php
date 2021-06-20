@@ -16,62 +16,20 @@ use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-    public function register(Request $request)
+
+
+
+    protected function registered(Request $request, $user)
     {
-        $this->validator($request->all())->validate();
+        $user->generateToken();
 
-        event(new Registered($user = $this->create($request->all())));
-
-        $this->guard()->login($user);
-
-
-
-
-
-        if ($response = $this->registered($request, $user)) {
-            $token = $user->createToken('auth_token')->plainTextToken;
-
-            return response()->json([
-                'access_token' => $token,
-                'token_type' => 'Bearer',
-            ]);
-        }
-
-        return $request->wantsJson()
-            ? new JsonResponse([], 201)
-            : redirect($this->redirectPath());
+        return response()->json(['data' => $user->toArray()], 201);
     }
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
-    protected function guard()
-    {
-        return Auth::guard();
-    }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -94,15 +52,4 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
-        User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
-    protected function registered(Request $request, $user)
-    {
-    }
 }

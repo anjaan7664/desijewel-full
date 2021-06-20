@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/vue-fontawesome';
 
 // import { } from '@fortawesome/free-regular-svg-icons'
-config.autoAddCss = false
+config.autoAddCss = false;
 import {
   faAddressBook,
   faSignOutAlt,

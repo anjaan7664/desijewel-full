@@ -76,6 +76,13 @@
                   >
                     Login
                   </button>
+                  <button
+                    class="mt-3 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black"
+                  >
+                    <nuxtLink :to="localePath('/auth/register')">
+                      {{ $t("register") }}
+                    </nuxtLink>
+                  </button>
                 </div>
               </form>
             </div>
@@ -90,7 +97,7 @@
 import Form from "vform";
 
 export default {
-
+  middleware: "auth",
   components: {},
 
   metaInfo() {
@@ -107,25 +114,13 @@ export default {
 
   methods: {
     async login() {
-      // Submit the form.
-      const { data } = await this.$auth.loginWith('laravelSanctum',{
-        data:{
-          email:"m@k.s",
-          password:"123456"
-        }
-      });
-console.log(data);
-      // // Save the token.
-      // this.$store.dispatch("auth/saveToken", {
-      //   token: data.token,
-      //   remember: this.remember
-      // });
-
-      // // Fetch the user.
-      // await this.$store.dispatch("auth/fetchUser");
-
-      // // Redirect home.
-      // this.$router.push({ name: "home" });
+      try {
+        let response = await this.$auth.loginWith("laravelSanctum", {
+          data: this.form
+        });
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 };

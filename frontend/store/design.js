@@ -29,19 +29,20 @@ export const actions = {
   getDesigns({
     commit
   }, payload) {
-    commit('SET_LOADING', true)
-    setTimeout(() => {
-      this.$axios.get('api/designs', {
-          params: payload.filters
-        }).then(function (response) {
-          commit('SET_DESIGNS', response.data)
-          commit('SET_LOADING', false)
-        })
-        .catch(function (error) {
-          console.log(error)
-          commit('SET_LOADING', false)
-        })
-    }, 0)
+    commit('SET_LOADING', true);
+
+    this.$axios.get('api/designs', {
+        params: payload.filters
+      }).then(function (response) {
+        commit('SET_DESIGNS', response.data)
+        commit('SET_LOADING', false)
+      })
+      .catch(function (error) {
+        console.log(error)
+        commit('SET_LOADING', false)
+      })
+
+
   },
   getSingleDesign({
     commit

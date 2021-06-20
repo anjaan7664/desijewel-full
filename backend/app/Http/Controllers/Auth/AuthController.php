@@ -27,10 +27,12 @@ class AuthController extends Controller
             'password' => bcrypt($attr['password']),
             'email' => $attr['email']
         ]);
-
-        return $this->success([
-            'token' => $user->createToken('auth_token')->plainTextToken
-        ]);
+        $token = $user->createToken('auth_token')->plainTextToken;
+        $response = [
+            'user' => $user,
+            'token' => $token
+        ];
+        return response($response, 201);
     }
 
     public function login(Request $request)
@@ -43,10 +45,13 @@ class AuthController extends Controller
         if (!Auth::attempt($attr)) {
             return $this->error('Credentials not match', 401);
         }
+        $token = auth()->user()->createToken('auth_token')->plainTextToken;
+        $response = [
+            'user' => auth()->user(),
+            'token' => $token
+        ];
 
-        return $this->success([
-            'token' => auth()->user()->createToken('auth_token')->plainTextToken
-        ]);
+        return response($response);
     }
 
     public function logout()

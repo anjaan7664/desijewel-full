@@ -282,10 +282,10 @@ export default {
   }),
   computed: {
     // mix the getters into computed with object spread operator
-    ...mapGetters({
-      authenticated: "auth/check",
-      role: "auth/role"
-    })
+    // ...mapGetters({
+    //   authenticated: "auth/check",
+    //   role: "auth/role"
+    // })
     // admin() {
     //   if (this.role >= 4) {
     //     return true;
