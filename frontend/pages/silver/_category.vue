@@ -1,7 +1,8 @@
 <template>
   <div class="">
+
     <!-- Showing List Of Category -->
-    <Category catMetal="gold" :body_part="body_part" />
+    <Category catMetal="gold"  />
 
     <div v-if="isLoading">
       <spinner />
@@ -102,14 +103,7 @@ export default {
       Tag: "",
       id: "",
       page: 1,
-      perPage: 12,
-      body_part: [
-        { icon: require("~/assets/img/svg/head.svg"), part: "head" },
-        { icon: require("~/assets/img/svg/ear.svg"), part: "ear" },
-        { icon: require("~/assets/img/svg/nose.svg"), part: "nose" },
-        { icon: require("~/assets/img/svg/neck.svg"), part: "neck" },
-        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" }
-      ]
+      perPage: 12
 
   }),
   computed: {

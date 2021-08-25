@@ -1,5 +1,5 @@
 .jewellery_design_tagline {
-  @apply text-3xl;
+  @apply text-3xl relative;
 
   &:before,
   &:after {
@@ -11,13 +11,25 @@
     left: 20%;
   }
 
-  &:after {}
-
   @media screen and (max-width: 768px) {
+    @apply text-2xl;
+
+    &:before {
+      @apply -left-12
+    }
+
+    ;
+
+    &:after {
+      @apply -right-12
+    }
+
+    ;
 
     &:before,
     &:after {
-      display: block;
+      @apply absolute;
+      content: url("~/assets/img/diamond-design.webp");
     }
   }
 }

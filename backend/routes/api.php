@@ -20,10 +20,10 @@ Route::group(['middleware' => 'guest:api'], function () {
 Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::delete('designs/{id}', 'App\Http\Controllers\DesignController@destroy');
+    Route::post('/edit', [DesignController::class, 'edit']);
 
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-
     Route::post('/logout', [AuthController::class, 'logout']);
 });

@@ -1,0 +1,15 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/j7x1v9n4wyaz/nuxt"
+PassengerBaseURI "/"
+PassengerNodejs "/home/j7x1v9n4wyaz/nodevenv/nuxt/10/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+RewriteEngine on
+
+# Forcing all incoming requests to HTTPS. 
+# HTTPS is required for PWA. If you don't want PWA feature you can deisable next 2 lines
+
+RewriteCond %{HTTP_HOST} ^satlaa.com.br$
+RewriteRule "(.*.(jpg|gif|png|svg|js|css|woff2))$" "http://127.0.0.1:3000/$1" [P,NC]
+RewriteRule ^(.*) "http://127.0.0.1:3000/$2" [P,L]

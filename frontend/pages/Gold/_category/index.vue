@@ -1,30 +1,26 @@
 <template>
   <div class="">
     <!-- Showing List Of Category -->
-    <Category catMetal="gold" :body_part="body_part" />
-
-    <div v-if="isLoading">
-      <spinner />
+    <HelpersCategory catMetal="gold" />
+    <div v-if="$fetchState.pending">
+      <HelpersSpinner />
     </div>
 
     <div v-else class="">
       <!-- Showing Main Images -->
-      <div class="w-full text-center">
-        <h1
-          class="my-2
-                 md:my-6 text-2xl"
-        >
+      <div class="w-full text-center ">
+        <h1 class="my-2 text-2xl md:my-6">
           Showing Image of
           <span class="font-bold capitalize">{{ Category }}</span>
         </h1>
         <div class="flex-row justify-center hidden md:flex">
-          <p class="h-full my-auto text-2xl font-bold mx-4">
+          <p class="h-full mx-4 my-auto text-2xl font-bold">
             Sort By:
           </p>
           <ul class="flex flex-row">
             <li
               @click="sorting('')"
-              class="rounded-md px-6 py-2 mx-1 text-white bg-green-500 cursor-pointer"
+              class="px-6 py-2 mx-1 text-white bg-green-500 rounded-md cursor-pointer"
             >
               All
             </li>
@@ -39,7 +35,7 @@
                   sorting('desi');
                 }
               "
-              class="rounded-md px-6 py-2 mx-1 text-white "
+              class="px-6 py-2 mx-1 text-white rounded-md "
             >
               Desi
             </li>
@@ -54,7 +50,7 @@
                   sorting('fancy');
                 }
               "
-              class="rounded-md px-6 py-2 mx-1 text-white"
+              class="px-6 py-2 mx-1 text-white rounded-md"
             >
               Fancy
             </li>
@@ -69,7 +65,7 @@
                   sorting('kundan');
                 }
               "
-              class="rounded-md px-6 py-2 mx-1 text-white"
+              class="px-6 py-2 mx-1 text-white rounded-md"
             >
               Kundan
             </li>
@@ -79,35 +75,46 @@
       <div
         id="app"
         ref="divImage"
-        class="flex flex-wrap justify-between pt-4 rounded overflow-hidden text-center"
+        class="flex flex-wrap justify-between pt-4 overflow-hidden text-center rounded"
       >
+        <div class="w-full h-full p-2 md:w-1/3 md:p-6 relative">
+          <div v-if="categoryObject.silver_avail === 'yes'">
+            <img
+              src="~/assets/img/shoppers/shoppers_silver.webp"
+              alt="Designing Jewel Contact Card"
+              class="h-full object-fill"
+            />
+          </div>
+          <div v-else>
+            <img
+              src="~/assets/img/shoppers/shoppers1.webp"
+              alt="Designing Jewel Contact Card"
+              class="h-full object-fill"
+            />
+          </div>
+          <h1>Contact for more info - "7597937664"</h1>
+        </div>
         <div
           v-for="design in DesignsList.data"
           :key="design.id"
-          class="w-full md:w-1/3 p-2 md:p-6"
+          class="w-full p-2 md:w-1/3 md:p-6"
         >
-          <nuxt-link
-            :to="
-              localePath({
-                path: '/design/' + design.image,
-                query: { subCat: design.sub_category }
-              })
-            "
-          >
-            <designCard :design-data="design" />
-          </nuxt-link>
+          <CardsDesignCard :design-data="design" />
         </div>
       </div>
-      <div class="w-full text-center">
-        <t-pagination
-          :total-items="DesignsList.total"
-          :per-page="this.perPage"
-          :limit="9"
-          :hide-prev-next-controls="false"
-          @change="onPageChange"
-          v-model.number="page"
-        />
-      </div>
+
+      <client-only>
+        <div class="w-full text-center">
+          <t-pagination
+            :total-items="DesignsList.total"
+            :per-page="this.perPage"
+            :limit="9"
+            :hide-prev-next-controls="false"
+            @change="onPageChange"
+            v-model.number="page"
+          />
+        </div>
+      </client-only>
     </div>
     <section class="w-full mx-auto mb-8">
       <!-- <related-category :category="Category" /> -->
@@ -117,23 +124,22 @@
 
 <script>
 import { mapGetters } from "vuex";
-import Category from "~/assets/json/category.json";
+import CategoryList from "~/assets/json/category.json";
 
 export default {
+  name: "App",
   scrollToTop: true,
   components: {},
-  name: "App",
   data() {
     return {
-      designCategory: Category.categories,
       Category: this.$route.params.category,
-      Sub_Category: "",
+      Sub_Category: this.$route.query.subCat || "",
+      page: parseInt(this.$route.query.page) || 1,
       Type: "",
       Sort: "",
       Tag: "",
       id: "",
-      page: 1,
-      perPage: 12,
+      perPage: 14,
       body_part: [
         { icon: require("~/assets/img/svg/head.svg"), part: "head" },
         { icon: require("~/assets/img/svg/ear.svg"), part: "ear" },
@@ -168,54 +174,35 @@ export default {
         filters
       };
     },
+    categoryObject: function() {
+      return CategoryList.categories.find(i => i.url === this.Category);
+    },
     ...mapGetters("design", {
-      DesignsList: ["DesignsList"],
-      isLoading: "isLoading"
-    }),
-    relatedPicker() {
-      this.randomize();
-      return this.catImage.splice(0, 4);
-    }
+      // Commented when trying for ssr
+      DesignsList: ["DesignsList"]
+    })
   },
+
+  created() {},
   watch: {
-    $route() {
-      this.fetchDesigns();
-    }
+    "$route.query": "$fetch"
   },
-
-  created() {
-    this.page = parseInt(this.$route.query.page) || 1;
-    this.Sub_Category = this.$route.query.subCat || "";
-    this.fetchDesigns();
+  async fetch() {
+    await this.$store.dispatch("design/getDesigns", this.DesignConfig);
   },
-
-  mounted() {},
 
   methods: {
-    async fetchDesigns() {
-      this.$store.dispatch("design/getDesigns", this.DesignConfig);
-
-      // if (this.$store.getters.ComingFromDirect === false) {
-      //   this.$store.commit('SET_COMING_DIRECT', true)
-      // }
-    },
     onPageChange() {
-      // this.loading1 = true;
       this.$router.push({ query: { ...this.$route.query, page: this.page } });
-      this.fetchDesigns();
       window.scrollTo(0, 0);
     },
+    //!  TODO bug when try to click sort button in page greater than 1
     sorting: function(sort) {
-      this.$router.push({ query: { ...this.$route.query, subCat: sort } });
       this.Sub_Category = sort;
-      this.page = 1;
+      this.$router.push({ query: { page: 1, subCat: sort } });
     },
     sortingButton: function(sort) {
-      const ar = this.designCategory.find(i => i.url === this.Category);
-      if (ar.sorting.includes(sort)) {
-        return true;
-      }
-      return false;
+      return this.categoryObject.sorting.includes(sort);
     }
   }
 };

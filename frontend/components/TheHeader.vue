@@ -6,13 +6,17 @@
     <div
       class="md:py-2 font-sans antialiased container mx-auto text-white my-1 md:my-0 md:mx-auto relative h-full md:mb-auto flex justify-between flex-wrap items-center"
     >
-      <router-link to="/" class="" @click="toggle">
-        <img src="~/assets/img/logo_new.png" class="" alt="Desijewel logo" />
-      </router-link>
+      <nuxt-link to="/" class="" @click="toggle">
+        <img
+          src="~/assets/img/svg/logo_new.svg"
+          class="w-28 md:w-32 ml-2 lg:ml-auto"
+          alt="Desijewel logo"
+        />
+      </nuxt-link>
       <div class="gap-3 text-3xl md:hidden flex items-center">
-        <!-- <router-link to="" @click="toggle">
+        <!-- <nuxt-link to="" @click="toggle">
           <fa class="mx-1" size="lg" :icon="['fas', 'user-circle']" />
-        </router-link> -->
+        </nuxt-link> -->
         <div class="block">
           <button
             class="flex items-center px-3 py-2 border-2 rounded text-white border-teal-light  mr-1 sm:mr-3"
@@ -36,30 +40,30 @@
         <div class="h-full my-auto">
           <ul class="flex flex-col md:flex-row">
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <router-link to="/" @click="toggle">
+              <nuxt-link to="/" @click="toggle">
                 Home
-              </router-link>
+              </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <router-link to="/Gold" @click="toggle">
+              <nuxt-link to="/gold" @click="toggle">
                 Gold <fa class="" :icon="['fas', 'caret-down']" />
-              </router-link>
+              </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4 h-full">
-              <router-link to="/Silver" @click="toggle">
+              <nuxt-link to="/silver" @click="toggle">
                 Silver
                 <fa class="" :icon="['fas', 'caret-down']" />
-              </router-link>
+              </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <router-link to="/Contact" @click="toggle">
+              <nuxt-link to="/contact" @click="toggle">
                 Contact Us
-              </router-link>
+              </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4 hidden lg:block">
-              <router-link to="/About" @click="toggle">
+              <nuxt-link to="/about" @click="toggle">
                 About Us
-              </router-link>
+              </nuxt-link>
             </li>
           </ul>
         </div>
@@ -75,15 +79,9 @@
             />
             <fa class="h-full my-auto" size="lg" :icon="['fas', 'search']" />
           </div> -->
-          <!-- <div class="h-full my-auto lg:p-2 text-3xl flex gap-2">
-            <router-link
-              to=""
-              @click="toggle"
-              class="text-center hidden md:block"
-            >
-              <fa class="mx-1" size="lg" :icon="['fas', 'user-circle']" />
-            </router-link>
-            <router-link to="" class="" @click="toggle">
+          <div v-if="$auth.loggedIn" class="h-full my-auto lg:p-2 text-3xl flex gap-2">
+            <AuthAccountDropdown />
+            <!-- <nuxt-link to="" class="" @click="toggle">
               <svg
                 width="35"
                 class="mx-1 h-full my-auto"
@@ -98,8 +96,8 @@
                   fill="white"
                 />
               </svg>
-            </router-link>
-          </div> -->
+            </nuxt-link> -->
+          </div>
         </div>
       </div>
     </div>
@@ -124,7 +122,7 @@ export default {
       await this.$store.dispatch("auth/logout");
 
       // Redirect to login.
-      this.$router.push({ name: "login" });
+      this.$nuxt.push({ name: "login" });
     }
   },
   computed: mapGetters({

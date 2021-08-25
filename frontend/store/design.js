@@ -1,16 +1,20 @@
+import Category from "~/assets/json/category.json";
+
 export const state = () => ({
 
   designs: [],
+  design:{},
   isDirect: false,
   isLoaded: false,
-  isLoading: true
+  isLoading: true,
+  category:Category.categories
 
 })
 
 export const getters = {
   singleDesigns(state) {
     // return (state.designs != null ? state.designs.find(design => design.image === image) : state.design);
-    return state.designs;
+    return state.design;
     // return state.designs;
   },
   DesignsList(state) {
@@ -21,43 +25,60 @@ export const getters = {
   },
   isLoading(state) {
     return state.isLoading;
+  },
+  category(state){
+    return state.category;
   }
 
 }
 export const actions = {
 
-  getDesigns({
+  async getDesigns({
     commit
   }, payload) {
     commit('SET_LOADING', true);
 
-    this.$axios.get('api/designs', {
+    await this.$axios.get('api/designs', {
         params: payload.filters
-      }).then(function (response) {
+      }).then((response) => {
         commit('SET_DESIGNS', response.data)
         commit('SET_LOADING', false)
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error)
         commit('SET_LOADING', false)
       })
 
 
   },
-  getSingleDesign({
-    commit
-  }, payload) {
-    this.$axios.get('api/DisplayDesign', {
-        params: {
-          image: payload
-        }
-      }).then(function (response) {
-        commit('SET_SINGLE_DESIGNS', response.data)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
+  async getSingleDesign({
+     commit
+   }, payload) {
+    await this.$axios.get('api/DisplayDesign', {
+         params: {
+           image: payload
+         }
+       }).then(function (response) {
+         commit('SET_SINGLE_DESIGNS', response.data)
+       })
+       .catch(function (error) {
+         console.log(error)
+       })
+   },
+   async getSingle({
+      commit
+    }, payload) {
+     await this.$axios.get('api/DisplayDesign', {
+          params: {
+            image: payload
+          }
+        }).then(function (response) {
+          commit('SET_SINGLE_DESIGNS', response.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
 
 }
 export const mutations = {

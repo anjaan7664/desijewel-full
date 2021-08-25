@@ -27,7 +27,14 @@
                       type="email"
                       name="email"
                     />
-                    <has-error :form="form" field="email" />
+                    <div
+                      v-if="errors.email"
+                      class="text-red-400 text-xs mb-4 mt-2"
+                    >
+                      {{ errors.email[0] }}
+                    </div>
+
+                    <!-- <has-error :form="form" field="email" /> -->
                   </div>
                   <div class="py-2">
                     <span class="px-1 text-sm text-gray-600">{{
@@ -44,8 +51,14 @@
                         type="password"
                         name="password"
                       />
+                      <div
+                        v-if="errors.password"
+                        class="text-red-400 text-xs mb-4 mt-2"
+                      >
+                        {{ errors.password[0] }}
+                      </div>
 
-                      <has-error :form="form" field="password" />
+                      <!-- <has-error :form="form" field="password" /> -->
                     </div>
                   </div>
                   <div class="flex justify-between">
@@ -76,13 +89,13 @@
                   >
                     Login
                   </button>
-                  <button
+                  <!-- <button
                     class="mt-3 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black"
                   >
                     <nuxtLink :to="localePath('/auth/register')">
                       {{ $t("register") }}
                     </nuxtLink>
-                  </button>
+                  </button> -->
                 </div>
               </form>
             </div>
@@ -109,8 +122,10 @@ export default {
       email: "",
       password: ""
     }),
+    errors: {},
     remember: false
   }),
+  mounted() {},
 
   methods: {
     async login() {
@@ -118,8 +133,9 @@ export default {
         let response = await this.$auth.loginWith("laravelSanctum", {
           data: this.form
         });
+        this.$router.push(`/`)
       } catch (err) {
-        console.log(err);
+        this.$swal("Something Went Wrong.", "Try Again", "error");
       }
     }
   }

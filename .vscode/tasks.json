@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "dev",
+			"path": "frontend/",
+			"problemMatcher": [],
+			"label": "npm: dev - frontend",
+			"detail": "nuxt"
+		},
+		{
+			"type": "npm",
+			"script": "dev",
+			"path": "backend/",
+			"problemMatcher": [],
+			"label": "npm: dev - backend",
+			"detail": "php artisan serve"
+		},
+		{
+			"label": "Build",
+			"dependsOn": [
+				"npm: dev - backend",
+				"npm: dev - frontend"
+			]
+		}
+	]
+}

@@ -1,8 +1,9 @@
 <template>
   <div>
-     <the-header/>
-      <Nuxt  class="max-size container m-auto mx-2 lg:mx-auto" />
-      <back-to-top bottom="50px" right="30px">
+    <the-header />
+    <Nuxt keep-alive class="max-size container m-auto mx-2 lg:mx-auto" />
+
+    <!-- <back-to-top bottom="50px" right="30px">
         <div
           class="bg-gray-200 opacity-75 border-gray-500 border-2 px-4 py-3 rounded-full block"
         >
@@ -11,12 +12,11 @@
             :icon="['fas', 'chevron-up']"
           />
         </div>
-      </back-to-top>
-     <the-footer/>
+      </back-to-top> -->
+    <LazyTheFooter />
   </div>
 </template>
 <style>
-
 .card {
   width: 280px;
   height: 360px;
@@ -57,7 +57,7 @@
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -93,4 +93,5 @@
 .card .info button:hover {
   background: dodgerblue;
   color: white;
-}</style>
+}
+</style>

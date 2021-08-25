@@ -3,6 +3,17 @@
 @use 'fonts';
 @use 'colors';
 @use 'utils';
+@use 'buttons';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+  @font-face {
+    font-family: 'Samarkan';
+    font-display: swap;
+    src: url('~/assets/fonts/Samarkan.ttf') format('ttf');
+  }
+}

@@ -126,6 +126,7 @@ export default {
     async register() {
       // Register the user.
       await this.$axios.$get("sanctum/csrf-cookie");
+  
       const { data } = await this.form.post(
         "http://localhost:8000/api/register"
       );

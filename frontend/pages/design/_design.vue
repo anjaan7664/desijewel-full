@@ -1,61 +1,61 @@
 <template>
-  <div v-if="MainImg && MainImg.length >= 2">
-    <category />
-    <!-- Showing image location  -->
-    <div>
-      <div class="container mx-auto flex flex-row text-lg px-2 py-1">
-        <router-link to="/gold" class="text-gray-500">
-          Gold
-        </router-link>
-        <fa
-          class="h-full mx-1 my-auto text-gray-400"
-          :icon="['fas', 'angle-right']"
-        />
-        <router-link
-          :to="'/gold/' + MainImg[2].category"
-          class="text-gray-900 font-semibold capitalize "
-        >
-          {{ MainImg[2].category }}
-        </router-link>
-        <fa
-          class="h-full mx-1 my-auto text-gray-400"
-          :icon="['fas', 'angle-right']"
-        />
-        <p class="">
-          {{ MainImg[2].image }}
-        </p>
-      </div>
+  <div>
+    <div v-if="$fetchState.pending">
+      <HelpersSpinner />
     </div>
+    <div v-else>
+      <HelpersCategory catMetal="gold" />
+      <!-- Showing image location  -->
+      <div>
+        <div class="container mx-auto flex flex-row text-lg px-2 py-1">
+          <router-link to="/gold" class="text-gray-500">
+            Gold
+          </router-link>
+          <fa
+            class="h-full mx-1 my-auto text-gray-400"
+            :icon="['fas', 'angle-right']"
+          />
+          <router-link
+            :to="'/gold/' + MainImg.category"
+            class="text-gray-900 font-semibold capitalize "
+          >
+            {{ MainImg.category }}
+          </router-link>
+          <fa
+            class="h-full mx-1 my-auto text-gray-400"
+            :icon="['fas', 'angle-right']"
+          />
+          <p class="">
+            {{ MainImg.image }}
+          </p>
+        </div>
+      </div>
 
-    <!-- Main Designs  -->
-    <section
-      id="app"
-      class="flex flex-wrap px-2 overflow-hidden text-center bg-white rounded"
-    >
-      <div class="flex flex-col w-full p-2 my-2 md:flex-row md:p-0">
-        <!-- Hero Design  -->
-        <div class="rounded-t rounded-b-none bg-violet md:w-3/5">
-          <div class="flex flex-col m-3 rounded-t rounded-b-none">
-            <div class="">
-              <img
-                v-img
-                :src="
-                  '/designs/images/' +
-                    [
-                      MainImg[2].path +
-                        MainImg[2].image +
-                        '.' +
-                        MainImg[2].img_type
-                    ]
-                "
-                :alt="MainImg[2].alt"
-                :title="MainImg[2].alt"
-                class="inline-block object-contain rounded shadow-lg2"
-                style="max-height: 75vh;max-width:100%"
-              />
-            </div>
+      <!-- Main Designs  -->
+      <section
+        :v-show="MainImg != ''"
+        id="app"
+        class="flex flex-wrap px-2 overflow-hidden text-center bg-white rounded"
+      >
+        <div class="flex flex-col w-full p-2 my-2 md:flex-row md:p-0">
+          <!-- Hero Design  -->
+          <div class="rounded-t rounded-b-none bg-violet md:w-3/5">
+            <div class="flex flex-col m-3 rounded-t rounded-b-none">
+              <div class="">
+                <img
+                  v-img
+                  :src="
+                    '/designs/images/' +
+                      [MainImg.path + MainImg.image + '.' + MainImg.img_type]
+                  "
+                  :alt="MainImg.alt"
+                  :title="MainImg.alt"
+                  class="inline-block object-contain rounded shadow-lg2"
+                  style="max-height: 75vh;max-width:100%"
+                />
+              </div>
 
-            <!-- <div class="flex w-3/5 mx-auto">
+              <!-- <div class="flex w-3/5 mx-auto">
               <div
                 v-for="index in sameDesign"
                 :key="index.image"
@@ -68,113 +68,102 @@
                 >
               </div>
             </div> -->
+            </div>
+          </div>
+          <!-- Product Detail  -->
+          <div class="text-left md:w-2/5">
+            <h1 class="text-3xl font-semibold text-primary">Product Detail</h1>
+            <ul class="mt-6 space-y-4">
+              <li class="border-b border-gray-200">
+                <span>
+                  <accordion>
+                    <accordion-item class="border-b border-gray-200">
+                      <!-- Price Breakup -->
+                      <template slot="accordion-trigger">
+                        <span class="font-bold">Price - </span>
+                        <span v-if="MainImg.weight">150000</span
+                        ><span v-else>N/A</span>
+                      </template>
+                      <template slot="accordion-content">
+                        <span>dddd </span>
+                      </template>
+                    </accordion-item>
+                  </accordion>
+                </span>
+              </li>
+              <li class="border-b border-gray-200">
+                <span class="font-bold">Weight - </span>
+                <span v-if="MainImg.weight" class="text-right">
+                  {{ MainImg.weight }}</span
+                ><span v-else>N/A</span>
+              </li>
+              <li class="w-full border-b border-gray-200">
+                <span class="font-bold">Purity - </span
+                ><span class="mr-auto">22K(91.6)</span>
+              </li>
+              <li class="border-b border-gray-200">
+                <span class="font-bold">Style No. -</span> <span>434344</span>
+              </li>
+              <li class="capitalize border-b border-gray-200">
+                <span class="font-bold">Category -</span>
+                <nuxt-link
+                  :to="localePath('/Gold/' + MainImg.category)"
+                  class="text-xl font-medium underline text-primary"
+                >
+                  <span>{{ MainImg.category }}</span>
+                </nuxt-link>
+              </li>
+              <li class="capitalize border-b border-gray-200">
+                <span class="font-bold">Type -</span>
+                <nuxt-link
+                  :to="
+                    localePath({
+                      path: '/gold/' + MainImg.category,
+                      query: { subCat: MainImg.sub_category }
+                    })
+                  "
+                  class="text-xl font-medium underline text-primary"
+                >
+                  <span>{{ MainImg.sub_category }}</span>
+                </nuxt-link>
+              </li>
+
+              <accordion>
+                <accordion-item class="border-b border-gray-200">
+                  <!-- This slot will handle the title/header of the accordion and is the part you click on -->
+                  <template slot="accordion-trigger">
+                    <h3>View Product Description</h3>
+                  </template>
+                  <!-- This slot will handle all the content that is passed to the accordion -->
+                  <template slot="accordion-content">
+                    <span
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    </span>
+                  </template>
+                </accordion-item>
+
+                <accordion-item class="border-b border-gray-200">
+                  <!-- This slot will handle the title/header of the accordion and is the part you click on -->
+                  <template slot="accordion-trigger">
+                    <h3>Tags</h3>
+                  </template>
+                  <!-- This slot will handle all the content that is passed to the accordion -->
+                  <template slot="accordion-content">
+                    <span
+                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed
+                    </span>
+                  </template>
+                </accordion-item>
+              </accordion>
+            </ul>
           </div>
         </div>
-        <!-- Product Detail  -->
-        <div class="text-left md:w-2/5">
-          <h1 class="text-3xl font-semibold text-primary">Product Detail</h1>
-          <ul class="mt-6 space-y-4">
-            <li class="border-b border-gray-200">
-              <span>
-                <accordion>
-                  <accordion-item class="border-b border-gray-200">
-                    <!-- Price Breakup -->
-                    <template slot="accordion-trigger">
-                      <span class="font-bold">Price - </span>
-                      <span v-if="MainImg[2].weight">150000</span
-                      ><span v-else>N/A</span>
-                    </template>
-                    <template slot="accordion-content">
-                      <span
-                        >Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Ut enim ad minim veniam, quis
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.</span
-                      >
-                    </template>
-                  </accordion-item>
-                </accordion>
-              </span>
-            </li>
-            <li class="border-b border-gray-200">
-              <span class="font-bold">Weight - </span>
-              <span v-if="MainImg[2].weight" class="text-right">
-                {{ MainImg[2].weight }}</span
-              ><span v-else>N/A</span>
-            </li>
-            <li class="w-full border-b border-gray-200">
-              <span class="font-bold">Purity - </span
-              ><span class="mr-auto">22K(91.6)</span>
-            </li>
-            <li class="border-b border-gray-200">
-              <span class="font-bold">Style No. -</span> <span>434344</span>
-            </li>
-            <li class="capitalize border-b border-gray-200">
-              <span class="font-bold">Category -</span>
-              <nuxt-link
-                :to="localePath('/Gold/' + MainImg[2].category)"
-                class="text-xl font-medium underline text-primary"
-              >
-                <span>{{ MainImg[2].category }}</span>
-              </nuxt-link>
-            </li>
-            <li class="capitalize border-b border-gray-200">
-              <span class="font-bold">Type -</span>
-              <nuxt-link
-                :to="
-                  localePath({
-                    path: '/gold/' + MainImg[2].category,
-                    query: { subCat: MainImg[2].sub_category }
-                  })
-                "
-                class="text-xl font-medium underline text-primary"
-              >
-                <span>{{ MainImg[2].sub_category }}</span>
-              </nuxt-link>
-            </li>
-
-            <accordion>
-              <accordion-item class="border-b border-gray-200">
-                <!-- This slot will handle the title/header of the accordion and is the part you click on -->
-                <template slot="accordion-trigger">
-                  <h3>View Product Description</h3>
-                </template>
-                <!-- This slot will handle all the content that is passed to the accordion -->
-                <template slot="accordion-content">
-                  <span
-                    >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.</span
-                  >
-                </template>
-              </accordion-item>
-
-              <accordion-item class="border-b border-gray-200">
-                <!-- This slot will handle the title/header of the accordion and is the part you click on -->
-                <template slot="accordion-trigger">
-                  <h3>Tags</h3>
-                </template>
-                <!-- This slot will handle all the content that is passed to the accordion -->
-                <template slot="accordion-content">
-                  <span
-                    >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.</span
-                  >
-                </template>
-              </accordion-item>
-            </accordion>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <!-- More Designs  -->
-    <section class="out-of-box">
+      </section>
+      <!-- More Designs  -->
+      <!-- <section class="out-of-box">
       <div class="container py-2 mx-auto">
         <h2 class="my-4 text-4xl font-bold text-center text-primary">
           More Designs
@@ -216,11 +205,12 @@
           </router-link>
         </div>
       </div>
-    </section>
-    <!-- Related Category  -->
-    <section class="w-full mx-auto mb-5">
-      <!-- <related-category :category="MainImg[2].category" /> -->
-    </section>
+    </section> -->
+      <!-- Related Category  -->
+      <section class="w-full mx-auto mb-5">
+        <!-- <related-category :category="MainImg[2].category" /> -->
+      </section>
+    </div>
   </div>
 </template>
 <script>
@@ -232,33 +222,46 @@ export default {
   components: { Accordion, AccordionItem },
   data() {
     return {
-      title: "",
+      MainImg: {},
       imageQuery: this.$route.params.design
     };
   },
 
   computed: {
-    ...mapGetters("design", {
-      MainImg: ["singleDesigns"]
-    }),
-    sameImage: function() {
-      const ar = this.MainImg;
-      return ar.filter((_, i) => i !== 2);
-    }
+    // ...mapGetters("design", {
+    //   MainImg: ["singleDesigns"]
+    // }),
+    // sameImage: function() {
+    //   const ar = this.MainImg;
+    //   return ar.filter((_, i) => i !== 2);
+    // },
   },
-  created() {
-    this.fetchDesigns();
-  },
-  mounted() {},
+  async fetch() {
+    console.log("fetching");
 
-  methods: {
-    fetchDesigns() {
-      this.$store.dispatch("design/getSingleDesign", this.imageQuery);
-    }
+    this.MainImg = await this.$axios
+      .get("api/DisplayDesign", {
+        params: {
+          image: this.$route.params.design
+        }
+      })
+      .then(res => res.data);
   },
+  // async asyncData({ params, $axios }) {
+  //     const MainImg = await
+  //      await $axios.get("api/DisplayDesign", {
+  //     params: {
+  //       image: params.design
+  //     }
+  //   }).then(res => res.data);
+  //     return { MainImg }
+  //   },
+
+  created() {},
+
   head() {
     return {
-      title: this.imageQuery,
+      title: this.MainImg.alt,
       // Meta tags
       meta: [
         { name: "description", content: "", id: "desc" }

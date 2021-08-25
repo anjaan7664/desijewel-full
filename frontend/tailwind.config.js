@@ -1,4 +1,5 @@
 module.exports = {
+  mode:'jit',
   purge: [
     './components/**/*.{vue,js}',
     './layouts/**/*.vue',
@@ -53,8 +54,8 @@ module.exports = {
         '11/12': '91.666667%'
       },
       fontFamily: {
-        Samarkan: ['Samarkan', 'sans'],
-        Cormorant: ['Cormorant Garamond', 'serif']
+        'Samarkan': ['Samarkan'],
+        'Cormorant': ['Cormorant Garamond', 'serif'],
       },
       boxShadow: {
         lg2: '0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
@@ -62,10 +63,6 @@ module.exports = {
         neumorph: '12px 12px 16px 0 rgba(0, 0, 0, 0.25),-6px -6px 25px 0 rgba(222, 47, 69, 0.3)'
       }
     }
-  },
-  variants: {
-    background: ['responsive', 'hover', 'focus', 'active'],
-    display: ['responsive', 'group-hover', 'group-focus']
   },
   corePlugins: {
     container: false

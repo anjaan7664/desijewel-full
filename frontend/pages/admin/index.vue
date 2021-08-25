@@ -1,14 +1,26 @@
 <template>
-  <div><h1>tyt</h1></div>
+  <div>
+    <h1>{{ auth.user.email }}</h1>
+    <button @click.prevent="logOut">Log out</button>
+  </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "admin",
   middleware: "auth",
-  computed: {},
+  computed: {
+    ...mapState(["auth"])
+  },
+
+  methods: {
+    logOut() {
+      this.$auth.logout();
+    }
+  },
   created() {
-    console.log(this.$auth.user);
   }
 };
 </script>

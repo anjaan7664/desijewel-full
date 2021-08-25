@@ -9,12 +9,12 @@
         <!-- component -->
         <template class="w-5/6 flex">
           <div
-            v-for="index in body_part"
+            v-for="index in body_part_array"
             :key="index.part"
-            class="z-50 mx-2 flex-1"
+            class="z-40 mx-2 flex-1"
           >
             <div
-              class="relative inline-block w-full m-1 text-black group z-400"
+              class="relative inline-block w-full m-1 text-black group z-30"
             >
               <button
                 class="flex items-center w-full h-full px-3 py-2 border-2
@@ -76,12 +76,12 @@
             <template slot="accordion-content">
               <accordion>
                 <div
-                  v-for="index in body_part"
+                  v-for="index in body_part_array"
                   :key="index.part"
-                  class="z-50 mx-2"
+                  class="z-40 mx-2"
                 >
                   <div
-                    class="relative inline-block w-full m-1 text-black z-400"
+                    class="relative inline-block w-full m-1 text-black z-30"
                   >
                     <accordion-item>
                       <template slot="accordion-trigger">
@@ -140,30 +140,52 @@
   </div>
 </template>
 <script>
-import Category from "~/assets/json/category.json";
 import AccordionItem from "~/components/helpers/accordion-item.vue";
-import Accordion from "./helpers/Accordion.vue";
+import Accordion from "./Accordion.vue";
+import { mapGetters } from "vuex";
 export default {
   components: { Accordion, AccordionItem },
   name: "Category",
-  props: ["catMetal", "body_part"],
-  data() {
-    return {
-      designCategory: Category.categories
-    };
-  },
-  created() {},
+  props: ["catMetal"],
+  data: () => ({
+    body_part: {
+      gold: [
+        { icon: require("~/assets/img/svg/head.svg"), part: "head" },
+        { icon: require("~/assets/img/svg/ear.svg"), part: "ear" },
+        { icon: require("~/assets/img/svg/nose.svg"), part: "nose" },
+        { icon: require("~/assets/img/svg/neck.svg"), part: "neck" },
+        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" }
+      ],
+      silver: [
+        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" },
+        { icon: require("~/assets/img/svg/waist.svg"), part: "waist" },
+        { icon: require("~/assets/img/svg/leg.svg"), part: "legs" },
+        { icon: require("~/assets/img/svg/others.svg"), part: "others" }
+      ]
+    }
+  }),
   computed: {
+    ...mapGetters("design", {
+      // Commented when trying for ssr
+      designCategory: ["category"]
+    }),
     myCategory() {
       return this.designCategory.filter(i => i.metal === this.catMetal);
+    },
+    body_part_array() {
+      if (this.catMetal === "gold") {
+        return this.body_part.gold;
+      } else {
+        return this.body_part.silver;
+      }
     }
   },
-  mounted() {},
   methods: {
     showByBodyPart: function(part) {
       return this.myCategory.filter(i => i.part === part);
     }
-  }
+  },
+  created() {}
 };
 </script>
 <style>

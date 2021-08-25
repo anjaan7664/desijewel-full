@@ -1,8 +1,19 @@
 require('dotenv').config();
 import i18n from './plugins/i18n';
 export default {
-  target: 'static',
+  target: 'server',
+  components: true,
+  server: {
+    port: process.env.PORT,
+    host: process.env.HOST,
+    serverUrl: process.env.API_URL
+  },
 
+  env: {
+    serverUrl: process.env.API_URL
+  },
+
+  ssr: true,
   head: {
     title: 'Designing Jewel',
     htmlAttrs: {
@@ -38,13 +49,16 @@ export default {
     '~/plugins/extras.client.js',
     '~/plugins/vform.js',
     '~/plugins/fontawesome.js',
-    '~/plugins/vue-tailwind.client.js'
+    '~/plugins/vue-tailwind.client.js',
+    '~/plugins/upload.client.js'
   ],
   components: true,
 
   buildModules: [
 
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/svg',
+
   ],
 
   modules: [
@@ -64,18 +78,24 @@ export default {
       defaultLocale: 'en',
       vueI18n: i18n
     }],
+    ['nuxt-lazy-load'],
     '@nuxtjs/auth-next',
     '@nuxtjs/axios',
     'vue-sweetalert2/nuxt'
   ],
-  axios: {
 
-    proxy: true,
-    credentials: true
+  axios: {
+    credentials: true,
+    baseURL: process.env.API_URL,
   },
 
   auth: {
     strategies: {
+      cookie: {
+        cookie: {
+          name: 'XSRF-TOKEN',
+        }
+      },
       'laravelSanctum': {
         provider: 'laravel/sanctum',
         url: process.env.API_URL,
@@ -101,11 +121,24 @@ export default {
       home: '/'
     }
   },
-  build: {},
+  build: {
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-methods', {
+          loose: true
+        }]
+      ]
+    }
+  },
   configureWebpack: {
     devtool: 'source-map'
   },
   purgeCSS: {
     whitelistPatterns: [/svg.*/, /fa.*/]
   },
+  vue: {
+    config: {
+      productionTip: false
+    }
+  }
 }

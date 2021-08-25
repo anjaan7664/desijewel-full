@@ -4,7 +4,7 @@
       :animation-duration="1000"
       :size="200"
       color="#ff1d5e"
-      class="mx-auto"
+      class="mx-auto my-[30vh]"
     />
   </div>
 </template>
