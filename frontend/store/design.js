@@ -38,10 +38,11 @@ export const actions = {
   }, payload) {
     commit('SET_LOADING', true);
 
-    await this.$axios.get('api/designs', {
+    await this.$axios.$get('designs', {
         params: payload.filters
       }).then((response) => {
-        commit('SET_DESIGNS', response.data)
+        commit('SET_DESIGNS', response)
+        console.log(response);
         commit('SET_LOADING', false)
       })
       .catch((error) => {
@@ -54,7 +55,7 @@ export const actions = {
   async getSingleDesign({
      commit
    }, payload) {
-    await this.$axios.get('api/DisplayDesign', {
+    await this.$axios.$get('DisplayDesign', {
          params: {
            image: payload
          }
@@ -68,7 +69,7 @@ export const actions = {
    async getSingle({
       commit
     }, payload) {
-     await this.$axios.get('api/DisplayDesign', {
+     await this.$axios.$get('DisplayDesign', {
           params: {
             image: payload
           }

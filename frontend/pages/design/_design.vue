@@ -8,7 +8,9 @@
       <!-- Showing image location  -->
       <div>
         <div class="container mx-auto flex flex-row text-lg px-2 py-1">
-          <router-link to="/gold" class="text-gray-500">
+          <router-link 
+          :to="localePath('/gold')"
+           class="text-gray-500">
             Gold
           </router-link>
           <fa
@@ -85,7 +87,7 @@
                         ><span v-else>N/A</span>
                       </template>
                       <template slot="accordion-content">
-                        <span>dddd </span>
+                        <span>N/A</span>
                       </template>
                     </accordion-item>
                   </accordion>
@@ -137,9 +139,7 @@
                   <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
                     <span
-                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      >N/A
                     </span>
                   </template>
                 </accordion-item>
@@ -152,8 +152,7 @@
                   <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
                     <span
-                      >Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed
+                      >N/A
                     </span>
                   </template>
                 </accordion-item>
@@ -240,7 +239,7 @@ export default {
     console.log("fetching");
 
     this.MainImg = await this.$axios
-      .get("api/DisplayDesign", {
+      .get("DisplayDesign", {
         params: {
           image: this.$route.params.design
         }
@@ -249,7 +248,7 @@ export default {
   },
   // async asyncData({ params, $axios }) {
   //     const MainImg = await
-  //      await $axios.get("api/DisplayDesign", {
+  //      await $axios.get("DisplayDesign", {
   //     params: {
   //       image: params.design
   //     }

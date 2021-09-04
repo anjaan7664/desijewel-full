@@ -6,7 +6,7 @@
         <div class="text-center md:w-1/2">
           <div class="px-3 mt-8 text-center">
             <img
-              src="~/assets/img/app_ss.jpg"
+              src="~/assets/img/app_ss.webp"
               alt=""
               class="mx-auto rounded shadow-lg2 md:w-3/4"
             />
@@ -14,17 +14,20 @@
         </div>
         <div class="text-center md:w-1/2 md:text-left">
           <div class="mx-8 mt-6">
-            <p class="text-lg text-left md:text-2xl ">
-              We have made an android app for user to easily access our design.
+            <p class="text-lg text-left md:text-xl ">
+              We have many user who are not greatly familiar with browser and couldn't access our website.
+              For their convenience we have made an android app for them. With this App user can easily access our design.
+              You can download this app from Play store via clicking on below link
             </p>
             <a
               href="https://play.google.com/store/apps/details?id=satlaa.desijewellery"
               target="_blank"
+              class=""
               rel="external"
             >
               <img
                 src="~/assets/img/play_store.webp"
-                class="w-1/2 md:w-1/3"
+                class="w-1/2 md:w-1/2 mt-4"
                 alt="Donwnload Desi Jewellery on Play Store"
             /></a>
           </div>

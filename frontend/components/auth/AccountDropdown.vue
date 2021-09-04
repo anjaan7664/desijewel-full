@@ -22,14 +22,16 @@
         aria-orientation="vertical"
         aria-labelledby="user-menu"
       >
-        <nuxt-link to="/admin"
+        <nuxt-link 
+         :to="localePath('/admin')"
           href="#"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"
         >
           Your Profile
         </nuxt-link>
-        <nuxt-link to="/admin/upload"
+        <nuxt-link 
+         :to="localePath('/admin/upload')"
           href="#"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"

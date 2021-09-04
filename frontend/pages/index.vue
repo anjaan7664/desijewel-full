@@ -4,9 +4,10 @@
     <section>
       <div class="container block mx-3 my-4 text-center">
         <h1
-          class="text-3xl font-bold tracking-widest text-center  md:text-4xl lg:text-5xl md:my-8 font-teko "
+          class="text-3xl md:text-4xl lg:text-5xl 
+          text-center font-bold md:my-8 font-Teko tracking-widest pt-3"
         >
-          Welcome to Designing Jewel
+          WELCOME TO DESIGNING JEWEL
         </h1>
       </div>
     </section>
@@ -17,7 +18,7 @@
       <div class="w-full lg:w-1/2">
         <div class="w-full">
           <img
-            src="~/assets/img/icons/jodha-haar.png"
+            src="~/assets/img/icons/jodha-haar.webp"
             alt="Designing Jewel"
             class="h-auto max-w-full p-4 md:px-16 mx-auto rounded-md shadowed"
           />
@@ -26,15 +27,16 @@
 
       <div class="w-full my-2 lg:w-1/2 lg:pl-4">
         <h1 class="text-4xl leading-tight main-heading lg:text-5xl">
-          We make Indian Ethnic and Rajasthani Jewellery
+          The Showcase of Indian Ethnic and Rajasthani Jewellery
         </h1>
         <p class="mt-8 mb-10 text-lg lg:pr-24 lg:pt-3 font-Montserrat lg:mb-12">
-          We are leading Guar Gum and Guar Products since 2007. We have best
-          experience in manufacturing and exporting a large variety Guar
-          Products like Refined Dal Splits, Guar Churi and Guar Korma.
+          We are commited to serve you good. Our all jewellery is manufactured
+          in 22k gold with BIS hallmark. We belong to oldest community of
+          jewellers, SONI. We have generations of experience in Jewellery
+          making.
         </p>
         <NuxtLink
-          to="/About"
+          :to="localePath('/About')"
           class="px-5 py-3 mt-12 text-2xl font-normal text-white transition duration-500 ease-in-out transform rounded  font-Libre secondary-gradient hover:bg-red-500 hover:-translate-y-1 hover:scale-110 "
         >
           {{ $t("know_more") }}

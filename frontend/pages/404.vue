@@ -6,7 +6,7 @@
 
     <div class="absolute w-screen bottom-0 mb-6 text-white text-center font-sans text-xl">
       <span class="opacity-50">Take me back to</span>
-      <router-link to="/" class="border-b">Desijewel.in</router-link>
+      <router-link  :to="localePath('/')" class="border-b">Desijewel.in</router-link>
     </div>
   </div>
 </template>

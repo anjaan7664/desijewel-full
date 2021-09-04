@@ -16,10 +16,11 @@
         >
           <img
             :src="
-              `../designs/images/` +
+              `../designs/thumb/` +
                 [designData.path + designData.image + '.' + designData.img_type]
             "
             :alt="designData.alt"
+            :title="designData.alt"
             class="lazy-img-fadein md:absolute h-full w-full object-cover rounded
            transition duration-300 ease-in-out transform
    "

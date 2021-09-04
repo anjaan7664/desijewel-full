@@ -56,6 +56,11 @@ module.exports = {
       fontFamily: {
         'Samarkan': ['Samarkan'],
         'Cormorant': ['Cormorant Garamond', 'serif'],
+        'Libre': ['Libre Baskerville', 'sans'],
+        'Teko': ['Teko', 'sans-serif'],
+        'Montserrat': ['Montserrat', 'sans-serif'],
+        'Poppins': ['Poppins', 'sans-serif'],
+        'Lobster': ['Lobster', 'cursive'],
       },
       boxShadow: {
         lg2: '0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',

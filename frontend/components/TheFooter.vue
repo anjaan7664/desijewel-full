@@ -7,7 +7,7 @@
           <h2 class="text-3xl">
             Contact Us
           </h2>
-          <div class="mt-6">
+          <div class="mt-6 pr-2">
             <div class="flex my-2">
               <fa
                 size="lg"
@@ -83,22 +83,22 @@
           <div class="mt-6">
             <ul>
               <li class="my-2">
-                <nuxt-link to="/">
+                <nuxt-link :to="localePath('/')">
                   Home
                 </nuxt-link>
               </li>
               <li class="my-2">
-                <nuxt-link to="/about">
+                <nuxt-link :to="localePath('/about')">
                   About Us
                 </nuxt-link>
               </li>
               <li class="my-2">
-                <nuxt-link to="/contact">
+                <nuxt-link :to="localePath('/contact')">
                   Contact Us
                 </nuxt-link>
               </li>
               <li class="my-2">
-                <nuxt-link to="/">
+                <nuxt-link :to="localePath('/')">
                   Our Sources
                 </nuxt-link>
               </li>
@@ -112,23 +112,23 @@
           </h2>
           <div class="mt-6">
             <ul>
-              <li class="my-2">
-                <nuxt-link to="/">
+              <!-- <li class="my-2">
+                <nuxt-link :to="localePath('/')">')
                   Blogs
                 </nuxt-link>
-              </li>
+              </li> -->
               <li class="my-2">
-                <nuxt-link to="/disclaimer">
+                <nuxt-link :to="localePath('/disclaimer')">
                   Disclaimer
                 </nuxt-link>
               </li>
               <li class="my-2">
-                <nuxt-link to="/tos">
+                <nuxt-link :to="localePath('/tos')">
                   Terms Of Service
                 </nuxt-link>
               </li>
               <li class="my-2">
-                <nuxt-link to="/privacy-policy">
+                <nuxt-link :to="localePath('/privacy-policy')">
                   Privacy Policy
                 </nuxt-link>
               </li>
@@ -138,8 +138,8 @@
                 >
               </li>
               <li class="my-2">
-                <nuxtLink v-if="auth.loggedIn" to="/admin">Profile</nuxtLink>
-                <nuxtLink v-if="!auth.loggedIn" to="/auth/login"
+                <nuxtLink v-if="auth.loggedIn" :to="localePath('/admin')">Profile</nuxtLink>
+                <nuxtLink v-if="!auth.loggedIn" :to="localePath('/auth/login')"
                   >Login</nuxtLink
                 >
               </li>
@@ -151,7 +151,7 @@
           <h2 class="text-3xl">
             Download Our App
           </h2>
-          <div class="w-1/4 mt-6 md:w-3/4">
+          <div class="w-3/4 mt-6 md:w-3/4">
             <a
               href="https://play.google.com/store/apps/details?id=satlaa.desijewellery"
               target="_blank"
@@ -174,6 +174,13 @@
               rel="noopener"
               class="mt-2 ml-1 mb-2 font-semibold transition-colors duration-300 text-red hover:text-white "
               >Satlaa Tech</a
+            >
+            <nuxt-link
+              class="mt-2 ml-1 mb-2 font-semibold transition-colors duration-300 hover:text-blue "
+              v-for="locale in availableLocales"
+              :key="locale.code"
+             :to="switchLocalePath(locale.code)"
+              >{{ $t("footer.changeLang") }}</nuxt-link
             >
           </div>
           <!-- Social Media Icon -->
@@ -226,7 +233,10 @@ export default {
     ...mapGetters("lang", {
       locale: "locale",
       locales: "locales"
-    })
+    }),
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    }
   },
   methods: {
     setLocale(locale) {

@@ -9,11 +9,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
 
-  @font-face {
-    font-family: 'Samarkan';
-    font-display: swap;
-    src: url('~/assets/fonts/Samarkan.ttf') format('ttf');
-  }
+@font-face {
+  font-family: 'Samarkan';
+  font-display: swap;
+  src: url('~/assets/fonts/SAMARN__.woff') format('woff');
 }
+@font-face {
+  font-family: 'Montserrat';
+  font-display: swap;
+  src: url('~/assets/fonts/Montserrat-Regular.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: url('~/assets/fonts/Poppins-Medium.ttf') format('ttf');
+}
+@font-face {
+  font-family: 'Teko';
+  font-display: swap;
+  src: url('~/assets/fonts/Teko-Regular.ttf') format('ttf');
+}
+

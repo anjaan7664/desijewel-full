@@ -36,6 +36,9 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
+    },{
+      rel: 'stylesheet',
+      href: "https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Poppins:wght@400;800&family=Teko&display=swap"
     }]
   },
 
@@ -86,7 +89,7 @@ export default {
 
   axios: {
     credentials: true,
-    baseURL: process.env.API_URL,
+    baseURL: 'http://localhost:8000',
   },
 
   auth: {
@@ -101,14 +104,14 @@ export default {
         url: process.env.API_URL,
         endpoints: {
           login: {
-            url: '/api/login',
+            url: '/login',
           },
           logout: {
-            url: '/api/logout',
+            url: '/logout',
             method: 'post'
           },
           user: {
-            url: '/api/user',
+            url: '/user',
             method: 'get'
           }
         }

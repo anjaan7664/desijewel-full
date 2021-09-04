@@ -3,7 +3,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "aad.png",
+            "image": "aad.webp",
             "name": "category.aad",
             "part": "neck",
             "url": "aad",
@@ -12,7 +12,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "aawla.png",
+            "image": "aawla.webp",
             "name": "category.aawla",
             "part": "hand",
             "url": "aawla",
@@ -21,7 +21,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "bhujbandh.png",
+            "image": "bhujbandh.webp",
             "name": "category.bhujbandh",
             "part": "hand",
             "url": "bhujbandh",
@@ -30,7 +30,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "baajubandh.png",
+            "image": "baajubandh.webp",
             "name": "category.baajubandh",
             "part": "hand",
             "url": "baajubandh",
@@ -39,7 +39,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "bangles.png",
+            "image": "bangles.webp",
             "name": "category.bangles",
             "part": "hand",
             "url": "bangles",
@@ -48,7 +48,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "bala.png",
+            "image": "bala.webp",
             "name": "category.bala",
             "part": "ear",
             "url": "bala",
@@ -57,7 +57,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "bracelet.png",
+            "image": "bracelet.webp",
             "name": "category.bracelet",
             "part": "hand",
             "url": "bracelet",
@@ -66,7 +66,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "baali.png",
+            "image": "baali.webp",
             "name": "category.baali",
             "part": "ear",
             "url": "baali",
@@ -75,7 +75,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "chain.png",
+            "image": "chain.webp",
             "name": "category.chain",
             "part": "neck",
             "url": "chain",
@@ -84,7 +84,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "chik-set.png",
+            "image": "chik-set.webp",
             "name": "category.chik-set",
             "part": "neck",
             "url": "chik-set",
@@ -93,7 +93,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "desi-aad.png",
+            "image": "desi-aad.webp",
             "name": "category.desi-aad",
             "part": "neck",
             "url": "desi-aad",
@@ -102,7 +102,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "hathphool.png",
+            "image": "hathphool.webp",
             "name": "category.hathphool",
             "part": "hand",
             "url": "hathphool",
@@ -111,7 +111,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "jhoomariya.png",
+            "image": "jhoomariya.webp",
             "name": "category.jhoomariya",
             "part": "ear",
             "url": "jhoomariya",
@@ -120,7 +120,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "jodha-haar.png",
+            "image": "jodha-haar.webp",
             "name": "category.jodha-haar",
             "part": "neck",
             "url": "jodha-haar",
@@ -129,7 +129,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "kandora.png",
+            "image": "kandora.webp",
             "name": "category.kandora",
             "part": "waist",
             "url": "kandora",
@@ -138,7 +138,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "kanti.png",
+            "image": "kanti.webp",
             "name": "category.kanti",
             "part": "neck",
             "url": "kanti",
@@ -147,7 +147,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "mangalsutra.png",
+            "image": "mangalsutra.webp",
             "name": "category.mangalsutra",
             "part": "neck",
             "url": "mangalsutra",
@@ -156,7 +156,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "mohan-mala.png",
+            "image": "mohan-mala.webp",
             "name": "category.mohan-mala",
             "part": "neck",
             "url": "mohan-mala",
@@ -165,7 +165,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "nath.png",
+            "image": "nath.webp",
             "name": "category.nath",
             "part": "nose",
             "url": "nath",
@@ -174,7 +174,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "necklace.png",
+            "image": "necklace.webp",
             "name": "category.necklace",
             "part": "neck",
             "url": "necklace",
@@ -183,7 +183,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "nogariya.png",
+            "image": "nogariya.webp",
             "name": "category.nogariya",
             "part": "hand",
             "url": "nogariya",
@@ -192,7 +192,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "punach.png",
+            "image": "punach.webp",
             "name": "category.punach",
             "part": "hand",
             "url": "punach",
@@ -201,7 +201,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "pendal.png",
+            "image": "pendal.webp",
             "name": "category.pendal",
             "part": "neck",
             "url": "pendal",
@@ -210,7 +210,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "rakhdi-set.png",
+            "image": "rakhdi-set.webp",
             "name": "category.rakhdi-set",
             "part": "head",
             "url": "rakhdi-set",
@@ -219,7 +219,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "gents-ring.png",
+            "image": "gents-ring.webp",
             "name": "category.gents-ring",
             "part": "hand",
             "url": "gents-ring",
@@ -228,7 +228,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "ladies-ring.png",
+            "image": "ladies-ring.webp",
             "name": "category.ladies-ring",
             "part": "hand",
             "url": "ladies-ring",
@@ -237,7 +237,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "ram-navmi.png",
+            "image": "ram-navmi.webp",
             "name": "category.ram-navmi",
             "part": "neck",
             "url": "ram-navmi",
@@ -246,7 +246,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "sohan-kanthi.png",
+            "image": "sohan-kanthi.webp",
             "name": "category.sohan-kanthi",
             "part": "neck",
             "url": "sohan-kanthi",
@@ -255,7 +255,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "sheeshphool.png",
+            "image": "sheeshphool.webp",
             "name": "category.sheeshphool",
             "part": "head",
             "url": "sheeshphool",
@@ -264,7 +264,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "thusi.png",
+            "image": "thusi.webp",
             "name": "category.thusi",
             "part": "neck",
             "url": "thusi",
@@ -273,7 +273,7 @@
         {
             "metal": "gold",
             "silver_avail": "yes",
-            "image": "timaniya.png",
+            "image": "timaniya.webp",
             "name": "category.timaniya",
             "part": "neck",
             "url": "timaniya",
@@ -282,7 +282,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "teeka.png",
+            "image": "teeka.webp",
             "name": "category.teeka",
             "part": "head",
             "url": "teeka",
@@ -291,7 +291,7 @@
         {
             "metal": "gold",
             "silver_avail": "no",
-            "image": "tops.png",
+            "image": "tops.webp",
             "name": "category.tops",
             "part": "ear",
             "url": "tops",
@@ -299,7 +299,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-bangles.png",
+            "image": "silver-bangles.webp",
             "name": "category.bangles",
             "part": "hand",
             "url": "bangles",
@@ -307,7 +307,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-utensil.png",
+            "image": "silver-utensil.webp",
             "name": "category.utensil",
             "part": "others",
             "url": "utensil",
@@ -315,7 +315,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-bracelet.png",
+            "image": "silver-bracelet.webp",
             "name": "category.bracelet",
             "part": "hand",
             "url": "bracelet",
@@ -323,7 +323,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-ring.png",
+            "image": "silver-ring.webp",
             "name": "category.ring",
             "part": "hand",
             "url": "ring",
@@ -331,7 +331,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-payal.png",
+            "image": "silver-payal.webp",
             "name": "category.paayal",
             "part": "legs",
             "url": "paayal",
@@ -339,7 +339,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-kada.png",
+            "image": "silver-kada.webp",
             "name": "category.kada",
             "part": "hand",
             "url": "kada",
@@ -347,7 +347,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-kandora.png",
+            "image": "silver-kandora.webp",
             "name": "category.kandora",
             "part": "waist",
             "url": "kandora",
@@ -355,7 +355,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-idol.png",
+            "image": "silver-idol.webp",
             "name": "category.idol",
             "part": "others",
             "url": "idol",
@@ -363,7 +363,7 @@
         },
         {
             "metal": "silver",
-            "image": "silver-others.png",
+            "image": "silver-others.webp",
             "name": "category.others",
             "part": "others",
             "url": "others",

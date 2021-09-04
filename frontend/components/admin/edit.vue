@@ -224,7 +224,7 @@ export default {
       formData.append("image", this.designData.image);
       formData.append("editWhat", "weight");
       await this.$axios
-        .$post("http://localhost:8000/api/edit", formData, {
+        .post("edit", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -251,7 +251,7 @@ export default {
           formData.append("image", this.designData.image);
           formData.append("editWhat", "delete");
           this.$axios
-            .$post("http://localhost:8000/api/edit", formData, {
+            .post("edit", formData, {
               headers: {
                 "Content-Type": "multipart/form-data"
               }
@@ -295,7 +295,7 @@ export default {
         formData.append("image", this.designData.image);
         formData.append("editWhat", "move");
         this.$axios
-          .$post("http://localhost:8000/api/edit", formData, {
+          .post("edit", formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             }
@@ -319,7 +319,7 @@ export default {
       formData.append("editWhat", "alt");
 
       await this.$axios
-        .$post("http://localhost:8000/api/edit", formData, {
+        .post("edit", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -340,7 +340,7 @@ export default {
       formData.append("editWhat", "rename");
 
       await this.$axios
-        .$post("http://localhost:8000/api/edit", formData, {
+        .post("edit", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -362,7 +362,7 @@ export default {
       formData.append("editWhat", "hit");
 
       await this.$axios
-        .$post("http://localhost:8000/api/edit", formData, {
+        .post("edit", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           }
@@ -406,7 +406,7 @@ export default {
         formData.append("image", this.designData.image);
         formData.append("editWhat", "type");
           await this.$axios
-          .$post("http://localhost:8000/api/edit", formData, {
+          .post("edit", formData, {
             headers: {
               "Content-Type": "multipart/form-data"
             }

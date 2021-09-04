@@ -17,8 +17,8 @@
           class="flex flex-1 "
         >
           <nuxt-link
-            :to="cData.url"
-            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-100 border rounded-md hover:shadow-lg2 md:m-4 "
+            :to="localePath(cData.url)"
+            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-200 border rounded-md hover:shadow-lg2 md:m-4 "
           >
             <p
               class="absolute text-lg font-semibold md:2xl lg:text-xl top-4 left-4"
@@ -34,7 +34,10 @@
           </nuxt-link>
         </div>
       </div>
-      <router-link :to="cData.url" class="w-1/12 text-5xl text-gray-600">
+      <router-link
+        :to="localePath(cData.url)"
+        class="w-1/12 text-5xl text-gray-600"
+      >
         <fa class="my-auto" :icon="['fas', 'arrow-right']" />
       </router-link>
     </div></div

@@ -5,15 +5,15 @@
             "url": "/gold",
             "catDataMetal": [
                 {
-                    "image": "mangalsutra.png",
+                    "image": "mangalsutra.webp",
                     "name": "Mangalsutra"
                 },
                 {
-                    "image": "bala.png",
+                    "image": "bala.webp",
                     "name": "Earrings"
                 },
                 {
-                    "image": "baajubandh.png",
+                    "image": "baajubandh.webp",
                     "name": "Baajubandh"
                 }
             ]
@@ -23,15 +23,15 @@
             "url": "/silver",
             "catDataMetal": [
                 {
-                    "image": "silver-payal.png",
+                    "image": "silver-payal.webp",
                     "name": "Payal"
                 },
                 {
-                    "image": "silver-bracelet.png",
+                    "image": "silver-bracelet.webp",
                     "name": "Bracelet"
                 },
                 {
-                    "image": "silver-utensil.png",
+                    "image": "silver-utensil.webp",
                     "name": "Utensil"
                 }
             ]

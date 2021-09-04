@@ -6,7 +6,7 @@
     <div
       class="md:py-2 font-sans antialiased container mx-auto text-white my-1 md:my-0 md:mx-auto relative h-full md:mb-auto flex justify-between flex-wrap items-center"
     >
-      <nuxt-link to="/" class="" @click="toggle">
+      <nuxt-link :to="localePath('/')" class="" @click="toggle">
         <img
           src="~/assets/img/svg/logo_new.svg"
           class="w-28 md:w-32 ml-2 lg:ml-auto"
@@ -14,7 +14,7 @@
         />
       </nuxt-link>
       <div class="gap-3 text-3xl md:hidden flex items-center">
-        <!-- <nuxt-link to="" @click="toggle">
+        <!-- <nuxt-link :to="localePath('')" @click="toggle">
           <fa class="mx-1" size="lg" :icon="['fas', 'user-circle']" />
         </nuxt-link> -->
         <div class="block">
@@ -40,28 +40,28 @@
         <div class="h-full my-auto">
           <ul class="flex flex-col md:flex-row">
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <nuxt-link to="/" @click="toggle">
+              <nuxt-link :to="localePath('/')" @click="toggle">
                 Home
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <nuxt-link to="/gold" @click="toggle">
+              <nuxt-link :to="localePath('/gold')" @click="toggle">
                 Gold <fa class="" :icon="['fas', 'caret-down']" />
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4 h-full">
-              <nuxt-link to="/silver" @click="toggle">
+              <nuxt-link :to="localePath('/silver')" @click="toggle">
                 Silver
                 <fa class="" :icon="['fas', 'caret-down']" />
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <nuxt-link to="/contact" @click="toggle">
+              <nuxt-link :to="localePath('/contact')" @click="toggle">
                 Contact Us
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4 hidden lg:block">
-              <nuxt-link to="/about" @click="toggle">
+              <nuxt-link :to="localePath('/about')" @click="toggle">
                 About Us
               </nuxt-link>
             </li>
@@ -81,7 +81,7 @@
           </div> -->
           <div v-if="$auth.loggedIn" class="h-full my-auto lg:p-2 text-3xl flex gap-2">
             <AuthAccountDropdown />
-            <!-- <nuxt-link to="" class="" @click="toggle">
+            <!-- <nuxt-link :to="localePath('')" class="" @click="toggle">
               <svg
                 width="35"
                 class="mx-1 h-full my-auto"
