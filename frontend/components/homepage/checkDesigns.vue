@@ -1,11 +1,11 @@
 <template>
   <div class="w-full text-center md:my-16">
-    <h1 class="px-1 my-4 hmain">Check Out Our Designs</h1>
+    <h1 class="px-1 my-4 hmain">Check Our Designs</h1>
     <!-- Gold Design  -->
     <div
       v-for="(cData, i) in catData"
       :key="i"
-      class="relative flex flex-col items-center mx-auto my-8 md:flex-row md:flex-wrap"
+      class="relative flex flex-col items-center mx-auto my-3 md:my-8 md:flex-row md:flex-wrap"
     >
       <h1 class="relative md:w-full jewellery_design_tagline font-Samarkan">
         {{ cData.title }}
@@ -18,10 +18,10 @@
         >
           <nuxt-link
             :to="localePath(cData.url)"
-            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-200 border rounded-md hover:shadow-lg2 md:m-4 "
+            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-100 border rounded-md hover:shadow-lg2 md:m-4 "
           >
             <p
-              class="absolute text-lg font-semibold md:2xl lg:text-xl top-4 left-4"
+              class="absolute text-xl font-semibold md:2xl lg:text-xl top-4 left-4"
             >
               {{ index.name }}
             </p>
@@ -29,7 +29,7 @@
             <img
               :src="require('/assets/img/icons/' + index.image)"
               alt=""
-              class="object-contain w-3/5 ml-auto"
+              class="object-contain w-3/5 ml-auto min-h-[8rem]"
             />
           </nuxt-link>
         </div>

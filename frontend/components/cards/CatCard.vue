@@ -2,7 +2,7 @@
   <div
     class="bg-gray-100 shadow-neumorph
     relative flex flex-col transition-all duration-300 m-2 md:m-4
-    rounded-2xl transform hover:-translate-y-3"
+    rounded-2xl transform md:hover:-translate-y-3"
   >
     <div class="relative pb-1/1">
       <img

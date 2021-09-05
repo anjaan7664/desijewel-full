@@ -1,5 +1,5 @@
 .jewellery_design_tagline {
-  @apply text-3xl relative;
+  @apply text-4xl relative;
 
   &:before,
   &:after {
@@ -12,7 +12,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    @apply text-2xl;
+    @apply text-3xl;
 
     &:before {
       @apply -left-12
@@ -35,5 +35,5 @@
 }
 
 .hmain {
-  @apply mx-auto border-b-2 border-red w-auto inline-block text-4xl;
+  @apply mx-auto border-b-4 pb-1 border-red w-auto inline-block text-4xl;
 }

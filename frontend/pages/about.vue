@@ -15,7 +15,7 @@ export default {
     };
   },
   async fetch() {
-    console.log("fetching");
+
     const parameters = {
       perPage: 3,
       page: 2,

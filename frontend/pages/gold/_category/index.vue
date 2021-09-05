@@ -13,11 +13,11 @@
           Showing Image of
           <span class="font-bold capitalize">{{ Category }}</span>
         </h1>
-        <div class="flex-row justify-center hidden md:flex">
-          <p class="h-full mx-4 my-auto text-2xl font-bold">
+        <div class="flex-row justify-center flex">
+          <p class="h-full mx-4 my-auto text-2xl font-bold hidden md:block">
             Sort By:
           </p>
-          <ul class="flex flex-row">
+          <ul class="flex flex-row self-center">
             <li
               @click="sorting('')"
               class="px-6 py-2 mx-1 text-white bg-green-500 rounded-md cursor-pointer"
@@ -82,14 +82,14 @@
             <img
               src="~/assets/img/shoppers/shoppers_silver.webp"
               alt="Designing Jewel Contact Card"
-              class="h-full object-fill"
+              class="w-full object-fill min-w-full"
             />
           </div>
           <div v-else>
             <img
               src="~/assets/img/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
-              class="h-full object-fill"
+              class="w-full object-fill"
             />
           </div>
           <h1>Contact for more info - "7597937664"</h1>
@@ -183,9 +183,7 @@ export default {
     })
   },
 
-  created() {
-   
-  },
+  created() {},
   watch: {
     "$route.query": "$fetch"
   },

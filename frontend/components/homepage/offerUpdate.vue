@@ -34,10 +34,12 @@
         </div>
         <div class="m-auto">
           <p
-            class="px-4 py-2 ml-auto text-white bg-black rounded-sm md:px-10 md:text-xl"
+    class="border-2 hover:bg-black text-white border-black px-6 py-3 rounded"
+           
           >
             Subscribe
           </p>
+         
         </div>
       </div>
     </div>

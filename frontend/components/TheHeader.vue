@@ -40,28 +40,28 @@
         <div class="h-full my-auto">
           <ul class="flex flex-col md:flex-row">
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <nuxt-link :to="localePath('/')" @click="toggle">
+              <nuxt-link :to="localePath('/')">
                 Home
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <nuxt-link :to="localePath('/gold')" @click="toggle">
+              <nuxt-link :to="localePath('/gold')">
                 Gold <fa class="" :icon="['fas', 'caret-down']" />
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4 h-full">
-              <nuxt-link :to="localePath('/silver')" @click="toggle">
+              <nuxt-link :to="localePath('/silver')">
                 Silver
                 <fa class="" :icon="['fas', 'caret-down']" />
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4">
-              <nuxt-link :to="localePath('/contact')" @click="toggle">
+              <nuxt-link :to="localePath('/contact')">
                 Contact Us
               </nuxt-link>
             </li>
             <li class="mx-2 py-2 lg:py-auto lg:mx-4 hidden lg:block">
-              <nuxt-link :to="localePath('/about')" @click="toggle">
+              <nuxt-link :to="localePath('/about')">
                 About Us
               </nuxt-link>
             </li>
@@ -112,6 +112,11 @@ export default {
     return {
       open: false
     };
+  },
+  watch: {
+    '$route' () {
+      this.open = false
+    }
   },
   methods: {
     toggle() {

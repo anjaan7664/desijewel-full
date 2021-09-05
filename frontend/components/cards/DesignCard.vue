@@ -2,7 +2,7 @@
   <div class="relative designComponent">
     <div
       class="relative flex flex-col overflow-hidden transition duration-150
-       bg-white rounded rounded-t rounded-b-none shadn group"
+       bg-white rounded rounded-t rounded-b-none group"
       style="box-shadow:8px 12px 16px 0 rgba(0, 0, 0, 0.25),-6px -6px 25px 0 rgba(222, 47, 69, 0.1)"
     >
       <div class="relative md:pb-4/6">
@@ -16,12 +16,12 @@
         >
           <img
             :src="
-              `../designs/thumb/` +
+              `http://206.189.142.151/designs/thumb/` +
                 [designData.path + designData.image + '.' + designData.img_type]
             "
             :alt="designData.alt"
             :title="designData.alt"
-            class="lazy-img-fadein md:absolute h-full w-full object-cover rounded
+            class="lazy-img-fadein md:absolute h-full w-full object-cover rounded min-h-[16rem]
            transition duration-300 ease-in-out transform
    "
           />
@@ -85,7 +85,7 @@ export default {
 </script>
 <style lang="scss">
 .group:hover div img {
-  @apply scale-110 -translate-y-1;
+  @apply md:scale-110 md:-translate-y-1;
 }
 .group:hover div div {
   @apply opacity-100;

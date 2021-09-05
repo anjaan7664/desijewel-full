@@ -42,11 +42,9 @@ export const actions = {
         params: payload.filters
       }).then((response) => {
         commit('SET_DESIGNS', response)
-        console.log(response);
         commit('SET_LOADING', false)
       })
       .catch((error) => {
-        console.log(error)
         commit('SET_LOADING', false)
       })
 

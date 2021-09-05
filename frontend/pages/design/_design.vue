@@ -42,10 +42,10 @@
         <div class="flex flex-col w-full p-2 my-2 md:flex-row md:p-0">
           <!-- Hero Design  -->
           <div class="rounded-t rounded-b-none bg-violet md:w-3/5">
-            <div class="flex flex-col m-3 rounded-t rounded-b-none">
+            <div class="flex flex-col my-2 md:my-auto md:m-3 rounded-t rounded-b-none min-w-[8]">
               <div class="">
                 <img
-                  v-img
+                  data-not-lazy
                   :src="
                     '/designs/images/' +
                       [MainImg.path + MainImg.image + '.' + MainImg.img_type]
@@ -54,6 +54,7 @@
                   :title="MainImg.alt"
                   class="inline-block object-contain rounded shadow-lg2"
                   style="max-height: 75vh;max-width:100%"
+                  v-img
                 />
               </div>
 
@@ -147,7 +148,7 @@
                 <accordion-item class="border-b border-gray-200">
                   <!-- This slot will handle the title/header of the accordion and is the part you click on -->
                   <template slot="accordion-trigger">
-                    <h3>Tags</h3>
+                    <h3 class="hidden">Tags</h3>
                   </template>
                   <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
@@ -236,8 +237,6 @@ export default {
     // },
   },
   async fetch() {
-    console.log("fetching");
-
     this.MainImg = await this.$axios
       .get("DisplayDesign", {
         params: {

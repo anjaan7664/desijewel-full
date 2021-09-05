@@ -108,6 +108,7 @@ class DesignController extends Controller
             ->orderBy('hit')->orderBy('id')->limit(2)->get();
 
         $merger = array_merge($previous->toArray(), $next->toArray());
+
         return $design;
     }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full my-8 text-center md:mt-16">
+  <div class="w-full h-full my-2 md:my-8 text-center md:mt-16">
     <h1 class="my-2 hmain">Why We Are Best</h1>
     <div class="">
       <div class="flex flex-wrap">
