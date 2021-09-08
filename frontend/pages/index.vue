@@ -2,31 +2,30 @@
   <div>
     <!-- Hero Image  -->
     <section>
-      <div class="container block mx-3 md:my-4 text-center">
+      <div class="container block mx-3 md:my-auto text-center">
         <h1
-          class="text-3xl md:text-4xl lg:text-5xl 
-          text-center font-bold md:my-8 font-Teko tracking-wider md:tracking-widest pt-3"
+          class="text-[2rem] md:text-4xl lg:text-5xl 
+          text-center font-bold md:my-6 md:mb-2 font-Teko tracking-wider md:tracking-widest pt-1"
         >
           WELCOME TO DESIGNING JEWEL
         </h1>
       </div>
     </section>
     <section
-      class="flex flex-row flex-wrap w-full md:mt-4 text-center  lg:flex-row-reverse lg:text-left "
-      style="max-height: 90vh"
+      class="md:max-h-[90vh] flex flex-row flex-wrap w-full md:mt-4 text-center lg:flex-row-reverse lg:text-left "
     >
       <div class="w-full lg:w-1/2">
         <div class="w-full">
           <img
             src="~/assets/img/icons/jodha-haar.webp"
             alt="Designing Jewel"
-            class="h-auto max-w-full px-3 md:p-4 md:px-16 mx-auto rounded-md shadowed"
+            class="h-auto max-w-full px-3 md:p-4 md:px-16 mx-auto rounded-md shadowed min-h-[16rem]"
           />
         </div>
       </div>
 
       <div class="w-full my-2 lg:w-1/2 lg:pl-4">
-        <h1 class="text-3xl md:text-4xl leading-tight main-heading lg:text-5xl">
+        <h1 class="text-3xl md:text-4xl main-heading lg:text-5xl font-Playfair font-bold tracking-wider">
           The Showcase of Indian and Rajasthani Jewellery
         </h1>
         <p
@@ -34,7 +33,7 @@
         >
           We are commited to give you good service. Our all jewellery is manufactured
           in 22k gold with BIS hallmark. We belong to oldest community of
-          jewellers, SONI. We have generations of experience in Jewellery
+          jewellers, SONI. We have generations otalic font-Playfairtalic font-Playfairf experience in Jewellery
           making.
         </p>
 
@@ -90,7 +89,6 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-// @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
-//
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ledger&family=Playfair+Display:ital,wght@0,500;1,400&display=swap');
 </style>

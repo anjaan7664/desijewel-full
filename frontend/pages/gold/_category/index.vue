@@ -35,7 +35,7 @@
                   sorting('desi');
                 }
               "
-              class="px-6 py-2 mx-1 text-white rounded-md "
+              class="px-4 md:px-6 py-2 mx-1 text-white rounded-md "
             >
               Desi
             </li>
@@ -50,7 +50,7 @@
                   sorting('fancy');
                 }
               "
-              class="px-6 py-2 mx-1 text-white rounded-md"
+              class="px-3 md:px-6 py-2 mx-1 text-white rounded-md"
             >
               Fancy
             </li>
@@ -65,7 +65,7 @@
                   sorting('kundan');
                 }
               "
-              class="px-6 py-2 mx-1 text-white rounded-md"
+              class="px-3 md:px-6 py-2 mx-1 text-white rounded-md"
             >
               Kundan
             </li>
@@ -89,7 +89,7 @@
             <img
               src="~/assets/img/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
-              class="w-full object-fill"
+              class="w-full object-fill min-w-full"
             />
           </div>
           <h1>Contact for more info - "7597937664"</h1>
@@ -127,6 +127,7 @@ import { mapGetters } from "vuex";
 import CategoryList from "~/assets/json/category.json";
 
 export default {
+  watchQuery: ["page"],
   name: "App",
   scrollToTop: true,
   components: {},
@@ -184,22 +185,22 @@ export default {
   },
 
   created() {},
-  watch: {
-    "$route.query": "$fetch"
-  },
+
   async fetch() {
     await this.$store.dispatch("design/getDesigns", this.DesignConfig);
   },
 
   methods: {
-    onPageChange() {
+    async onPageChange() {
+      await this.$fetch();
       this.$router.push({ query: { ...this.$route.query, page: this.page } });
       window.scrollTo(0, 0);
     },
-    //!  TODO bug when try to click sort button in page greater than 1
-    sorting: function(sort) {
+    async sorting(sort) {
       this.Sub_Category = sort;
-      this.$router.push({ query: { page: 1, subCat: sort } });
+      this.page = 1;
+      this.onPageChange();
+      
     },
     sortingButton: function(sort) {
       return this.categoryObject.sorting.includes(sort);

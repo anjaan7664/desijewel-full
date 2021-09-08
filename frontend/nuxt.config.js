@@ -53,7 +53,8 @@ export default {
     '~/plugins/vform.js',
     '~/plugins/fontawesome.js',
     '~/plugins/vue-tailwind.client.js',
-    '~/plugins/upload.client.js'
+    '~/plugins/upload.client.js',
+    '~/plugins/photoswipe.client.js'
   ],
   components: true,
 

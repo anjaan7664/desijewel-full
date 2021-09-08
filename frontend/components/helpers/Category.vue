@@ -45,12 +45,12 @@
                   :key="i"
                   class="w-full px-3 py-2 rounded-sm hover:bg-gray-100 text-black"
                 >
-                  <router-link
-                    :to="localePath('/Gold/' + design.url)"
+                  <nuxt-link
+                    :to="localePath('/'+catMetal+'/' + design.url)"
                     class="inline-block w-full"
                   >
                     {{ $t(design.name) }}
-                  </router-link>
+                  </nuxt-link>
                 </li>
               </ul>
             </div>
@@ -70,7 +70,7 @@
                 class="flex items-center px-3 py-1 mx-auto bg-white rounded-sm 
               outline-none focus:outline-none min-w-32 text-xl md:text-lg"
               >
-                Jewellery By Body Part
+                Jewellery By Body Part  <fa class="ml-1" :icon="['fas', 'caret-down']" />
               </button>
             </template>
             <template slot="accordion-content">
@@ -120,7 +120,7 @@
                             class="w-full px-3 py-2 rounded-sm  text-black border"
                           >
                             <router-link
-                              :to="localePath('/Gold/' + design.url)"
+                              :to="localePath('/'+catMetal+'/' + design.url)"
                               class="inline-block w-full"
                             >
                               {{ $t(design.name) }}

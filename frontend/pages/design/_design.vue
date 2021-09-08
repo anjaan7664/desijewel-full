@@ -8,9 +8,7 @@
       <!-- Showing image location  -->
       <div>
         <div class="container mx-auto flex flex-row text-lg px-2 py-1">
-          <router-link 
-          :to="localePath('/gold')"
-           class="text-gray-500">
+          <router-link :to="localePath('/gold')" class="text-gray-500">
             Gold
           </router-link>
           <fa
@@ -42,8 +40,10 @@
         <div class="flex flex-col w-full p-2 my-2 md:flex-row md:p-0">
           <!-- Hero Design  -->
           <div class="rounded-t rounded-b-none bg-violet md:w-3/5">
-            <div class="flex flex-col my-2 md:my-auto md:m-3 rounded-t rounded-b-none min-w-[8]">
-              <div class="">
+            <div
+              class="flex flex-col my-2 md:my-auto md:m-3 rounded-t rounded-b-none min-w-[8]"
+            >
+              <div class="relative">
                 <img
                   data-not-lazy
                   :src="
@@ -52,10 +52,13 @@
                   "
                   :alt="MainImg.alt"
                   :title="MainImg.alt"
-                  class="inline-block object-contain rounded shadow-lg2"
+                  class="inline-block object-contain rounded shadow-lg2 min-h-[16rem] relative"
                   style="max-height: 75vh;max-width:100%"
-                  v-img
+                  v-preview
                 />
+                <div class="absolute right-1 bottom-1c text-white">
+                  <p class="text-xs">touch to zoom</p>
+                </div>
               </div>
 
               <!-- <div class="flex w-3/5 mx-auto">
@@ -84,7 +87,7 @@
                       <!-- Price Breakup -->
                       <template slot="accordion-trigger">
                         <span class="font-bold">Price - </span>
-                        <span v-if="MainImg.weight">150000</span
+                        <span v-if="MainImg.weight">N/A</span
                         ><span v-else>N/A</span>
                       </template>
                       <template slot="accordion-content">
@@ -139,9 +142,7 @@
                   </template>
                   <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
-                    <span
-                      >N/A
-                    </span>
+                    <span>N/A </span>
                   </template>
                 </accordion-item>
 
@@ -152,9 +153,7 @@
                   </template>
                   <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
-                    <span
-                      >N/A
-                    </span>
+                    <span>N/A </span>
                   </template>
                 </accordion-item>
               </accordion>
@@ -220,6 +219,7 @@ import Accordion from "~/components/helpers/Accordion.vue";
 export default {
   name: "App",
   components: { Accordion, AccordionItem },
+
   data() {
     return {
       MainImg: {},

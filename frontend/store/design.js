@@ -3,11 +3,11 @@ import Category from "~/assets/json/category.json";
 export const state = () => ({
 
   designs: [],
-  design:{},
+  design: {},
   isDirect: false,
   isLoaded: false,
   isLoading: true,
-  category:Category.categories
+  category: Category.categories
 
 })
 
@@ -26,7 +26,7 @@ export const getters = {
   isLoading(state) {
     return state.isLoading;
   },
-  category(state){
+  category(state) {
     return state.category;
   }
 
@@ -51,33 +51,34 @@ export const actions = {
 
   },
   async getSingleDesign({
-     commit
-   }, payload) {
+    commit
+  }, payload) {
     await this.$axios.$get('DisplayDesign', {
-         params: {
-           image: payload
-         }
-       }).then(function (response) {
-         commit('SET_SINGLE_DESIGNS', response.data)
-       })
-       .catch(function (error) {
-         console.log(error)
-       })
-   },
-   async getSingle({
-      commit
-    }, payload) {
-     await this.$axios.$get('DisplayDesign', {
-          params: {
-            image: payload
-          }
-        }).then(function (response) {
-          commit('SET_SINGLE_DESIGNS', response.data)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
-    }
+        params: {
+          image: payload
+        }
+      }).then(function (response) {
+
+        commit('SET_SINGLE_DESIGNS', response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  },
+  async getSingle({
+    commit
+  }, payload) {
+    await this.$axios.$get('DisplayDesign', {
+        params: {
+          image: payload
+        }
+      }).then(function (response) {
+        commit('SET_SINGLE_DESIGNS', response.data)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
 
 }
 export const mutations = {

@@ -18,7 +18,7 @@
         >
           <nuxt-link
             :to="localePath(cData.url)"
-            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-100 border rounded-md hover:shadow-lg2 md:m-4 "
+            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-200 border rounded-md hover:shadow-lg2 md:m-4 "
           >
             <p
               class="absolute text-xl font-semibold md:2xl lg:text-xl top-4 left-4"

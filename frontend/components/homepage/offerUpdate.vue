@@ -33,12 +33,12 @@
           />
         </div>
         <div class="m-auto">
-          <p
-    class="border-2 hover:bg-black text-white border-black px-6 py-3 rounded"
+          <button @click="moveDesign"
+    class="border-black border-2  bg-black text-white hover:bg-primary  px-6 py-3 rounded"
            
           >
             Subscribe
-          </p>
+          </button>
          
         </div>
       </div>
@@ -47,6 +47,16 @@
 </template>
 <script>
 export default {
-  name: "offerUpdate"
+  name: "offerUpdate",
+  methods: {
+    moveDesign(){
+       this.$swal({
+        showConfirmButton: false,
+        timer: 1500,
+        icon: "success",
+        title: "You're subscribed to our newsletter."
+      });
+    }
+  }
 };
 </script>

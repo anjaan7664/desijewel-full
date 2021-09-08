@@ -13,7 +13,6 @@
           Showing Image of
           <span class="font-bold capitalize">{{ Category }}</span>
         </h1>
-       
       </div>
       <div
         id="app"
@@ -21,20 +20,14 @@
         class="flex flex-wrap justify-between pt-4 overflow-hidden text-center rounded"
       >
         <div class="w-full h-full p-2 md:w-1/3 md:p-6 relative">
-          <div v-if="categoryObject.silver_avail === 'yes'">
-            <img
-              src="~/assets/img/shoppers/shoppers_silver.webp"
-              alt="Designing Jewel Contact Card"
-              class="h-full object-fill"
-            />
-          </div>
-          <div v-else>
+          <div>
             <img
               src="~/assets/img/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
-              class="h-full object-fill"
+              class="w-full object-fill min-w-full"
             />
           </div>
+
           <h1>Contact for more info - "7597937664"</h1>
         </div>
         <div
@@ -99,7 +92,35 @@ export default {
         page: this.page
       };
       if (this.Category) {
-        filters.Category = this.$route.params.category;
+        switch (this.Category) {
+          case "bangles":
+            filters.Category = "silver_bangles";
+            break;
+          case "utensil":
+            filters.Category = "silver_bartan";
+            break;
+          case "bracelet":
+            filters.Category = "silver_bracelate";
+            break;
+          case "ring":
+            filters.Category = "silver_ring";
+            break;
+          case "paayal":
+            filters.Category = "silver_fancy_paayal";
+            break;
+          case "kada":
+            filters.Category = "silver_kada";
+            break;
+          case "kandora":
+            filters.Category = "silver_half_kandora";
+            break;
+          case "idol":
+            filters.Category = "silver_idol";
+            break;
+          case "others":
+            filters.Category = "silver_others";
+            break;
+        }
       }
       if (this.Sub_Category) {
         filters.Sub_Category = this.Sub_Category;
@@ -123,32 +144,23 @@ export default {
     ...mapGetters("design", {
       // Commented when trying for ssr
       DesignsList: ["DesignsList"]
-    })
+    }),
+    silver: function(cat) {}
   },
 
   created() {
-   
-  },
-  watch: {
-    "$route.query": "$fetch"
   },
   async fetch() {
     await this.$store.dispatch("design/getDesigns", this.DesignConfig);
   },
 
   methods: {
-    onPageChange() {
+    async onPageChange() {
+      await this.$fetch();
       this.$router.push({ query: { ...this.$route.query, page: this.page } });
       window.scrollTo(0, 0);
     },
-    //!  TODO bug when try to click sort button in page greater than 1
-    sorting: function(sort) {
-      this.Sub_Category = sort;
-      this.$router.push({ query: { page: 1, subCat: sort } });
-    },
-    sortingButton: function(sort) {
-      return this.categoryObject.sorting.includes(sort);
-    }
+
   }
 };
 </script>

@@ -12,7 +12,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    @apply text-3xl;
+    @apply text-2xl;
 
     &:before {
       @apply -left-12
@@ -35,5 +35,5 @@
 }
 
 .hmain {
-  @apply mx-auto border-b-4 pb-1 border-red w-auto inline-block text-4xl;
+  @apply italic font-Playfair mx-auto border-b-4 pb-1 border-red w-auto inline-block text-3xl md:text-4xl ;
 }
