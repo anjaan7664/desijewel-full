@@ -78,6 +78,16 @@ export default {
     return {
     }
   },
-  methods: {}
+  methods: {},
+  head: {
+    title: "Privacy Policy",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Privacy Policy for Designing Jewel"
+      }
+    ]
+  }
 }
 </script>

@@ -1,4 +1,5 @@
 {
+  "reach_us":"Reach Us",
   "nav": {
     "features": "Features"
   },
@@ -73,10 +74,22 @@
     "mini-aad": "मिनी आदि",
     "mohan-mala": "मोहन-माला",
     "nose": "नाक",
-    "rakhdi-set": "राखी सेतु",
+    "rakhdi-set": "",
     "ram-navmi": "राम नवमी",
     "sohan-kanthi": "सोहन कांथी",
     "tops": "सबसे ऊपर"
+  },
+  "form": {
+    "get_in_touch": "संपर्क करे",
+    "name": "आपका नाम",
+    "message": "आपका सन्देश",
+    "send_message": "सन्देश भेजे",
+    "contact_us": "हमसे जुड़े",
+    "email": "अपना ईमेल दर्ज करें",
+    "postal": "डाक पता",
+    "email_add": "ईमेल पता",
+    "phone": "फ़ोन नंबर",
+    "reach_us": "हम तक पहुंचे"
   },
   "gold": "गोल्ड",
   "silver": "सिल्वर",

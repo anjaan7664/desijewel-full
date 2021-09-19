@@ -20,6 +20,8 @@ class DesignController extends Controller
 
     public function store(Request $request)
     {
+        // validate query 
+
         $article = $request->isMethod('put') ? Design::findOrFail($request->article_id) : new Design;
 
         $article->id = $request->input('article_id');
@@ -34,6 +36,7 @@ class DesignController extends Controller
 
     public function show(Request $request)
     {
+        // validate query 
 
         $Category = $request->input('Category');
         $Sub_Category = $request->input('Sub_Category');
@@ -55,8 +58,73 @@ class DesignController extends Controller
         //     return abort(404);
         // }
     }
+
+    public function android(Request $request)
+    {
+        // validate query 
+
+        $Category = $request->input('table');
+        $Sub_Category = '';
+        $Page = 1;
+        $url = "https://desijewel.in/";
+        if (!empty($request->input('subCategory'))) {
+
+            $Sub_Category = $request->input('subCategory');
+        }
+        if (!empty($request->input('page'))) {
+
+            $Page = $request->input('page');
+        }
+        $perPage = 9;
+        $from         = ($Page - 1) * $perPage;
+        Design::where('category', $Category)->firstOrFail();
+        if (!empty($Sub_Category)) {
+            $designs = Design::limit($perPage)->offset($from)->where('dp', '1')->where('category', $Category)->where('sub_category', $Sub_Category)->orderBy('hit', 'desc')->get();
+        } else {
+            $designs = Design::limit(9)->offset($from)->where('dp', '1')->where('category', $Category)->orderBy('hit', 'desc')->get();
+        }
+        $post_data_array = array();
+        foreach ($designs as $row) {
+            $img        = $row['image'];
+            $id_image   = $row['id'];
+            $weight     = $row['weight'];
+            $image_path = $row['path'];
+            $hit        = $row['hit'];
+            $img_tag    = $row['tag'];
+            $subCategorySending    = $row['sub_category'];
+
+
+            $thumb_path = $url . 'designs/thumb/' . $image_path . $img;
+            $image             = $url . 'designs/images/' . $image_path . $row['image'].".".$row['img_type'];
+            $post_data_array[] = array(
+                'image' => $image,
+                'weight' => $weight,
+                'thumb' => $thumb_path,
+                'image_title' => $img,
+                'tag' => $img_tag,
+                'hit' => $hit,
+                'subCategory' => $subCategorySending
+            );
+        }
+
+
+        $advertiser_array = array(
+            'ad_url' => 'https://desijewel.in/shoppers/silver.jpg',
+            'ad_desc' => "",
+            'ad_number' => "+917597937664",
+            'ad_name' => "Desi Jewellery",
+            'ad_map' => "geo:25.9695727,72.9625279"
+        );
+        $post_data = json_encode(array(
+            'images' => $post_data_array,
+            'advertiser' => $advertiser_array
+        ));
+        return $post_data;
+    }
     public function display(Request $request)
     {
+        // validate query 
+
         $image = $request->input('image');
 
         $design = Design::query()

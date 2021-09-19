@@ -3,7 +3,7 @@
     <h1
       class="mx-auto font-Merriweather text-4xl border-primary border-b-4 w-auto inline-block align-middle mb-12"
     >
-      {{ $t("form.test2") }}
+      {{ $t("Get In Touch") }}
     </h1>
     <section>
       <div
@@ -29,12 +29,12 @@
           style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
         >
           <h1 class="font-Merriweather text-center text-3xl text-secondary">
-            {{ $t("form.reach_us") }}
+            {{ $t("Reach Us") }}
           </h1>
           <h2
             class="text-primary text-left text-xl font-Montserrat font-bold pt-2"
           >
-            {{ $t("form.postal") }}
+            {{ $t("Address") }}
           </h2>
           <a
             href="https://goo.gl/maps/1AAYysmvtQKmgZAy8"
@@ -45,7 +45,7 @@
           <h2
             class="text-primary text-left text-xl font-Montserrat font-bold pt-3"
           >
-            {{ $t("form.email_add") }}
+            {{ $t("Email") }}
           </h2>
           <a
             href="mailto:Dilipbhootra555@gmail.com"
@@ -55,7 +55,7 @@
           <h2
             class="text-primary text-left text-xl font-Montserrat font-bold pt-5"
           >
-            {{ $t("form.phone") }}
+            {{ $t("Phone") }}
           </h2>
           <a href="tel:+919829736959" class="text-lg text-left underline"
             >+917597937664</a
@@ -69,33 +69,34 @@
         >
           <div class="">
             <h1 class="font-Merriweather text-3xl text-secondary">
-              {{ $t("footer.contact_us") }}
+              {{ $t("Contact Us") }}
             </h1>
             <div>
               <input
                 class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
-                :placeholder="$t('form.name')"
+                :placeholder="$t('name')"
               />
             </div>
             <div class="mt-2">
               <input
                 class="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 type="text"
-                :placeholder="$t('form.email')"
+                :placeholder="$t('email')"
               />
             </div>
             <div class="mt-2">
               <textarea
-                :placeholder="$t('form.message')"
+                :placeholder="$t('message')"
                 class="w-full h-12 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
               />
             </div>
             <div class="mt-2">
               <button
+              @click="send_email"
                 class="uppercase h-16 text-sm font-bold tracking-wide bg-primary text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline transition duration-300 hover:bg-red"
               >
-                {{ $t("form.send_message") }}
+                {{ $t("Send Message") }}
               </button>
             </div>
           </div>
@@ -109,14 +110,24 @@
 export default {
   name: "Contact",
   head: {
-    title: "Contact Us | Designing Jewel",
+    title: "Contact Us ",
     // Meta tags
     meta: [
       { hid: "description", name: "description", content: "Contact Us" }
       // ...
     ]
   },
-  components: {}
+  components: {},
+  methods: {
+     send_email(){
+       this.$swal({
+        showConfirmButton: false,
+        timer: 1500,
+        icon: "success",
+        title: "We will contact you soon."
+      });
+    }
+  },
 };
 </script>
 

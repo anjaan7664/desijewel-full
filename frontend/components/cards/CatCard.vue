@@ -6,6 +6,7 @@
   >
     <div class="relative pb-1/1">
       <img
+      loading="lazy"
         :src="require('/assets/img/icons/' + catData.image)"
         alt=""
         class="shadowed absolute p-2 mx-auto w-full h-full object-contain"

@@ -22,7 +22,7 @@
         <div class="w-full h-full p-2 md:w-1/3 md:p-6 relative">
           <div>
             <img
-              src="~/assets/img/shoppers/shoppers1.webp"
+              src="/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
               class="w-full object-fill min-w-full"
             />
@@ -35,7 +35,7 @@
           :key="design.id"
           class="w-full p-2 md:w-1/3 md:p-6"
         >
-          <CardsDesignCard :design-data="design" />
+          <CardsDesignCard :design-data="design" cat-metal="silver" />
         </div>
       </div>
 
@@ -161,6 +161,18 @@ export default {
       window.scrollTo(0, 0);
     },
 
+  },
+  head() {
+    return {
+      title:"Silver "+this.Category,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Home page description"
+        }
+      ]
+    };
   }
 };
 </script>

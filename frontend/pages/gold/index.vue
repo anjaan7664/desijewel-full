@@ -12,7 +12,17 @@ export default {
   components: {},
   data: () => ({
   }),
-  created() {}
+  created() {},
+  head: {
+    title: "Gold Jewellery",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Jewellery Design in Gold"
+      }
+    ]
+  }
 };
 </script>
 <style></style>

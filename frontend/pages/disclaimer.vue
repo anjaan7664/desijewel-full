@@ -35,6 +35,16 @@ export default {
   data () {
     return {}
   },
-  methods: {}
+  methods: {},
+  head: {
+    title: "Disclaimer",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Dislaimer for Designing Jewel"
+      }
+    ]
+  }
 }
 </script>

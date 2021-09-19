@@ -6,6 +6,7 @@
     <div v-else>
       <HelpersCategory catMetal="gold" />
       <!-- Showing image location  -->
+
       <div>
         <div class="container mx-auto flex flex-row text-lg px-2 py-1">
           <router-link :to="localePath('/gold')" class="text-gray-500">
@@ -35,9 +36,9 @@
       <section
         :v-show="MainImg != ''"
         id="app"
-        class="flex flex-wrap px-2 overflow-hidden text-center bg-white rounded"
+        class="flex flex-wrap md:px-2 overflow-hidden text-center bg-white rounded"
       >
-        <div class="flex flex-col w-full p-2 my-2 md:flex-row md:p-0">
+        <div class="flex flex-col w-full md:p-2 my-2 md:flex-row md:p-0">
           <!-- Hero Design  -->
           <div class="rounded-t rounded-b-none bg-violet md:w-3/5">
             <div
@@ -107,9 +108,9 @@
                 <span class="font-bold">Purity - </span
                 ><span class="mr-auto">22K(91.6)</span>
               </li>
-              <li class="border-b border-gray-200">
-                <span class="font-bold">Style No. -</span> <span>434344</span>
-              </li>
+              <!-- <li class="border-b border-gray-200">
+                <span class="font-bold">Design No. -</span> <span>434344</span>
+              </li> -->
               <li class="capitalize border-b border-gray-200">
                 <span class="font-bold">Category -</span>
                 <nuxt-link
@@ -136,22 +137,18 @@
 
               <accordion>
                 <accordion-item class="border-b border-gray-200">
-                  <!-- This slot will handle the title/header of the accordion and is the part you click on -->
                   <template slot="accordion-trigger">
                     <h3>View Product Description</h3>
                   </template>
-                  <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
-                    <span>N/A </span>
+                    <span>{{ MainImg.alt }}</span>
                   </template>
                 </accordion-item>
 
                 <accordion-item class="border-b border-gray-200">
-                  <!-- This slot will handle the title/header of the accordion and is the part you click on -->
                   <template slot="accordion-trigger">
                     <h3 class="hidden">Tags</h3>
                   </template>
-                  <!-- This slot will handle all the content that is passed to the accordion -->
                   <template slot="accordion-content">
                     <span>N/A </span>
                   </template>
@@ -177,7 +174,7 @@
             class="w-1/2 md:m-3 md:flex-1"
           >
             <nuxt-link
-              :to="localePath('/design/' + index.image)"
+              :to="localePath('/gold/design/' + index.image)"
               class="relative"
             >
               <div

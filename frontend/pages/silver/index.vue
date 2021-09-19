@@ -15,7 +15,17 @@ export default {
   }),
   computed: {
   },
-  created() {}
+  created() {},
+  head: {
+    title: "Design Showcase of Silver Jewellery",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Silver Jewellery design showcase"
+      }
+    ]
+  }
 };
 </script>
 <style></style>

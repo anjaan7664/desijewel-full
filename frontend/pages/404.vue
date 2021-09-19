@@ -15,6 +15,16 @@
 export default {
   layout: 'basic',
   name: "NotFound",
+   head: {
+    title: '404',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Page Not Found'
+      }
+    ],
+  }
 };
 </script>
 <style>

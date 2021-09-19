@@ -15,7 +15,7 @@ export default {
 
   ssr: true,
   head: {
-    title: 'Designing Jewel',
+    title: 'Designing Jewel- The showcase of Desi Indian and Rajasthani Jewellery',
     htmlAttrs: {
       lang: 'en'
     },
@@ -29,14 +29,19 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: ''
+        content: 'Photos of Indian , Desi , Rajasthani Gold jewellery Design with weight and category wise'
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: ',Indian,Desi,emboss,ehnic,jewellery,kundan,design,gold,Rajasthani,photos'
       }
     ],
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
       href: '/favicon.ico'
-    },{
+    }, {
       rel: 'stylesheet',
       href: "https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Poppins:wght@400;800&family=Teko&display=swap"
     }]
@@ -62,30 +67,18 @@ export default {
 
     '@nuxtjs/tailwindcss',
     '@nuxtjs/svg',
-
+    '@nuxtjs/google-analytics'
   ],
 
   modules: [
-    ['nuxt-i18n', {
-      locales: [{
-          name: 'English',
-          code: 'en',
-          iso: 'en-US'
-        },
-        {
-          name: 'Hindi',
-          code: 'hi',
-          iso: 'hi-IN'
-        }
-
-      ],
-      defaultLocale: 'en',
-      vueI18n: i18n
-    }],
-    ['nuxt-lazy-load'],
+    'nuxt-i18n',
+    // 'nuxt-lazy-load',
     '@nuxtjs/auth-next',
     '@nuxtjs/axios',
-    'vue-sweetalert2/nuxt'
+    'vue-sweetalert2/nuxt',
+    '@nuxtjs/google-adsense',
+    '@nuxtjs/sitemap',
+    '@nuxt/image',
   ],
 
   axios: {
@@ -144,5 +137,49 @@ export default {
     config: {
       productionTip: false
     }
-  }
+  },
+  i18n: {
+    defaultLocale: 'en',
+    seo: true,
+    locales: [{
+        name: 'English',
+        code: 'en',
+        iso: 'en-US'
+      },
+      {
+        name: 'Hindi',
+        code: 'hi',
+        iso: 'hi-IN'
+      }
+
+    ],
+    vueI18n: i18n
+  },
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
+  'google-adsense': {
+    id: process.env.GOOGLE_ADSENSE_ID,
+    onPageLoad: true
+  },
+  sitemap: {
+    hostname: 'https://desijewel.in',
+    gzip: true,
+    exclude: [
+      '/setting/**',
+      '/auth/**',
+      '/hi/auth/**',
+
+    ],
+    routes: [
+      '/gold/aad',
+      '/gold/mangalsutra',
+      {
+        url: '/gold/3',
+        changefreq: 'daily',
+        priority: 1,
+        lastmod: '2017-06-30T13:30:00.000Z'
+      }
+    ]
+  },
 }

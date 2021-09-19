@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::group(['middleware' => 'guest:api'], function () {
     Route::get('/designs', [DesignController::class, 'show']);
+    Route::get('/android', [DesignController::class, 'android']);
     Route::get('/DisplayDesign', [DesignController::class, 'display']);
 
     Route::post('/register', [AuthController::class, 'register']);

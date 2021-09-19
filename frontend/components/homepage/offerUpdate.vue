@@ -33,7 +33,7 @@
           />
         </div>
         <div class="m-auto">
-          <button @click="moveDesign"
+          <button @click="subscribe"
     class="border-black border-2  bg-black text-white hover:bg-primary  px-6 py-3 rounded"
            
           >
@@ -49,7 +49,7 @@
 export default {
   name: "offerUpdate",
   methods: {
-    moveDesign(){
+    subscribe(){
        this.$swal({
         showConfirmButton: false,
         timer: 1500,

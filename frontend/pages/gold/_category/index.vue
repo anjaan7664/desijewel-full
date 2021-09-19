@@ -80,14 +80,14 @@
         <div class="w-full h-full p-2 md:w-1/3 md:p-6 relative">
           <div v-if="categoryObject.silver_avail === 'yes'">
             <img
-              src="~/assets/img/shoppers/shoppers_silver.webp"
+              src="/shoppers/shoppers_silver.webp"
               alt="Designing Jewel Contact Card"
               class="w-full object-fill min-w-full"
             />
           </div>
           <div v-else>
             <img
-              src="~/assets/img/shoppers/shoppers1.webp"
+              src="/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
               class="w-full object-fill min-w-full"
             />
@@ -99,7 +99,7 @@
           :key="design.id"
           class="w-full p-2 md:w-1/3 md:p-6"
         >
-          <CardsDesignCard :design-data="design" />
+          <CardsDesignCard :design-data="design" cat-metal="gold" />
         </div>
       </div>
 
@@ -200,11 +200,22 @@ export default {
       this.Sub_Category = sort;
       this.page = 1;
       this.onPageChange();
-      
     },
     sortingButton: function(sort) {
       return this.categoryObject.sorting.includes(sort);
     }
+  },
+  head() {
+    return {
+      title:"Gold "+this.Category,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Home page description"
+        }
+      ]
+    };
   }
 };
 </script>

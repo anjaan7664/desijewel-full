@@ -9,21 +9,18 @@
         <nuxt-link
           :to="
             localePath({
-              path: '/design/' + designData.image,
+              path: '/'+catMetal+'/design/' + designData.image,
               query: { subCat: designData.sub_category }
             })
           "
         >
           <img
-            :src="
-              `http://206.189.142.151/designs/thumb/` +
-                [designData.path + designData.image + '.' + designData.img_type]
-            "
-            :alt="designData.alt"
-            :title="designData.alt"
+            loading="lazy"
+            :src="currentImage"
+            :alt="designAlt"
+            :title="designAlt"
             class="lazy-img-fadein md:absolute h-full w-full object-cover rounded min-h-[16rem]
-           transition duration-300 ease-in-out transform
-   "
+           transition duration-300 ease-in-out transform"
           />
         </nuxt-link>
       </div>
@@ -67,7 +64,27 @@
 <script>
 export default {
   name: "DesignCard",
-  props: ["designData"],
+  props: ["designData","catMetal"],
+  data() {
+    return {
+      currentImage:
+        "/designs/thumb/" +
+        [
+          this.designData.path +
+            this.designData.image +
+            "." +
+            this.designData.img_type
+        ],
+    };
+  },
+  computed: {
+    designAlt() {
+      if(this.$i18n.locale == "en"){
+        return this.designData.alt;
+      }
+      return this.designData.alt_hn;
+    }
+  },
   methods: {
     updateWeight: function(e) {
       this.designData.weight = e;
@@ -77,7 +94,9 @@ export default {
     },
     removeDesign: function(e) {
       if (e == true) {
-        document.getElementsByClassName('designComponent').classList.add('hidden')
+        document
+          .getElementsByClassName("designComponent")
+          .classList.add("hidden");
       }
     }
   }

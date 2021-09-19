@@ -98,10 +98,15 @@
                 </nuxt-link>
               </li>
               <li class="my-2">
+                <a href="/sitemap.xml">
+                  Sitemap
+                </a>
+              </li>
+              <!-- <li class="my-2">
                 <nuxt-link :to="localePath('/')">
                   Our Sources
                 </nuxt-link>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -175,13 +180,14 @@
               class="mt-2 ml-1 mb-2 font-semibold transition-colors duration-300 text-red hover:text-white "
               >Satlaa Tech</a
             >
-            <nuxt-link
+             <!-- Todo  Change lang -->
+            <!-- <nuxt-link
               class="mt-2 ml-1 mb-2 font-semibold transition-colors duration-300 hover:text-blue "
               v-for="locale in availableLocales"
               :key="locale.code"
              :to="switchLocalePath(locale.code)"
-              >{{ $t("footer.changeLang") }}</nuxt-link
-            >
+              >{{ $t("footer.changeLang") }}</nuxt-link > -->
+            
           </div>
           <!-- Social Media Icon -->
           <div class="flex md:ml-auto">
