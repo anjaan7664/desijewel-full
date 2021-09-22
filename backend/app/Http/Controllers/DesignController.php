@@ -63,36 +63,36 @@ class DesignController extends Controller
     {
         // validate query 
         $Category = $request->input('table');
-        
+
         switch ($Category) {
             case 'jodha_haar':
-              $Category = 'jodha-haar';
-              break;
+                $Category = 'jodha-haar';
+                break;
             case 'sohan_kanthi':
                 $Category = 'sohan-kanthi';
-              break;
+                break;
             case 'desi_aad':
                 $Category = 'desi-aad';
-              break;
+                break;
             case 'm_aad':
                 $Category = 'm_aad';
-              break;  
+                break;
             case 'chick':
                 $Category = 'chik-set';
-              break;  
-              case 'rakhdi_set':
+                break;
+            case 'rakhdi_set':
                 $Category = 'rakhdi-set';
-              break;
-                case 'ladies_ring':
+                break;
+            case 'ladies_ring':
                 $Category = 'ladies-ring';
-              break;
-                case 'gents_ring':
+                break;
+            case 'gents_ring':
                 $Category = 'gents-ring';
-              break;   
-              case 'ram_navmi':
+                break;
+            case 'ram_navmi':
                 $Category = 'ram-navmi';
-              break;  
-          }
+                break;
+        }
 
         $Sub_Category = '';
         $Page = 1;
@@ -124,8 +124,8 @@ class DesignController extends Controller
             $subCategorySending    = $row['sub_category'];
 
 
-            $thumb_path = $url . 'designs/thumb/' . $image_path. $row['image'].".".$row['img_type'];
-            $image             = $url . 'designs/images/' . $image_path . $row['image'].".".$row['img_type'];
+            $thumb_path = $url . 'designs/thumb/' . $image_path . $row['image'] . "." . $row['img_type'];
+            $image             = $url . 'designs/images/' . $image_path . $row['image'] . "." . $row['img_type'];
             $post_data_array[] = array(
                 'image' => $image,
                 'weight' => $weight,

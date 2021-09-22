@@ -8,7 +8,9 @@ export default {
     host: process.env.HOST,
     serverUrl: process.env.API_URL
   },
-
+  serverMiddleware: [
+    '~/middleware/redirect',
+  ],
   env: {
     serverUrl: process.env.API_URL
   },
