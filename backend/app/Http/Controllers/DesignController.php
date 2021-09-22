@@ -62,8 +62,38 @@ class DesignController extends Controller
     public function android(Request $request)
     {
         // validate query 
-
         $Category = $request->input('table');
+        
+        switch ($Category) {
+            case 'jodha_haar':
+              $Category = 'jodha-haar';
+              break;
+            case 'sohan_kanthi':
+                $Category = 'sohan-kanthi';
+              break;
+            case 'desi_aad':
+                $Category = 'desi-aad';
+              break;
+            case 'm_aad':
+                $Category = 'm_aad';
+              break;  
+            case 'chick':
+                $Category = 'chik-set';
+              break;  
+              case 'rakhdi_set':
+                $Category = 'rakhdi-set';
+              break;
+                case 'ladies_ring':
+                $Category = 'ladies-ring';
+              break;
+                case 'gents_ring':
+                $Category = 'gents-ring';
+              break;   
+              case 'ram_navmi':
+                $Category = 'ram-navmi';
+              break;  
+          }
+
         $Sub_Category = '';
         $Page = 1;
         $url = "https://desijewel.in/";
@@ -81,7 +111,7 @@ class DesignController extends Controller
         if (!empty($Sub_Category)) {
             $designs = Design::limit($perPage)->offset($from)->where('dp', '1')->where('category', $Category)->where('sub_category', $Sub_Category)->orderBy('hit', 'desc')->get();
         } else {
-            $designs = Design::limit(9)->offset($from)->where('dp', '1')->where('category', $Category)->orderBy('hit', 'desc')->get();
+            $designs = Design::limit($perPage)->offset($from)->where('dp', '1')->where('category', $Category)->orderBy('hit', 'desc')->get();
         }
         $post_data_array = array();
         foreach ($designs as $row) {
@@ -94,7 +124,7 @@ class DesignController extends Controller
             $subCategorySending    = $row['sub_category'];
 
 
-            $thumb_path = $url . 'designs/thumb/' . $image_path . $img;
+            $thumb_path = $url . 'designs/thumb/' . $image_path. $row['image'].".".$row['img_type'];
             $image             = $url . 'designs/images/' . $image_path . $row['image'].".".$row['img_type'];
             $post_data_array[] = array(
                 'image' => $image,

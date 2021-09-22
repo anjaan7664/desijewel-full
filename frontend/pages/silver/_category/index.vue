@@ -75,7 +75,7 @@ export default {
       Sort: "",
       Tag: "",
       id: "",
-      perPage: 14,
+      perPage: 20,
       body_part: [
         { icon: require("~/assets/img/svg/head.svg"), part: "head" },
         { icon: require("~/assets/img/svg/ear.svg"), part: "ear" },
@@ -156,9 +156,9 @@ export default {
 
   methods: {
     async onPageChange() {
+      window.scrollTo(0, 0);
       await this.$fetch();
       this.$router.push({ query: { ...this.$route.query, page: this.page } });
-      window.scrollTo(0, 0);
     },
 
   },
