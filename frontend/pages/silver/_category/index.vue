@@ -164,7 +164,7 @@ export default {
   },
   head() {
     return {
-      title:"Silver "+this.Category,
+      title:this.categoryObject.title,
       meta: [
         {
           hid: "description",

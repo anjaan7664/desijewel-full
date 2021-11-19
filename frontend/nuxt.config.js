@@ -17,7 +17,7 @@ export default {
 
   ssr: true,
   head: {
-    title: 'Designing Jewel- The showcase of Desi Indian and Rajasthani Jewellery',
+    title: 'Designing Jewel- The Showcase of Desi Indian and Rajasthani Jewellery',
     htmlAttrs: {
       lang: 'en'
     },
@@ -91,8 +91,13 @@ export default {
   auth: {
     strategies: {
       cookie: {
-        cookie: {
-          name: 'XSRF-TOKEN',
+        prefix: 'auth.',
+        options: {
+          path: '/',
+          domain: process.env.COOKIES_DOMAIN,
+          expires: 365,
+          maxAge: 31536000000, // 365 days
+          secure: true,
         }
       },
       'laravelSanctum': {

@@ -2,8 +2,8 @@
     "categories": [
         {
             "metal": "gold",
-            "title":"",
-            "description":"",
+            "title":"Desi Indian Rajasthani Gold Aad",
+            "description":"This photo is good",
             "silver_avail": "yes",
             "image": "aad.webp",
             "name": "category.aad",
@@ -13,7 +13,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Aawla/Bangles",
             "description":"",
             "silver_avail": "no",
             "image": "aawla.webp",
@@ -24,7 +24,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Bhujbandh",
             "description":"",
             "silver_avail": "yes",
             "image": "bhujbandh.webp",
@@ -35,7 +35,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Baajubandh",
             "description":"",
             "silver_avail": "yes",
             "image": "baajubandh.webp",
@@ -46,7 +46,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Bangles",
             "description":"",
             "silver_avail": "yes",
             "image": "bangles.webp",
@@ -57,7 +57,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Earring",
             "description":"",
             "silver_avail": "yes",
             "image": "bala.webp",
@@ -68,7 +68,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Bracelet",
             "description":"",
             "silver_avail": "yes",
             "image": "bracelet.webp",
@@ -79,7 +79,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Baali/Earrings",
             "description":"",
             "silver_avail": "no",
             "image": "baali.webp",
@@ -90,7 +90,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Chain",
             "description":"",
             "silver_avail": "no",
             "image": "chain.webp",
@@ -101,7 +101,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Chik-Set",
             "description":"",
             "silver_avail": "yes",
             "image": "chik-set.webp",
@@ -112,7 +112,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Desi Aad",
             "description":"",
             "silver_avail": "yes",
             "image": "desi-aad.webp",
@@ -123,7 +123,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Hathphool",
             "description":"",
             "silver_avail": "yes",
             "image": "hathphool.webp",
@@ -134,7 +134,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Jhoomariya",
             "description":"",
             "silver_avail": "yes",
             "image": "jhoomariya.webp",
@@ -145,7 +145,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Jodha-Haar",
             "description":"",
             "silver_avail": "yes",
             "image": "jodha-haar.webp",
@@ -156,7 +156,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Kandora/Kamarbandh",
             "description":"",
             "silver_avail": "yes",
             "image": "kandora.webp",
@@ -167,7 +167,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Kanti",
             "description":"",
             "silver_avail": "no",
             "image": "kanti.webp",
@@ -178,7 +178,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Mangalsutra",
             "description":"",
             "silver_avail": "no",
             "image": "mangalsutra.webp",
@@ -190,7 +190,7 @@
         
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Nath",
             "description":"",
             "silver_avail": "no",
             "image": "nath.webp",
@@ -201,7 +201,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Necklace",
             "description":"",
             "silver_avail": "yes",
             "image": "necklace.webp",
@@ -212,7 +212,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Nogariya",
             "description":"",
             "silver_avail": "no",
             "image": "nogariya.webp",
@@ -223,7 +223,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Punach",
             "description":"",
             "silver_avail": "no",
             "image": "punach.webp",
@@ -234,7 +234,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Pendal",
             "description":"",
             "silver_avail": "no",
             "image": "pendal.webp",
@@ -245,7 +245,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Rakhdi-Set",
             "description":"",
             "silver_avail": "yes",
             "image": "rakhdi-set.webp",
@@ -256,7 +256,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Getns-Ring",
             "description":"",
             "silver_avail": "no",
             "image": "gents-ring.webp",
@@ -267,7 +267,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Ladies-Ring",
             "description":"",
             "silver_avail": "no",
             "image": "ladies-ring.webp",
@@ -278,7 +278,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Ram-Navmi",
             "description":"",
             "silver_avail": "yes",
             "image": "ram-navmi.webp",
@@ -289,7 +289,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Sohan-Kanthi",
             "description":"",
             "silver_avail": "yes",
             "image": "sohan-kanthi.webp",
@@ -300,7 +300,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Sheeshphool",
             "description":"",
             "silver_avail": "yes",
             "image": "sheeshphool.webp",
@@ -311,7 +311,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Thusi",
             "description":"",
             "silver_avail": "yes",
             "image": "thusi.webp",
@@ -322,7 +322,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Timaniya",
             "description":"",
             "silver_avail": "yes",
             "image": "timaniya.webp",
@@ -333,7 +333,7 @@
         },
         {
             "metal": "gold",
-            "title":"",
+            "title":"Desi Indian Rajasthani Gold Maang-Teeka",
             "description":"",
             "silver_avail": "no",
             "image": "teeka.webp",
@@ -345,7 +345,7 @@
 
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Bangles",
             "description":"",
             "image": "silver-bangles.webp",
             "name": "category.bangles",
@@ -355,7 +355,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Utensil",
             "description":"",
             "image": "silver-utensil.webp",
             "name": "category.utensil",
@@ -365,7 +365,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Bracelet",
             "description":"",
             "image": "silver-bracelet.webp",
             "name": "category.bracelet",
@@ -375,7 +375,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Ring",
             "description":"",
             "image": "silver-ring.webp",
             "name": "category.ring",
@@ -385,7 +385,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Paayal",
             "description":"",
             "image": "silver-payal.webp",
             "name": "category.paayal",
@@ -395,7 +395,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver ",
             "description":"",
             "image": "silver-kada.webp",
             "name": "category.kada",
@@ -405,7 +405,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Kandora",
             "description":"",
             "image": "silver-kandora.webp",
             "name": "category.kandora",
@@ -415,7 +415,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Idol",
             "description":"",
             "image": "silver-idol.webp",
             "name": "category.idol",
@@ -425,7 +425,7 @@
         },
         {
             "metal": "silver",
-            "title":"",
+            "title":"Desi Rajasthani Silver Other Jewellery",
             "description":"",
             "image": "silver-others.webp",
             "name": "category.others",

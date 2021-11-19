@@ -25,7 +25,8 @@ import {
   faBars,
   faChevronUp,
   faCog,
-  faSearchPlus
+  faSearchPlus,
+  faCloudUploadAlt
 
 } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -37,7 +38,7 @@ import {
 
 library.add(faMapMarkerAlt, faPhoneSquareAlt, faEnvelope, faAddressBook, faArrowRight,
   faSignOutAlt, faBars, faLanguage, faUserCircle, faSearch, faCaretDown, faAngleRight, faChevronRight,
-  faSearchPlus,faInstagram, faTwitter, faFacebookSquare, faYoutube, faChevronUp, faCog
+  faSearchPlus,faInstagram, faTwitter, faFacebookSquare, faYoutube, faChevronUp, faCog, faCloudUploadAlt
 )
 
 Vue.component('Fa', FontAwesomeIcon)

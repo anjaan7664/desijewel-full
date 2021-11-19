@@ -181,7 +181,8 @@ export default {
     ...mapGetters("design", {
       // Commented when trying for ssr
       DesignsList: ["DesignsList"]
-    })
+    }),
+    
   },
 
   created() {},
@@ -207,12 +208,12 @@ export default {
   },
   head() {
     return {
-      title:"Gold "+this.Category,
+      title:this.categoryObject.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: "Home page description"
+          content: this.categoryObject.description,
         }
       ]
     };

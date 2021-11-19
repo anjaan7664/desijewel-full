@@ -7,7 +7,7 @@ export const state = () => ({
   isDirect: false,
   isLoaded: false,
   isLoading: true,
-  category: Category.categories
+  category: Category.categories,
 
 })
 
@@ -28,8 +28,14 @@ export const getters = {
   },
   category(state) {
     return state.category;
+  },
+  categoryObject: state => (url) =>{
+    return state.category.filter(i => i.url === url);
+  },
+  categoryList: state => {
+    return state.category.map(i => i.url);
   }
-
+  
 }
 export const actions = {
 

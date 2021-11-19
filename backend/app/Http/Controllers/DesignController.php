@@ -16,22 +16,26 @@ class DesignController extends Controller
         return view('spa');
     }
 
-
-
     public function store(Request $request)
     {
-        // validate query 
-
-        $article = $request->isMethod('put') ? Design::findOrFail($request->article_id) : new Design;
-
-        $article->id = $request->input('article_id');
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
-
-        if ($article->save()) {
-            return;
-        }
+        $request->validate([
+            'image' => 'required|file|image',
+        ]);
+        
+        $upload_path = public_path('upload');
+        $file_name = time().rand(1000, 100000);
+        $generated_new_name =  $file_name . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move($upload_path, $generated_new_name);
+        $insert['image'] = $file_name;
+        $insert['category'] = $request->category;
+        $insert['comment'] = 'Anjaan Uploaded';
+        $insert['sub_category'] = $request->type;
+        $insert['img_type'] = $request->image->getClientOriginalExtension();
+        $insert['hit'] = $request->likes;
+        $check = Design::insertGetId($insert);
+        return response()->json(['Success' => 'You have successfully uploaded ']);
     }
+
 
 
     public function show(Request $request)

@@ -4,9 +4,7 @@ export default function ({
   redirect
 }) {
   $axios.onError(error => {
-    if (error.response && error.response.status === 500) {
-      redirect('Auth/login')
-    }
+  console.log(error);
   })
   $axios.interceptors.response.use(
     response => {
