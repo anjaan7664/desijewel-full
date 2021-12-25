@@ -129,14 +129,20 @@ export default {
 
   methods: {
     async login() {
+      let data;
       try {
-        let response = await this.$auth.loginWith("laravelSanctum", {
+        const response = await this.$auth.loginWith("laravelSanctum", {
           data: this.form
         });
-        this.$router.push(`/`)
+        data = response.data;
       } catch (err) {
         this.$swal("Something Went Wrong.", "Try Again", "error");
       }
+      this.$store.dispatch("auth/saveToken", {
+        token: data.token,
+        remember: this.remember
+      });
+      // this.$router.push(`/`);
     }
   },
   head: {

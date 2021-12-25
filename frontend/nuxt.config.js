@@ -57,7 +57,7 @@ export default {
     '~/plugins/axios.js',
     '~plugins/i18n',
     '~/plugins/extras.client.js',
-    '~/plugins/vform.js',
+    '~/plugins/vform.client.js',
     '~/plugins/fontawesome.js',
     '~/plugins/vue-tailwind.client.js',
     '~/plugins/upload.client.js',
@@ -66,8 +66,7 @@ export default {
   components: true,
 
   buildModules: [
-
-    '@nuxtjs/tailwindcss',
+    '@nuxt/postcss8',
     '@nuxtjs/svg',
     '@nuxtjs/google-analytics'
   ],
@@ -83,21 +82,11 @@ export default {
     '@nuxt/image',
   ],
 
-  axios: {
-    credentials: true,
-    baseURL: 'http://localhost:8000',
-  },
-
   auth: {
     strategies: {
       cookie: {
-        prefix: 'auth.',
-        options: {
-          path: '/',
-          domain: process.env.COOKIES_DOMAIN,
-          expires: 365,
-          maxAge: 31536000000, // 365 days
-          secure: true,
+        cookie: {
+          name: 'XSRF-TOKEN',
         }
       },
       'laravelSanctum': {
@@ -132,13 +121,23 @@ export default {
           loose: true
         }]
       ]
-    }
+    },
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
   },
   configureWebpack: {
     devtool: 'source-map'
   },
   purgeCSS: {
     whitelistPatterns: [/svg.*/, /fa.*/]
+  },
+  axios: {
+    credentials: true,
+    baseURL: process.env.API_URL, // Used as fallback if no runtime config is provided
   },
   vue: {
     config: {

@@ -53,6 +53,7 @@
 </template>
 <script>
 import "vue-select/dist/vue-select.css";
+import { mapGetters } from 'vuex';
 export default {
   name: "fileUpload",
   middleware: "auth",
@@ -68,28 +69,45 @@ export default {
     return {
       designCategory: this.parentDesignCategory,
       designType: this.parentDesignType,
-      designLikes: null
+      designLikes: null,
+      uploadPercentage:0
     };
   },
   computed: {
     imageSrc: function() {
       return URL.createObjectURL(this.file);
-    }
+    },
+    ...mapGetters("design", {
+      // Commented when trying for ssr
+      
+    })
   },
-  created() {},
+  created() {
+    
+  },
   methods: {
     async uploadImage() {
+       let catDataFromJson =  this.$store.getters['design/categoryObject'](this.designCategory);
       let formData = new FormData();
       const config = {
         headers: {
           "content-type": "multipart/form-data"
-        }
+        },
+        onUploadProgress: function(progressEvent) {
+          this.uploadPercentage = parseInt(
+            Math.round((progressEvent.loaded / progressEvent.total) * 100)
+          );
+        }.bind(this)
       };
 
       formData.append("image", this.file);
       formData.append("likes", this.designLikes);
       formData.append("category", this.designCategory);
       formData.append("type", this.designType);
+      formData.append("path", catDataFromJson.path);
+      formData.append("alt", catDataFromJson.alt);
+      formData.append("alt_hn", catDataFromJson.alt_hn);
+      formData.append("user", this.$auth.user.name);
       await this.$axios
         .post("upload", formData, config)
         .then(response => {

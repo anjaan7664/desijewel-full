@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Design;
+use Image;
 
 
 class DesignController extends Controller
@@ -18,22 +19,60 @@ class DesignController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|file|image',
+        $this->validate($request, [
+            'image' => 'required|file|image|max:10000',
+            'category' => 'required',
+            'type' => 'required',
+            'likes' => 'required',
+            'path' => 'required',
+            'alt' => 'required',
+            'alt_hn' => 'required',
+            'user' => 'required'
+
         ]);
-        
-        $upload_path = public_path('upload');
-        $file_name = time().rand(1000, 100000);
-        $generated_new_name =  $file_name . '.' . $request->image->getClientOriginalExtension();
-        $request->image->move($upload_path, $generated_new_name);
-        $insert['image'] = $file_name;
+        // Change date in database to auto date
+        $image = $request->file('image');
+        $img_name = time().rand(1000, 100000);
+        $input['file'] = $img_name.'.'.$image->getClientOriginalExtension();
+
+        $imgFile = Image::make($image->getRealPath());
+        $img_w = $imgFile->width();
+        $img_h = $imgFile->height();
+        $dst_x = ($img_w / 20);
+        $dst_y = ($img_h / 1.15);
+        $set_raw_width  = floor(($img_w / 14));
+        $set_raw_height = floor(($img_h / 14));
+        if ($set_raw_height > $set_raw_width) {
+            $set_raw_width = $set_raw_height;
+        }
+
+
+        $watermark = Image::make(public_path('dj_logo.png'))->resize($set_raw_width, $set_raw_width);
+
+        $imgFile->insert($watermark, 'bottom-left', $set_raw_width, $set_raw_width)
+        ->save(public_path('/designs/images/').$request->path.'/'.$input['file']);
+
+        // For Thumbnails
+        // $imgFile->insert($watermark, 'bottom-left', $set_raw_width, $set_raw_width)
+        // ->save(public_path('/designs/thumb/').$request->path.'/'.$input['file']);
+
+        $desired_height = floor($img_h * (500 / $img_w));
+
+
+        Image::make(public_path('/designs/images/').$request->path.'/'.$input['file'])->resize(500, $desired_height)->save(public_path('/designs/thumb/').$request->path.'/'.$input['file']);
+    
+
+        $insert['image'] = $img_name;
         $insert['category'] = $request->category;
-        $insert['comment'] = 'Anjaan Uploaded';
+        $insert['comment'] = $request->user . ' Uploaded';
+        $insert['path'] = $request->path;
+        $insert['alt'] = $request->alt;
+        $insert['alt_hn'] = $request->alt_hn;
         $insert['sub_category'] = $request->type;
         $insert['img_type'] = $request->image->getClientOriginalExtension();
         $insert['hit'] = $request->likes;
         $check = Design::insertGetId($insert);
-        return response()->json(['Success' => 'You have successfully uploaded ']);
+        return response()->json(['Success' => 'You have successfully uploaded']);
     }
 
 
@@ -275,4 +314,6 @@ class DesignController extends Controller
 
         return $response;
     }
-}
+
+
+   }
