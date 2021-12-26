@@ -60,7 +60,7 @@
               ></div>
             </div>
           </div>
-        
+
           <!-- <HelpersBaseProgress :percentage="60" class=""/> -->
         </div>
       </form>
@@ -71,113 +71,119 @@
 import "vue-select/dist/vue-select.css";
 import BaseProgress from "../helpers/BaseProgress.vue";
 export default {
-    name: "fileUpload",
-    middleware: "auth",
-    props: [
-        "file",
-        "type",
-        "category",
-        "parentDesignCategory",
-        "parentDesignType",
-        "uniqueID"
-    ],
-    data() {
-        return {
-            designCategory: null,
-            designType: null,
-            designLikes: null,
-            uploadPercentage: 0,
-            submitted: false
-        };
+  name: "fileUpload",
+  middleware: "auth",
+  props: [
+    "file",
+    "type",
+    "category",
+    "parentDesignCategory",
+    "parentDesignType",
+    "uniqueID"
+  ],
+  data() {
+    return {
+      designCategory: null,
+      designType: null,
+      designLikes: null,
+      uploadPercentage: 0,
+      submitted: false
+    };
+  },
+  computed: {
+    imageSrc: function() {
+      return URL.createObjectURL(this.file);
     },
-    computed: {
-        imageSrc: function () {
-            return URL.createObjectURL(this.file);
+    isDisabled: function() {
+      return !this.designCategory;
+    }
+  },
+  created() {},
+  methods: {
+    setValueCat: function(value) {
+      this.designCategory = value;
+    },
+    setValueType: function(value) {
+      this.designType = value;
+    },
+    setAllSubmit: function() {
+      if (
+        (this.designCategory != null && this.designType != null) ||
+        this.submitted == false
+      ) {
+        this.$refs.upload_button.click();
+      }
+    },
+    async uploadImage() {
+      this.submitted = true;
+      let catDataFromJson = this.$store.getters["design/categoryObject"](
+        this.designCategory
+      );
+      if (this.designType == null) {
+        this.designType = "desi";
+      }
+      if (this.designLikes == null) {
+        this.designLikes = 100;
+      }
+      let formData = new FormData();
+      const config = {
+        headers: {
+          "content-type": "multipart/form-data"
         },
-        isDisabled: function () {
-            return !this.designCategory;
+        onUploadProgress: function(progressEvent) {
+          this.uploadPercentage = parseInt(
+            Math.round((progressEvent.loaded / progressEvent.total) * 100)
+          );
+        }.bind(this)
+      };
+      formData.append("image", this.file);
+      formData.append("likes", this.designLikes);
+      formData.append("category", this.designCategory);
+      formData.append("type", this.designType);
+      formData.append("path", catDataFromJson.path);
+      formData.append("alt", catDataFromJson.alt);
+      formData.append("alt_hn", catDataFromJson.alt_hn);
+      formData.append("user", this.$auth.user.name);
+      await this.$axios
+        .post("upload", formData, config)
+        .then(response => {
+          this.showToast("Photo Uploaded.", "success");
+          // Delete coomponent when upload complete
+          this.$emit("delete-row");
+        })
+        .catch(error => {
+          this.submitted = false;
+          (this.uploadPercentage = 0),
+            this.showToast("Something Went Wrong.", "error");
+        });
+    },
+    removeSelf: function() {
+      this.$swal({
+        title: "Remove This Image ?",
+        showCancelButton: true,
+        confirmButtonText: "Remove It",
+        confirmButtonColor: "#8E1600"
+      }).then(result => {
+        if (result.isConfirmed) {
+          //    this.$destroy();
+          // this.$el.parentNode.removeChild(this.$el);
+          this.$emit("delete-row", this.uniqueID);
+          console.log(this.uniqueID);
         }
+      });
     },
-    created() { },
-    methods: {
-        setValueCat: function (value) {
-            this.designCategory = value;
-        },
-        setValueType: function (value) {
-            this.designType = value;
-        },
-        setAllSubmit: function () {
-            if ((this.designCategory != null && this.designType != null) ||
-                this.submitted == false) {
-                this.$refs.upload_button.click();
-            }
-        },
-        async uploadImage() {
-            this.submitted = true;
-            let catDataFromJson = this.$store.getters["design/categoryObject"](this.designCategory);
-            if (this.designType == null) {
-                this.designType = "desi";
-            }
-            if (this.designLikes == null) {
-                this.designLikes = 100;
-            }
-            let formData = new FormData();
-            const config = {
-                headers: {
-                    "content-type": "multipart/form-data"
-                },
-                onUploadProgress: function (progressEvent) {
-                    this.uploadPercentage = parseInt(Math.round((progressEvent.loaded / progressEvent.total) * 100));
-                }.bind(this)
-            };
-            formData.append("image", this.file);
-            formData.append("likes", this.designLikes);
-            formData.append("category", this.designCategory);
-            formData.append("type", this.designType);
-            formData.append("path", catDataFromJson.path);
-            formData.append("alt", catDataFromJson.alt);
-            formData.append("alt_hn", catDataFromJson.alt_hn);
-            formData.append("user", this.$auth.user.name);
-            await this.$axios
-                .post("upload", formData, config)
-                .then(response => {
-                this.progress = 0;
-                this.showToast("Photo Uploaded.", "success");
-                // Delete coomponent when upload complete
-                this.$emit("delete-row");
-            })
-                .catch(error => {
-                this.submitted = false;
-                this.showToast("Something Went Wrong.", "error");
-            });
-        },
-        removeSelf: function () {
-            this.$swal({
-                title: "Remove This Image ?",
-                showCancelButton: true,
-                confirmButtonText: "Remove It",
-                confirmButtonColor: "#8E1600"
-            }).then(result => {
-                if (result.isConfirmed) {
-                    //    this.$destroy();
-                    // this.$el.parentNode.removeChild(this.$el);
-                    this.$emit("delete-row", this.uniqueID);
-                    console.log(this.uniqueID);
-                }
-            });
-        },
-        showToast: function (msg, icon) {
-            // I could use these as Vue-Mixins
-            this.$swal({
-                toast: true,
-                position: "top",
-                showConfirmButton: false,
-                timer: 1000,
-                icon: icon,
-                title: msg
-            });
-        }
-    },
-    components: { BaseProgress }
+    showToast: function(msg, icon) {
+      // I could use these as Vue-Mixins
+      this.$swal({
+        toast: true,
+        position: "top",
+        showConfirmButton: false,
+        timer: 1000,
+        icon: icon,
+        title: msg
+      });
+    }
+  },
+  components: { BaseProgress }
 };
 </script>

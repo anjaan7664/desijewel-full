@@ -32,7 +32,7 @@
         <li v-show="designData.weight" class="">
           <!-- <span class="font-bold">Price - </span><span>150000</span> -->
           <span class="font-bold">Weight </span
-          ><span>{{ designData.weight }}</span>
+          ><span ref="designWeight">{{ designData.weight }}</span>
         </li>
       </ul>
       <p class="absolute top-0 text-xl">
@@ -45,11 +45,11 @@
           "
           class="text-blue-400 underline capitalize"
         >
-          <span>{{ designData.sub_category }}</span>
+          <span >{{ designData.sub_category }}</span>
         </nuxt-link>
       </p>
       <p v-if="$auth.loggedIn" class="absolute top-0 right-0 text-xl">
-        <span>{{ designData.hit }}</span>
+        <span ref="designHit">{{ designData.hit }}</span>
       </p>
     </div>
     <AdminEdit
@@ -87,10 +87,10 @@ export default {
   },
   methods: {
     updateWeight: function(e) {
-      this.designData.weight = e;
+      this.$refs.designWeight.innerText = e;
     },
     updateHit: function(e) {
-      this.designData.hit = e;
+         this.$refs.designHit.innerText = e;
     },
     removeDesign: function(e) {
       if (e == true) {

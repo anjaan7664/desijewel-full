@@ -20,7 +20,6 @@ class DesignController extends Controller
     public function store(Request $request)
     {
 
-        sleep(2);
         $this->validate($request, [
             'image' => 'required|file|image|max:10000',
             'category' => 'required',
