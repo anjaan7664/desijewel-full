@@ -1,9 +1,8 @@
 <template>
   <div id="app" class="">
-    <div style="padding: 10px;margin: 0px" class="row ">
+    <div style="padding: 10px;margin: 0px" class="row prose md:prose-lg lg:prose-xl">
       <!--  Displaying images    -->
       <h1 class="text-3xl font-bold"> Privacy Policy</h1>
-      <br>
       <p>We at Desijewel.in , take your online privacy seriously.This document outlines the types of information collected by our servers and provides links to the privacy policies of our third-party advertising partners.</p>
       <p>This Privacy Policy governs the manner in which Desijewel collects, uses, maintains and discloses information collected from users (each, a "User") of the https://www.desijewel.in website ("Site").</p>
       <h3> Log Files</h3>
@@ -48,7 +47,7 @@
         <li>Google, as a third party vendor, uses cookies to serve ads on your site.</li>
         <li>Google's use of the DART cookie enables it to serve ads to your users based on their visit to your sites and other sites on the Internet.</li>
         <li>Users may opt out of the use of the DART cookie by visiting the <a href="https://www.www.google.com/privacy_ads.html">Google ad and content network privacy policy</a>.</li>
-        <br>
+
       </ul>
       <h3>Changes to this privacy policy</h3>
       <p>Desijewel has the discretion to update this privacy policy at any time. When we do, we will post a notification on the main page of our Site. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.</p>

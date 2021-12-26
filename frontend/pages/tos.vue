@@ -1,6 +1,6 @@
 <template>
   <div id="app" class>
-    <div style="padding: 10px;margin: 0px" class="row">
+    <div style="padding: 10px;margin: 0px" class="row prose md:prose-lg lg:prose-xl">
       <!--  Displaying images    -->
 
       <h2 class="text-3xl font-bold">Terms of Service</h2>

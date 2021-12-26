@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-h-[80vh]">
     <h1>{{ auth.user.email }}</h1>
     <button @click.prevent="logOut">Log out</button>
   </div>

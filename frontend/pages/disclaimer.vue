@@ -1,9 +1,8 @@
 <template>
   <div id="app" class>
-    <div style="padding: 10px;margin: 0px" class="row">
+    <div style="padding: 10px;margin: 0px" class="row prose md:prose-lg lg:prose-xl">
       <h2 class="text-3xl font-bold"> Disclaimer</h2>
 
-      <br>
       
 
       <p>All the information and photos on this website is published in good faith and for general information purpose only. desijewel does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (desijewel.in), is strictly at your own risk. desijewel will not be liable for any losses and/or damages in connection with the use of our website.</p>
@@ -23,7 +22,7 @@
         </b>.
       </p>
       <h4>Update</h4>
-      <p>This Desijewel.in's disclaimer was last updated on: Monday, July 16, 2017· Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
+      <p>This Desijewel.in's disclaimer was last updated on: Monday, July 16, 2021· Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
     </div>
   </div>
 </template>
