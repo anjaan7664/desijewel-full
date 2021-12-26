@@ -19,7 +19,6 @@ class DesignController extends Controller
 
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'image' => 'required|file|image|max:10000',
             'category' => 'required',
@@ -29,13 +28,13 @@ class DesignController extends Controller
             'alt' => 'required',
             'alt_hn' => 'required',
             'user' => 'required'
-
+            
         ]);
         // Change date in database to auto date
         $image = $request->file('image');
         $img_name = time() . rand(1000, 100000);
         $input['file'] = $img_name . '.' . $image->getClientOriginalExtension();
-
+        
         $imgFile = Image::make($image->getRealPath());
         $img_w = $imgFile->width();
         $img_h = $imgFile->height();
@@ -48,11 +47,11 @@ class DesignController extends Controller
         $watermark = Image::make(public_path('dj_logo.png'))->resize($set_raw_width, $set_raw_width);
 
         $imgFile->insert($watermark, 'bottom-left', $set_raw_width, $set_raw_width)
-            ->save(public_path('/designs/images/') . $request->path . '/' . $input['file']);
-
+        ->save(public_path('designs/images/') . $request->path . '/' . $input['file']);
+        
         // For Thumbnails
         $desired_height = floor($img_h * (500 / $img_w));
-        Image::make(public_path('/designs/images/') . $request->path . '/' . $input['file'])->resize(500, $desired_height)->save(public_path('/designs/thumb/') . $request->path . '/' . $input['file']);
+        Image::make(public_path('designs/images/') . $request->path . '/' . $input['file'])->resize(500, $desired_height)->save(public_path('designs/thumb/') . $request->path . '/' . $input['file']);
 
         $insert['image'] = $img_name;
         $insert['category'] = $request->category;
