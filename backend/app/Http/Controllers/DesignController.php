@@ -112,15 +112,16 @@ class DesignController extends Controller
 
             if (!file_exists($path)) {
                 if (file_exists($originalFile)) {
-                    $imgFile = Image::make($originalFile);
-                    $img_w = $imgFile->width();
-                    $img_h = $imgFile->height();
-                    $desired_height = floor($img_h * (500 / $img_w));
-
-                    Image::make($imgFile)->resize(500, $desired_height)->save(public_path('/designs/thumb/'.$image_path.$img.'.'.$img_type));
+                    
+                    $imgFile = Image::make(public_path('designs/images/' . $image_path . $img . '.' . $img_type));
+                    // $img_w = $imgFile->width();
+                    // $img_h = $imgFile->height();
+                    // $desired_height = floor($img_h * (500 / $img_w));
                     $arrayForThumb[] = array(
-                        'image' => $img,
+                        'image' => $originalFile,
                     );
+                    // Image::make($imgFile)->resize(500, $desired_height)->save(public_path('/designs/thumb/'.$image_path.$img.'.'.$img_type));
+                   
                 }
             }
         }
