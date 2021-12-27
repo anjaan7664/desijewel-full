@@ -19,6 +19,19 @@
                 <div class="mx-auto max-w-lg">
                   <div class="py-2">
                     <span class="px-1 text-sm text-gray-600">{{
+                      $t("username")
+                    }}</span>
+                    <input
+                      v-model="form.username"
+                      :class="{ 'is-invalid': form.errors.has('username') }"
+                      class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
+                      type="text"
+                      name="username"
+                    />
+                    <has-error :form="form" field="username" />
+                  </div>
+                  <div class="py-2">
+                    <span class="px-1 text-sm text-gray-600">{{
                       $t("name")
                     }}</span>
                     <input
@@ -115,7 +128,8 @@ export default {
   data: () => ({
     form: new Form({
       name: "",
-      email: "",
+      username: "",
+      email: null,
       password: "",
       password_confirmation: ""
     }),
@@ -124,23 +138,22 @@ export default {
 
   methods: {
     async register() {
+      let data;
       // Register the user.
       await this.$axios.$get("sanctum/csrf-cookie");
-  
-      const { data } = await this.form.post(
-        "http://localhost:8000/api/register"
-      );
-      // Must verify email fist.
-      if (data.status) {
-        this.mustVerifyEmail = true;
-      } else {
-        try {
-          let response = await this.$auth.loginWith("laravelSanctum", {
-            data: this.form
-          });
-        } catch (err) {
-          console.log(err);
-        }
+
+      try {
+        const response = await await this.$axios.post("register", this.form);
+        data = response.data;
+        console.log(data);
+        this.$store.dispatch("auth/saveToken", {
+          token: data.token,
+          remember: this.remember
+        });
+
+        this.$router.push(`/`);
+      } catch (err) {
+        this.$swal("Something Went Wrong.", "Try Again", "error");
       }
     }
   }

@@ -108,9 +108,9 @@ export default {
       }
     },
     redirect: {
-      login: '/Auth/login',
-      logout: '/Auth/login',
-      callback: '/Auth/login',
+      login: 'Auth/login',
+      logout: 'Auth/login',
+      callback: 'Auth/login',
       home: '/'
     }
   },

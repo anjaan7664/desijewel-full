@@ -18,14 +18,16 @@ class AuthController extends Controller
     {
         $attr = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email',
+            'username' => 'required|string|max:255|unique:users,username',
+            'email' => 'string|email',
             'password' => 'required|string|min:6|confirmed'
         ]);
 
         $user = User::create([
             'name' => $attr['name'],
             'password' => bcrypt($attr['password']),
-            'email' => $attr['email']
+            'email' => $attr['email'],
+            'username' => $attr['username']
         ]);
         $token = $user->createToken('auth_token')->plainTextToken;
         $response = [
@@ -38,7 +40,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $attr = $request->validate([
-            'email' => 'required|string|email|',
+            'username' => 'required|string',
             'password' => 'required|string|min:6'
         ]);
 

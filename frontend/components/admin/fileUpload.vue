@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="m-4">
+    <div class="my-2 w-full md:m-4">
       <form
         @submit.prevent="uploadImage"
         class="flex flex-wrap w-full shadow-lg border border-black"

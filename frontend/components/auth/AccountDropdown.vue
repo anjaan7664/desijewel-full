@@ -3,7 +3,7 @@
     <div>
       <button
         @click="isOpen = !isOpen"
-        class="text-center hidden md:block"
+        class="text-center  md:block"
         id="user-menu"
         aria-label="User menu"
         aria-haspopup="true"

@@ -33,14 +33,14 @@
         ></v-select>
         <v-select
           placeholder="Select Type"
-          class="mt-2 md:w-1/2 text-xl"
+          class="mt-2 w-full md:w-1/2 text-xl"
           :options="type"
           v-model="parentDesignType"
           @input="updateType"
         ></v-select>
       </div>
       <div class="flex flex-wrap">
-        <div class="md:w-1/2" v-for="file in files" :key="file.id">
+        <div class="w-full md:w-1/2" v-for="file in files" :key="file.id">
         
             <AdminFileUpload
               :uniqueID="file.id"
@@ -66,7 +66,7 @@
 <script>
 export default {
   name: "admin",
-  // middleware: "auth",
+  middleware: "auth",
   data: function() {
     return {
       id: null,

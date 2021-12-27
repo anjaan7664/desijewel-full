@@ -16,25 +16,25 @@
                 <div class="mx-auto max-w-lg">
                   <div class="py-2">
                     <span class="px-1 text-sm text-gray-600">{{
-                      $t("email")
+                      $t("username")
                     }}</span>
                     <input
-                      v-model="form.email"
+                      v-model="form.username"
                       :class="{
-                        'is-invalid': form.errors.has('email')
+                        'is-invalid': form.errors.has('username')
                       }"
                       class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
-                      type="email"
-                      name="email"
+                      type="text"
+                      name="username"
                     />
                     <div
-                      v-if="errors.email"
+                      v-if="errors.username"
                       class="text-red-400 text-xs mb-4 mt-2"
                     >
-                      {{ errors.email[0] }}
+                      {{ errors.username[0] }}
                     </div>
 
-                    <!-- <has-error :form="form" field="email" /> -->
+                    <!-- <has-error :form="form" field="username" /> -->
                   </div>
                   <div class="py-2">
                     <span class="px-1 text-sm text-gray-600">{{
@@ -110,7 +110,6 @@
 import Form from "vform";
 
 export default {
-  middleware: "auth",
   components: {},
 
   metaInfo() {
@@ -119,7 +118,7 @@ export default {
 
   data: () => ({
     form: new Form({
-      email: "",
+      username: "",
       password: ""
     }),
     errors: {},
@@ -135,14 +134,14 @@ export default {
           data: this.form
         });
         data = response.data;
+        this.$store.dispatch("auth/saveToken", {
+          token: data.token,
+          remember: this.remember
+        });
+        this.$router.push(`/`);
       } catch (err) {
         this.$swal("Something Went Wrong.", "Try Again", "error");
       }
-      this.$store.dispatch("auth/saveToken", {
-        token: data.token,
-        remember: this.remember
-      });
-      // this.$router.push(`/`);
     }
   },
   head: {
