@@ -112,7 +112,7 @@ class DesignController extends Controller
 
             if (!file_exists($path)) {
                 if (file_exists($originalFile)) {
-                    
+
                     $imgFile = Image::make(public_path('designs/images/' . $image_path . $img . '.' . $img_type));
                     // $img_w = $imgFile->width();
                     // $img_h = $imgFile->height();
@@ -121,7 +121,7 @@ class DesignController extends Controller
                         'image' => $originalFile,
                     );
                     // Image::make($imgFile)->resize(500, $desired_height)->save(public_path('/designs/thumb/'.$image_path.$img.'.'.$img_type));
-                   
+
                 }
             }
         }
@@ -291,47 +291,48 @@ class DesignController extends Controller
     public function edit(Request $request)
     {
         $image = $request->input('image');
+        $user = $request->input('user');
         $response = "";
         switch ($request->input('editWhat')) {
             case 'weight':
                 $weight = $request->input('weight');
                 $response =  Design::where('image', $image)
-                    ->update(['weight' => $weight]);
+                    ->update(['weight' => $weight, 'comment' => $user.' updated weight']);
                 break;
             case 'move':
                 $move = $request->input('category');
                 $response =  Design::where('image', $image)
-                    ->update(['user' => $move]);
+                    ->update(['user' => $move, 'comment' => ' ' . $user . ' moved ']);
 
                 break;
             case 'delete':
 
                 $response =  Design::where('image', $image)
-                    ->update(['dp' => 0]);
+                    ->update(['dp' => 0, 'comment' => ' ' . $user . ' delete']);
                 break;
             case 'hit':
                 $hit = $request->input('hit');
                 $response =  Design::where('image', $image)
-                    ->update(['hit' => $hit]);
+                    ->update(['hit' => $hit, 'comment' => ' ' . $user . ' hit ' . $hit]);
 
                 break;
             case 'type':
                 $type = $request->input('type');
                 $response =  Design::where('image', $image)
-                    ->update(['sub_category' => $type]);
+                    ->update(['sub_category' => $type, 'comment' => ' ' . $user . ' type ' . $type]);
 
                 break;
             case 'alt':
                 $alt = $request->input('alt');
                 $alt_hn = $request->input('alt_hn');
                 $response =  Design::where('image', $image)
-                    ->update(['alt' => $alt, 'alt_hn' => $alt_hn]);
+                    ->update(['alt' => $alt, 'alt_hn' => $alt_hn, 'comment' => ' ' . $user . ' alt']);
 
                 break;
             case 'rename':
                 $rename = $request->input('rename');
                 $response =  Design::where('image', $image)
-                    ->update(['rename' => $rename]);
+                    ->update(['rename' => $rename, 'comment' => ' ' . $user . ' rename ' . $rename]);
 
                 break;
         }

@@ -223,6 +223,7 @@ export default {
       formData.append("weight", this.weight);
       formData.append("image", this.designData.image);
       formData.append("editWhat", "weight");
+      formData.append("user", this.$auth.user.name);
       await this.$axios
         .post("edit", formData, {
           headers: {
@@ -250,6 +251,7 @@ export default {
           let formData = new FormData();
           formData.append("image", this.designData.image);
           formData.append("editWhat", "delete");
+          formData.append("user", this.$auth.user.name);
           this.$axios
             .post("edit", formData, {
               headers: {
@@ -289,11 +291,12 @@ export default {
 
       if (category) {
         let formData = new FormData();
-            this.showToast("You selected: " + category, "success");
+        this.showToast("You selected: " + category, "success");
 
         formData.append("category", category);
         formData.append("image", this.designData.image);
         formData.append("editWhat", "move");
+        formData.append("user", this.$auth.user.name);
         this.$axios
           .post("edit", formData, {
             headers: {
@@ -317,6 +320,7 @@ export default {
       formData.append("alt_hn", this.alt_hn);
       formData.append("image", this.designData.image);
       formData.append("editWhat", "alt");
+      formData.append("user", this.$auth.user.name);
 
       await this.$axios
         .post("edit", formData, {
@@ -338,6 +342,7 @@ export default {
       formData.append("title", this.title);
       formData.append("image", this.designData.image);
       formData.append("editWhat", "rename");
+      formData.append("user", this.$auth.user.name);
 
       await this.$axios
         .post("edit", formData, {
@@ -360,6 +365,7 @@ export default {
       formData.append("hit", this.hit);
       formData.append("image", this.designData.image);
       formData.append("editWhat", "hit");
+      formData.append("user", this.$auth.user.name);
 
       await this.$axios
         .post("edit", formData, {
@@ -405,7 +411,8 @@ export default {
         formData.append("type", subCat);
         formData.append("image", this.designData.image);
         formData.append("editWhat", "type");
-          await this.$axios
+        formData.append("user", this.$auth.user.name);
+        await this.$axios
           .post("edit", formData, {
             headers: {
               "Content-Type": "multipart/form-data"
