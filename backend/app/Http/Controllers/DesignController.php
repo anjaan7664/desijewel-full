@@ -28,13 +28,13 @@ class DesignController extends Controller
             'alt' => 'required',
             'alt_hn' => 'required',
             'user' => 'required'
-            
+
         ]);
         // Change date in database to auto date
         $image = $request->file('image');
         $img_name = time() . rand(1000, 100000);
         $input['file'] = $img_name . '.' . $image->getClientOriginalExtension();
-        
+
         $imgFile = Image::make($image->getRealPath());
         $img_w = $imgFile->width();
         $img_h = $imgFile->height();
@@ -45,10 +45,15 @@ class DesignController extends Controller
         }
 
         $watermark = Image::make(public_path('dj_logo.png'))->resize($set_raw_width, $set_raw_width);
+        $path = public_path('designs/raw/' . $request->path);
 
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+        $imgFile->save($path . '/' . $input['file']);
         $imgFile->insert($watermark, 'bottom-left', $set_raw_width, $set_raw_width)
-        ->save(public_path('designs/images/') . $request->path . '/' . $input['file']);
-        
+            ->save(public_path('designs/images/') . $request->path . '/' . $input['file']);
+
         // For Thumbnails
         $desired_height = floor($img_h * (500 / $img_w));
         Image::make(public_path('designs/images/') . $request->path . '/' . $input['file'])->resize(500, $desired_height)->save(public_path('designs/thumb/') . $request->path . '/' . $input['file']);
@@ -78,6 +83,7 @@ class DesignController extends Controller
         $Sort = $request->input('Sort');
         $Tag = $request->input('Tag');
         $perPage = $request->input('perPage');
+
         Design::where('category', $Category)->firstOrFail();
         if (!empty($Sub_Category)) {
             $designs = Design::where('dp', '1')->where('category', $Category)->where('sub_category', $Sub_Category)->orderBy('hit', 'desc')->paginate($perPage);
@@ -92,7 +98,34 @@ class DesignController extends Controller
         //     return abort(404);
         // }
     }
+    public function makeThumb(Request $request)
+    {
+        $designs = Design::where('dp', '1')->orderBy('hit', 'desc')->get();
+        $arrayForThumb = array();
 
+        foreach ($designs as $row) {
+            $image_path = $row['path'];
+            $img     = $row['image'];
+            $img_type = $row['img_type'];
+            $path  =         public_path('designs/thumb/' . $image_path . $img . '.' . $img_type);
+            $originalFile = public_path('designs/images/' . $image_path . $img . '.' . $img_type);
+
+            if (!file_exists($path)) {
+                if (file_exists($originalFile)) {
+                    $imgFile = Image::make($originalFile);
+                    $img_w = $imgFile->width();
+                    $img_h = $imgFile->height();
+                    $desired_height = floor($img_h * (500 / $img_w));
+
+                    Image::make($imgFile)->resize(500, $desired_height)->save(public_path('/designs/thumb/'.$image_path.$img.'.'.$img_type));
+                    $arrayForThumb[] = array(
+                        'image' => $img,
+                    );
+                }
+            }
+        }
+        return $arrayForThumb;
+    }
     public function android(Request $request)
     {
         // validate query 

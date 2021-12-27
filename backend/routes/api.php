@@ -12,12 +12,11 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('/designs', [DesignController::class, 'show']);
     Route::post('/android', [DesignController::class, 'android']);
     Route::get('/DisplayDesign', [DesignController::class, 'display']);
-
-
-
     Route::post('/register', [AuthController::class, 'register']);
-
     Route::post('/login', [AuthController::class, 'login']);
+
+    Route::get('/make_thumb', [DesignController::class, 'makeThumb']);
+
 });
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
