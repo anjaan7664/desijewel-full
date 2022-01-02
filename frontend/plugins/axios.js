@@ -15,7 +15,7 @@
    // Request interceptor
    axios.interceptors.request.use((request) => {
 
-     const token = this.$auth.$storage.getCookie('token')
+     const token = store.getters['auth/token']
 
      if (token) {
        request.headers.common.Authorization = `Bearer ${token}`

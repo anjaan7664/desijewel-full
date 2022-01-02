@@ -130,6 +130,7 @@ export default {
     // login user with email and password
     async login() {
       let data;
+
       try {
         const response = await this.$auth.loginWith("laravelSanctum", {
           data: this.form
