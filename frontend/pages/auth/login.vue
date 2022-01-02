@@ -111,7 +111,7 @@ import Form from "vform";
 
 export default {
   components: {},
-
+  middleware: ["guest"],
   metaInfo() {
     return { title: this.$t("login") };
   },
@@ -127,6 +127,7 @@ export default {
   mounted() {},
 
   methods: {
+    // login user with email and password
     async login() {
       let data;
       try {
@@ -134,10 +135,7 @@ export default {
           data: this.form
         });
         data = response.data;
-        this.$store.dispatch("auth/saveToken", {
-          token: data.token,
-          remember: this.remember
-        });
+        this.$auth.$storage.setCookie("token", data.token, { expires: 60 });
         this.$router.push(`/`);
       } catch (err) {
         this.$swal("Something Went Wrong.", "Try Again", "error");
@@ -145,12 +143,12 @@ export default {
     }
   },
   head: {
-    title: "Home page",
+    title: "Login Page",
     meta: [
       {
         hid: "description",
         name: "description",
-        content: "Home page description"
+        content: "Login for the application"
       }
     ]
   }

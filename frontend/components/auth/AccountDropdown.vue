@@ -64,7 +64,7 @@ export default {
       this.$auth
         .logout("laravelSanctum", { data: this.form })
         .then(response => {
-          this.$router.push(`auth/login`);
+          this.$router.push(`/auth/login`);
         })
         .catch(({ response }) => {
           this.errors = response.data.errors;

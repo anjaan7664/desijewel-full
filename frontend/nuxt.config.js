@@ -84,14 +84,14 @@ export default {
 
   auth: {
     strategies: {
-      cookie: {
-        cookie: {
-          name: 'XSRF-TOKEN',
-        }
-      },
       'laravelSanctum': {
         provider: 'laravel/sanctum',
         url: process.env.API_URL,
+        cookie: {
+          cookie: {
+            name: 'token', // cookie name
+          }
+        },
         endpoints: {
           login: {
             url: '/login',
@@ -104,13 +104,14 @@ export default {
             url: '/user',
             method: 'get'
           }
-        }
+        },
+        withCredentials: true // Send cookies to allow the server to access session
       }
     },
     redirect: {
-      login: 'Auth/login',
-      logout: 'Auth/login',
-      callback: 'Auth/login',
+      login: '/auth/login',
+      logout: '/auth/login',
+      callback: '/auth/login',
       home: '/'
     }
   },

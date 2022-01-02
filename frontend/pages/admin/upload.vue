@@ -66,7 +66,7 @@
 <script>
 export default {
   name: "admin",
-  middleware: "auth",
+  middleware: "admin",
   data: function() {
     return {
       id: null,

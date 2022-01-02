@@ -120,7 +120,7 @@
 import Form from "vform";
 export default {
   components: {},
-
+  middleware: ["guest"],
   metaInfo() {
     return { title: this.$t("register") };
   },

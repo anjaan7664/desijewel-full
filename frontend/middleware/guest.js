@@ -1,5 +1,5 @@
-export default ({ store, redirect }) => {
-  if (store.getters['auth/check']) {
+export default ({ $auth, redirect }) => {
+  if ($auth.loggedIn) {
     return redirect('/')
   }
 }

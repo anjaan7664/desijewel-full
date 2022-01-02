@@ -297,12 +297,25 @@ class DesignController extends Controller
             case 'weight':
                 $weight = $request->input('weight');
                 $response =  Design::where('image', $image)
-                    ->update(['weight' => $weight, 'comment' => $user.' updated weight']);
+                    ->update(['weight' => $weight, 'comment' => $user . ' updated weight']);
                 break;
             case 'move':
+                $old_path = $request->input('old_path');
                 $move = $request->input('category');
+                $path = $request->input('path');
+                $alt = $request->input('alt');
+                $alt_hn = $request->input('alt_hn');
+                $img_type = $request->input('img_type');
+                rename(
+                    public_path('designs/images/' . $old_path . $image .'.'. $img_type),
+                    public_path('designs/images/' . $path . $image.'.' . $img_type)
+                );
+                rename(
+                    public_path('designs/thumb/' . $old_path . $image .'.'. $img_type),
+                    public_path('designs/thumb/' . $path . $image.'.' . $img_type)
+                );
                 $response =  Design::where('image', $image)
-                    ->update(['user' => $move, 'comment' => ' ' . $user . ' moved ']);
+                    ->update(['category' => $move, 'alt' => $alt, 'alt_hn' => $alt_hn, 'comment' => ' ' . $user . ' moved ', 'path' => $path]);
 
                 break;
             case 'delete':

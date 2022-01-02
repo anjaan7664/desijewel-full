@@ -5,7 +5,7 @@ export const state = () => ({
   locale: process.env.appLocale,
   locales: {
     'en': 'EN',
-    'es': 'ES'
+    'hi': 'HI'
   }
 })
 

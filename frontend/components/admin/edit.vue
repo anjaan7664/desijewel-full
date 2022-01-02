@@ -152,7 +152,7 @@
 import { mapGetters } from "vuex";
 export default {
   name: "edit",
-  middleware: "auth",
+  middleware: "admin",
   props: ["designData"],
   data() {
     return {
@@ -290,13 +290,21 @@ export default {
       });
 
       if (category) {
+        let catDataFromJson = this.$store.getters["design/categoryObject"](
+          category
+        );
+
         let formData = new FormData();
-        this.showToast("You selected: " + category, "success");
 
         formData.append("category", category);
         formData.append("image", this.designData.image);
         formData.append("editWhat", "move");
         formData.append("user", this.$auth.user.name);
+        formData.append("path", catDataFromJson.path);
+        formData.append("old_path",this.designData.path);
+        formData.append("img_type",this.designData.img_type);
+        formData.append("alt", catDataFromJson.alt);
+        formData.append("alt_hn", catDataFromJson.alt_hn);
         this.$axios
           .post("edit", formData, {
             headers: {
@@ -306,7 +314,7 @@ export default {
           .then(response => {
             this.open.setting = false;
             // this.$emit("removeDesign", true);
-            this.showToast("You selected: " + category, "success");
+            this.showToast("Image moved to: " + category, "success");
           })
           .catch(error => {
             this.$swal("Something Went Wrong.", "Try Again", "error");
