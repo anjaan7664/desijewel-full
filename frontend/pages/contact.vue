@@ -33,7 +33,7 @@
           <h2
             class="text-primary text-left text-xl font-Montserrat font-bold pt-2"
           >
-            {{ $t("address") }}
+            {{ $t("form.address") }}
           </h2>
           <a
             href="https://goo.gl/maps/1AAYysmvtQKmgZAy8"

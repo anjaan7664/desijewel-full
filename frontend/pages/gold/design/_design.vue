@@ -51,8 +51,8 @@
                     '/designs/images/' +
                       [MainImg.path + MainImg.image + '.' + MainImg.img_type]
                   "
-                  :alt="MainImg.alt"
-                  :title="MainImg.alt"
+                  :alt="designAlt"
+            :title="designAlt"
                   class="inline-block object-contain rounded shadow-lg2 min-h-[16rem] relative"
                   style="max-height: 75vh;max-width:100%"
                   v-preview
@@ -225,6 +225,12 @@ export default {
   },
 
   computed: {
+     designAlt() {
+      if(this.$i18n.locale == "en"){
+        return this.MainImg.alt;
+      }
+      return this.MainImg.alt_hn;
+    }
     // ...mapGetters("design", {
     //   MainImg: ["singleDesigns"]
     // }),
@@ -242,21 +248,13 @@ export default {
       })
       .then(res => res.data);
   },
-  // async asyncData({ params, $axios }) {
-  //     const MainImg = await
-  //      await $axios.get("DisplayDesign", {
-  //     params: {
-  //       image: params.design
-  //     }
-  //   }).then(res => res.data);
-  //     return { MainImg }
-  //   },
+
 
   created() {},
 
   head() {
     return {
-      title: this.MainImg.alt,
+      title: this.designAlt,
       // Meta tags
       meta: [
         { name: "description", content: "", id: "desc" }

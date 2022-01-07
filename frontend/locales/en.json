@@ -137,6 +137,7 @@
     "phone": "Phone",
     "postal": "Postal",
     "reach_us": "Reach Us",
-    "send_message": "Send Message"
+    "send_message": "Send Message",
+    "address": "Address"
   }
 }
