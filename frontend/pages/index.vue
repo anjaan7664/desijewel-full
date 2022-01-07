@@ -67,22 +67,11 @@ export default {
     showOff: main_page.showOff
   }),
   computed: {
-    // mix the getters into computed with object spread operator
-    // ...mapGetters({
-    //   authenticated: "auth/check",
-    //   role: "auth/role"
-    // })
-    // admin() {
-    //   if (this.role >= 4) {
-    //     return true;
-    //   }
-    // },
-    // contentCreator() {
-    //   if (this.role == 2) {
-    //     return true;
-    //   }
-    // },
-  }
+
+  },
+  created() {
+    console.log();
+  },
 };
 </script>
 <style>

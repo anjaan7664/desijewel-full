@@ -1,5 +1,5 @@
 {
-"reach_us":"Reach Us",
+  "reach_us": "Reach Us",
   "nav": {
     "features": "Features"
   },
@@ -73,7 +73,7 @@
   "gold": "Gold",
   "silver": "Silver",
   "customer_service": "CUSTOMER SERVICE",
-  "address": "Jai Ambe Jewellers, Kheteshwar Market, Jhalamand Circle, Jodhpur",
+  "address": "Desi Jewellery, Kheteshwar Market, Jhalamand Circle, Jodhpur",
   "location": "Location",
   "disclaimer": "Disclaimer",
   "terms_of_service": "Terms Of Service",
@@ -120,5 +120,23 @@
   "send_verification_link": "Send Verification Link",
   "resend_verification_link": "Resend Verification Link ?",
   "failed_to_verify_email": "Failed to verify email.",
-  "verify_email_address": "We sent you an email with an the verification link."
+  "verify_email_address": "We sent you an email with an the verification link.",
+  "tos": "Terms Of Service",
+  "about": "About",
+  "contact": "Contact",
+  "sitemap": "Sitemap",
+  "live_rate": "Live Rate",
+  "download_app": "Download App",
+  "form": {
+    "contact_us": "Contact Us",
+    "email": "Email",
+    "email_add": "Email Addr",
+    "get_in_touch": "Get In Touch",
+    "message": "Message",
+    "name": "Name",
+    "phone": "Phone",
+    "postal": "Postal",
+    "reach_us": "Reach Us",
+    "send_message": "Send Message"
+  }
 }

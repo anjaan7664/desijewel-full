@@ -136,11 +136,7 @@ export default {
           data: this.form
         });
         data = response.data;
-        this.$store.dispatch("auth/saveToken", {
-          token: data.token,
-          remember: this.remember
-        });
-        this.$auth.$storage.setCookie("token", data.token, { expires: 60 });
+        this.$auth.$storage.setCookie("login_token", data.token, { expires: 60 });
         this.$router.push(`/`);
       } catch (err) {
         this.$swal("Something Went Wrong.", "Try Again", "error");

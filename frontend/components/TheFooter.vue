@@ -5,7 +5,7 @@
         <!-- Contact Us -->
         <div class="flex-1 pt-6">
           <h2 class="text-3xl">
-            Contact Us
+            {{ $t('contact_us') }}
           </h2>
           <div class="mt-6 pr-2">
             <div class="flex my-2">
@@ -78,28 +78,28 @@
         <!-- Information -->
         <div class="flex-1 pt-6">
           <h2 class="text-3xl">
-            Information
+            {{ $t('information') }}
           </h2>
           <div class="mt-6">
             <ul>
               <li class="my-2">
                 <nuxt-link :to="localePath('/')">
-                  Home
+                  {{ $t('home') }}
                 </nuxt-link>
               </li>
               <li class="my-2">
                 <nuxt-link :to="localePath('/about')">
-                  About Us
+                  {{ $t('about') }}
                 </nuxt-link>
               </li>
               <li class="my-2">
                 <nuxt-link :to="localePath('/contact')">
-                  Contact Us
+                  {{ $t('contact') }}
                 </nuxt-link>
               </li>
               <li class="my-2">
                 <a href="/sitemap.xml">
-                  Sitemap
+                  {{ $t('sitemap') }}
                 </a>
               </li>
               <!-- <li class="my-2">
@@ -113,7 +113,7 @@
         <!-- Customer Service -->
         <div class="flex-1 pt-6">
           <h2 class="text-3xl">
-            Customer Service
+            {{ $t('customer_service') }}
           </h2>
           <div class="mt-6">
             <ul>
@@ -124,28 +124,31 @@
               </li> -->
               <li class="my-2">
                 <nuxt-link :to="localePath('/disclaimer')">
-                  Disclaimer
+                  {{ $t('disclaimer') }}
                 </nuxt-link>
               </li>
               <li class="my-2">
                 <nuxt-link :to="localePath('/tos')">
-                  Terms Of Service
+                  {{ $t('tos') }}
                 </nuxt-link>
               </li>
               <li class="my-2">
                 <nuxt-link :to="localePath('/privacy-policy')">
-                  Privacy Policy
+                  {{ $t('privacy_policy') }}
                 </nuxt-link>
               </li>
               <li class="my-2">
                 <a href="http://hbjodhpur.com" target="_blank" rel="noopener"
-                  >Live Gold Rate</a
-                >
+                  >{{ $t('live_rate') }}
+                </a>
               </li>
               <li class="my-2">
-                <nuxtLink v-if="auth.loggedIn" :to="localePath('/admin')">Profile</nuxtLink>
-                <nuxtLink v-if="!auth.loggedIn" :to="localePath('/auth/login')"
-                  >Login</nuxtLink
+                <nuxtLink v-if="auth.loggedIn" :to="localePath('/admin')"
+                  >{{$t('profile')}} 
+                  </nuxtLink
+                >
+                <nuxtLink v-if="!auth.loggedIn" :to="localePath('/auth/login')">
+                  {{ $t('login') }}</nuxtLink
                 >
               </li>
             </ul>
@@ -154,7 +157,7 @@
         <!-- Download App -->
         <div class="flex-1 pt-6">
           <h2 class="text-3xl">
-            Download Our App
+            {{ $t('download_app') }}
           </h2>
           <div class="w-3/4 mt-6 md:w-3/4">
             <a
@@ -180,14 +183,14 @@
               class="mt-2 ml-1 mb-2 font-semibold transition-colors duration-300 text-red hover:text-white "
               >Satlaa Tech</a
             >
-             <!-- Todo  Change lang -->
-            <!-- <nuxt-link
+
+            <nuxt-link
               class="mt-2 ml-1 mb-2 font-semibold transition-colors duration-300 hover:text-blue "
               v-for="locale in availableLocales"
               :key="locale.code"
-             :to="switchLocalePath(locale.code)"
-              >{{ $t("footer.changeLang") }}</nuxt-link > -->
-            
+              :to="switchLocalePath(locale.code)"
+              >{{ $t("footer.changeLang") }}</nuxt-link
+            >
           </div>
           <!-- Social Media Icon -->
           <div class="flex md:ml-auto">

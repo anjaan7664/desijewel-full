@@ -114,6 +114,23 @@
             v-model.number="page"
           />
         </div>
+        <Accordion class="flex mt-4 w-full">
+          <AccordionItem class="text-center w-full">
+            <template slot="accordion-trigger">
+              <h3 class="text-2xl mx-auto">Description</h3>
+            </template>
+            <template slot="accordion-content">
+              <span class="mt-2"
+                >In this page we are showing Design of indian ethnic jewellery,
+                Rajasthani desi {{ Category }} made in 22 carat gold for ladies,
+                worn around their neck . Handcrafted by fine jewellers . Fine
+                gold work with multicolored stone/diamond/nagina . Weight of
+                these designs is based on it's appearance , actual weight can be
+                lower and higher .
+              </span>
+            </template>
+          </AccordionItem>
+        </Accordion>
       </client-only>
     </div>
     <section class="w-full mx-auto mb-8">
@@ -125,12 +142,14 @@
 <script>
 import { mapGetters } from "vuex";
 import CategoryList from "~/assets/json/category.json";
+import Accordion from "~/components/helpers/Accordion.vue";
+import AccordionItem from "~/components/helpers/accordion-item.vue";
 
 export default {
   watchQuery: ["page"],
   name: "App",
   scrollToTop: true,
-  components: {},
+  components: { Accordion, AccordionItem },
   data() {
     return {
       Category: this.$route.params.category,
@@ -181,8 +200,7 @@ export default {
     ...mapGetters("design", {
       // Commented when trying for ssr
       DesignsList: ["DesignsList"]
-    }),
-    
+    })
   },
 
   created() {},
@@ -208,12 +226,12 @@ export default {
   },
   head() {
     return {
-      title:this.categoryObject.title,
+      title: this.categoryObject.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.categoryObject.description,
+          content: this.categoryObject.description
         }
       ]
     };

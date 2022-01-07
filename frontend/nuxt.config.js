@@ -89,7 +89,7 @@ export default {
         url: process.env.API_URL,
         cookie: {
           cookie: {
-            name: 'token', // cookie name
+            name: 'login_token', // cookie name
           }
         },
         endpoints: {
@@ -146,6 +146,11 @@ export default {
     }
   },
   i18n: {
+    baseUrl: process.env.API_URL,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'localelang'
+    },
     defaultLocale: 'en',
     seo: true,
     locales: [{

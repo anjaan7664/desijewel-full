@@ -135,22 +135,19 @@ export default {
     }),
     mustVerifyEmail: false
   }),
+created() {
 
+},
   methods: {
     async register() {
       let data;
       // Register the user.
-      await this.$axios.$get("sanctum/csrf-cookie");
+      // await this.$axios.$get("sanctum/csrf-cookie");
 
       try {
         const response = await await this.$axios.post("register", this.form);
         data = response.data;
         console.log(data);
-        this.$store.dispatch("auth/saveToken", {
-          token: data.token,
-          remember: this.remember
-        });
-
         this.$router.push(`/`);
       } catch (err) {
         this.$swal("Something Went Wrong.", "Try Again", "error");
