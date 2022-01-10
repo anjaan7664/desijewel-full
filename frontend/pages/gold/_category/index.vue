@@ -232,6 +232,11 @@ export default {
           hid: "description",
           name: "description",
           content: this.categoryObject.description
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.categoryObject.keywords
         }
       ]
     };

@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <h1
-      class="mx-auto font-Merriweather text-4xl border-primary border-b-4 w-auto inline-block align-middle mb-12"
+      class="mt-4 mx-auto font-Merriweather text-4xl border-primary border-b-4 w-auto inline-block align-middle mb-12"
     >
       {{ $t("form.get_in_touch") }}
     </h1>

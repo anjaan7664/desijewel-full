@@ -17,7 +17,7 @@ export default {
 
   ssr: true,
   head: {
-    title: 'Designing Jewel- The Showcase of Desi Indian and Rajasthani Jewellery',
+    title: 'Designing Jewel- The Showcase of Desi, Indian and Rajasthani Jewellery',
     htmlAttrs: {
       lang: 'en'
     },
@@ -31,12 +31,12 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Photos of Indian , Desi , Rajasthani Gold jewellery Design with weight and category wise'
+        content: 'Desiging Jewel features high-quality wide range of affordable Designs online. Designing Jewel offers High Quality, Certified Hallmarked Premium Jewellery for you and your family.'
       },
       {
         hid: 'keywords',
         name: 'keywords',
-        content: ',Indian,Desi,emboss,ehnic,jewellery,kundan,design,gold,Rajasthani,photos'
+        content: 'emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner '
       }
     ],
     link: [{
