@@ -11,6 +11,7 @@
           src="~/assets/img/svg/logo_new.svg"
           class="w-28 md:w-32 ml-2 lg:ml-auto"
           alt="Desijewel logo"
+          title="Desijewel logo"
         />
       </nuxt-link>
       <div class="gap-3 text-3xl md:hidden flex items-center">

@@ -19,6 +19,7 @@
           <img
             src="~/assets/img/icons/jodha-haar.webp"
             alt="Designing Jewel"
+            title="Designing Jewel"
             class="h-auto max-w-full px-3 md:p-4 md:px-16 mx-auto rounded-md shadowed min-h-[16rem]"
           />
         </div>

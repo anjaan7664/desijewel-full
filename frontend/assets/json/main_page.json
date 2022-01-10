@@ -40,21 +40,25 @@
     "showOff": [
         {
             "name": "BIS 22k Hallmarked Gold",
+            "alt":"BIS hallmark logo",
             "image": "bis.webp",
             "para": "All our Gold Jewellery is made with 91.6% purity of Gold. Bis hallmark."
         },
         {
             "name": "Custom Stone in every Design",
+            "alt":"jewellery-diamond",
             "image": "diamond.webp",
             "para": "You can set your own type of color of stone in jewellery."
         },
         {
             "name": "Gold Design Lookalike in Silver",
+            "alt":"silver-bar",
             "image": "silver.webp",
             "para": "We offer every Gold design made in silver with 24k Gold Polish. They look very Similar to gold "
         },
         {
             "name": "Always On Time Delievery of Product",
+            "alt":"delivery-truck icon",
             "image": "delivery.webp",
             "para": "We commit to our word and deliever the product at time."
         }

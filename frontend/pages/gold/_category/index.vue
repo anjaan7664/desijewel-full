@@ -82,6 +82,7 @@
             <img
               src="/shoppers/shoppers_silver.webp"
               alt="Designing Jewel Contact Card"
+              title="Designing Jewel Contact Card"
               class="w-full object-fill min-w-full"
             />
           </div>
@@ -89,10 +90,11 @@
             <img
               src="/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
+              title="Designing Jewel Contact Card"
               class="w-full object-fill min-w-full"
             />
           </div>
-          <h1>Contact for more info - "7597937664"</h1>
+          <h4>Contact for more info - "7597937664"</h4>
         </div>
         <div
           v-for="design in DesignsList.data"
@@ -117,7 +119,7 @@
         <Accordion class="flex mt-4 w-full">
           <AccordionItem class="text-center w-full">
             <template slot="accordion-trigger">
-              <h3 class="text-2xl mx-auto">Description</h3>
+              <p class="text-2xl mx-auto">Description</p>
             </template>
             <template slot="accordion-content">
               <span class="mt-2"

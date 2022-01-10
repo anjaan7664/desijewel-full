@@ -8,14 +8,15 @@
       <img
       loading="lazy"
         :src="require('/assets/img/icons/' + catData.image)"
-        alt=""
+        :alt="$t(catData.name)+' icon'"
+        :title="$t(catData.name)+' icon'"
         class="shadowed absolute p-2 mx-auto w-full h-full object-contain"
       />
     </div>
     <div
       class="text-black  font-semibold text-2xl md:text-xl lg:text-2xl mt-auto py-2"
     >
-      <p>{{ $t(catData.name) }}</p>
+      <h2>{{ $t(catData.name) }}</h2>
     </div>
   </div>
 </template>

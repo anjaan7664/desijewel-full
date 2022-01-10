@@ -28,7 +28,8 @@
             <p class="absolute underline bottom-5 left-5">View All</p>
             <img
               :src="require('/assets/img/icons/' + index.image)"
-              alt=""
+              :alt="index.name"
+              :title="index.name"
               class="object-contain w-3/5 ml-auto min-h-[8rem]"
             />
           </nuxt-link>

@@ -4,9 +4,9 @@
       <section class="flex flex-col md:flex-row">
         <!-- Contact Us -->
         <div class="flex-1 pt-6">
-          <h2 class="text-3xl">
+          <p class="text-3xl">
             {{ $t('contact_us') }}
-          </h2>
+          </p>
           <div class="mt-6 pr-2">
             <div class="flex my-2">
               <fa
@@ -77,9 +77,9 @@
         </div>
         <!-- Information -->
         <div class="flex-1 pt-6">
-          <h2 class="text-3xl">
+          <p class="text-3xl">
             {{ $t('information') }}
-          </h2>
+          </p>
           <div class="mt-6">
             <ul>
               <li class="my-2">
@@ -112,9 +112,9 @@
         </div>
         <!-- Customer Service -->
         <div class="flex-1 pt-6">
-          <h2 class="text-3xl">
+          <p class="text-3xl">
             {{ $t('customer_service') }}
-          </h2>
+          </p>
           <div class="mt-6">
             <ul>
               <!-- <li class="my-2">
@@ -156,9 +156,9 @@
         </div>
         <!-- Download App -->
         <div class="flex-1 pt-6">
-          <h2 class="text-3xl">
+          <p class="text-3xl">
             {{ $t('download_app') }}
-          </h2>
+          </p>
           <div class="w-3/4 mt-6 md:w-3/4">
             <a
               href="https://play.google.com/store/apps/details?id=satlaa.desijewellery"
@@ -168,6 +168,7 @@
               <img
                 src="~/assets/img/play_store.webp"
                 alt="Donwnload Desi Jewellery on Play Store"
+                title="Donwnload Desi Jewellery on Play Store"
             /></a>
           </div>
         </div>

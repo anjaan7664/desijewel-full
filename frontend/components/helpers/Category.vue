@@ -2,9 +2,9 @@
   <div class="">
     <div class="border border-accent hidden mx-auto md:block mt-4">
       <div class="flex flex-row p-2 px-6 border-black">
-        <h2 class="w-1/6 h-full my-auto text-xl font-semibold text-black">
+        <p class="w-1/6 h-full my-auto text-xl font-semibold text-black">
           Sort By Body Part
-        </h2>
+        </p>
 
         <!-- component -->
         <template class="w-5/6 flex">
@@ -20,7 +20,7 @@
                 class="flex items-center w-full h-full px-3 py-2 border-2
                bg-white border-secondary rounded-sm outline-none focus:outline-none"
               >
-                <img :src="index.icon" alt="" class="w-6" />
+                <img :src="index.icon" :alt="index.part+' icon'" :title="index.part+' icon'" class="w-6" />
                 <span
                   class="flex-1 pr-1 text-lg font-semibold capitalize text-black"
                   >{{ $t(index.part) }}</span
@@ -89,7 +89,7 @@
                           class="flex items-center w-full h-full px-3 py-2 border-2
                bg-white border-secondary rounded-sm outline-none focus:outline-none"
                         >
-                          <img :src="index.icon" alt="" class="w-6" />
+                          <img :src="index.icon" :alt="index.part+' icon'" :title="index.part+' icon'"  class="w-6" />
                           <span
                             class="flex-1 pr-1 text-lg font-semibold capitalize text-black"
                           >

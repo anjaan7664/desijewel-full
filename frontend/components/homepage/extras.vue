@@ -8,6 +8,7 @@
             <img
               src="~/assets/img/app_ss.webp"
               alt="Desi Jewellery App"
+              title="Desi Jewellery App"
               class="mx-auto rounded shadow-lg2 md:w-3/4 min-h-[16rem]"
             />
           </div>
@@ -29,6 +30,7 @@
                 src="~/assets/img/play_store.webp"
                 class="w-2/3 md:w-1/2 mt-4"
                 alt="Donwnload Desi Jewellery on Play Store"
+                title="Donwnload Desi Jewellery on Play Store"
             /></a>
           </div>
         </div>
