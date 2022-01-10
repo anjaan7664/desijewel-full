@@ -139,7 +139,7 @@ export default {
       };
     },
     categoryObject: function() {
-      return CategoryList.categories.find(i => i.url === this.Category);
+      return CategoryList.categories.find(i => i.url === this.Category && i.metal == "silver");
     },
     ...mapGetters("design", {
       // Commented when trying for ssr
@@ -164,12 +164,17 @@ export default {
   },
   head() {
     return {
-      title:this.categoryObject.title,
+     title: this.categoryObject.title,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: "Home page description"
+          content: this.categoryObject.description
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.categoryObject.keywords
         }
       ]
     };

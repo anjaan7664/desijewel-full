@@ -2,7 +2,7 @@
   <div class="">
     <!-- Showing List Of Category -->
     <HelpersCategory catMetal="gold" />
-    <CardsMetalCard catMetal="gold"/>
+    <CardsMetalCard catMetal="gold" />
   </div>
 </template>
 
@@ -10,16 +10,22 @@
 export default {
   name: "App",
   components: {},
-  data: () => ({
-  }),
+  data: () => ({}),
   created() {},
   head: {
-    title: "Gold Jewellery",
+    title: "Catalogue of New and Latest Gold Jewellery",
     meta: [
       {
         hid: "description",
         name: "description",
-        content: "Jewellery Design in Gold"
+        content:
+          "Presenting you our latest collection of Gold Jewellery with variety of weight and gemstones. Designing Jewel offers High Quality, Certified Hallmarked Premium Jewellery for you and your family."
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content:
+          "emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner"
       }
     ]
   }

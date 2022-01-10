@@ -17,7 +17,7 @@ export default {
 
   ssr: true,
   head: {
-    title: 'Designing Jewel- The Showcase of Desi, Indian and Rajasthani Jewellery',
+    title: 'Designing Jewel- The Showcase of Indian and Rajasthani Jewellery',
     htmlAttrs: {
       lang: 'en'
     },

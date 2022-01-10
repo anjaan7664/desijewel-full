@@ -195,7 +195,7 @@ export default {
       };
     },
     categoryObject: function() {
-      return CategoryList.categories.find(i => i.url === this.Category);
+      return CategoryList.categories.find(i => i.url === this.Category && i.metal == "gold");
     },
     ...mapGetters("design", {
       // Commented when trying for ssr
