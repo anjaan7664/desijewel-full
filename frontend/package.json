@@ -62,6 +62,8 @@
     "fs": "0.0.2",
     "path": "^0.12.7",
     "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-tailwindcss": "^0.1.4",
     "sass": "^1.36.0",
     "sass-loader": "^10.1.1",
     "tailwindcss": "^3.0.7"

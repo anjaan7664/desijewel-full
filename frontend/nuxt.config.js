@@ -31,7 +31,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Desiging Jewel features high-quality wide range of affordable Designs online. Designing Jewel offers High Quality, Certified Hallmarked Premium Jewellery for you and your family.'
+        content: 'Designing Jewel features high-quality wide range of affordable Designs online. Designing Jewel offers High Quality, Certified Hallmarked Premium Jewellery for you and your family.'
       },
       {
         hid: 'keywords',
@@ -167,6 +167,7 @@ export default {
     ],
     vueI18n: i18n
   },
+ 
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID
   },

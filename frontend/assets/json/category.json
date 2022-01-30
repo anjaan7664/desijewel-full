@@ -14,6 +14,20 @@
             "url": "aad",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner,rajupti-aad,sone-ki-aad",
             "sorting": "desi, fancy, kundan"
+        },     {
+            "metal": "gold",
+            "path": "mini_aad/",
+            "alt": "Desi Indian Rajasthani Gold Aad",
+            "alt_hn": "राजस्थानी देसी गोल्ड गले की आड़",
+            "title": "Desi Indian Rajasthani Gold Aad",
+            "description": "Designing Jewel brings you the Best Indian, Desi and Rajasthani unique Gold Jewellery design of Aad(Necklace) with weight and price. Check out our latest design with the best price and quality.",
+            "silver_avail": "yes",
+            "image": "mini-aad.webp",
+            "name": "category.mini-aad",
+            "part": "neck",
+            "url": "mini-aad",
+            "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner,rajupti-aad,sone-ki-aad",
+            "sorting": "desi, fancy, kundan"
         },
         {
             "metal": "gold",
@@ -208,7 +222,7 @@
             "part": "neck",
             "url": "jodha-haar",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
-            "sorting": "fancy, kundan"
+            "sorting": "kundan"
         },
         {
             "metal": "gold",
@@ -220,7 +234,7 @@
             "silver_avail": "yes",
             "image": "kandora.webp",
             "name": "category.kandora",
-            "part": "waist",
+            "part": "others",
             "url": "kandora",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
             "sorting": "fancy"
@@ -265,7 +279,7 @@
             "silver_avail": "no",
             "image": "nath.webp",
             "name": "category.nath",
-            "part": "nose",
+            "part": "others",
             "url": "nath",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
             "sorting": "desi, fancy"
@@ -342,6 +356,20 @@
             "name": "category.rakhdi-set",
             "part": "head",
             "url": "rakhdi-set",
+            "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
+            "sorting": "desi, fancy"
+        },   {
+            "metal": "gold",
+            "path": "rakhdi/",
+            "alt": "Desi Indian Rajasthani Gold Rakhdi",
+            "alt_hn": "राजस्थानी देसी गोल्ड रखडी",
+            "title": "Desi Indian Rajasthani Gold Rakhdi",
+            "description": "Designing Jewel brings you the Best Indian, Desi and Rajasthani unique Gold Jewellery design of Rakhdi with weight and price. Check out our latest design with the best price and quality.",
+            "silver_avail": "yes",
+            "image": "rakhdi.webp",
+            "name": "category.rakhdi",
+            "part": "head",
+            "url": "rakhdi",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
             "sorting": "desi, fancy"
         },
@@ -464,9 +492,24 @@
             "url": "teeka",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
             "sorting": "desi, fancy, kundan"
+        },  {
+            "metal": "gold",
+            "path": "others/",
+            "alt": "Desi Indian Rajasthani Gold Maang-Teeka",
+            "alt_hn": "राजस्थानी देसी गोल्ड सर/माथा-टीका",
+            "title": "Desi Indian Rajasthani Gold Maang-Teeka",
+            "description": "Designing Jewel brings you the Best Indian, Desi and Rajasthani unique Gold Jewellery design of Teeka with weight and price. Check out our latest design with the best price and quality.",
+            "silver_avail": "no",
+            "image": "others.webp",
+            "name": "category.others",
+            "part": "others",
+            "url": "others",
+            "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner ",
+            "sorting": ""
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_bangles/",
             "alt": "Desi Rajasthani Silver Bangles",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी बेन्गल्स/चूडिया",
@@ -481,6 +524,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_bartan/",
             "alt": "Desi Rajasthani Silver Utensil",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी बर्तन",
@@ -495,6 +539,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_bracelate/",
             "alt": "Desi Rajasthani Silver Bracelet",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी ब्रेसलेट",
@@ -509,6 +554,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_ring/",
             "alt": "Desi Rajasthani Silver Ring",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी रिंग/अंगूठी",
@@ -523,6 +569,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_paayal/",
             "alt": "Desi Rajasthani Silver Paayal",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी पायल",
@@ -537,6 +584,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_kada/",
             "alt": "Desi Rajasthani Silver Kada",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी हाथ-कड़ा",
@@ -551,6 +599,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_kandora/",
             "alt": "Desi Rajasthani Silver Kandora",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी कंदोरा/कमरबंध",
@@ -565,6 +614,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_idol/",
             "alt": "Desi Rajasthani Silver Idol",
             "alt_hn": "राजस्थानी देसी सिल्वर/चांदी मुर्तिया",
@@ -579,6 +629,7 @@
         },
         {
             "metal": "silver",
+            "silver_avail": "no",
             "path": "silver_others/",
             "alt": "Desi Rajasthani Silver Jewellery",
             "alt_hn": "राजस्थानी देसी सिल्वर",

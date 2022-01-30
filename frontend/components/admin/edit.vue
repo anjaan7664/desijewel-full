@@ -111,7 +111,7 @@
       <form @submit.prevent="renameDesign" class="flex-wrap flex w-full">
         <input
           v-model="title"
-          name=""
+          
           class="shadow appearance-none border rounded  py-2 px-3 my-1
    text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
           type="text"
@@ -150,6 +150,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import log from "~/middleware/log";
 export default {
   name: "edit",
   middleware: "admin",
@@ -170,7 +171,7 @@ export default {
       category: "",
       sub_category: "",
       id: "",
-      title: "",
+      title: this.designData.title,
       categories: {
         aad: "aad",
         aawla: "aawla",
@@ -347,7 +348,8 @@ export default {
     // Changing the title of design
     async renameDesign() {
       let formData = new FormData();
-      formData.append("title", this.title);
+      var newTitleForDB  = this.title.replace(/\s+/g, '-').toLowerCase();
+      formData.append("title", newTitleForDB);
       formData.append("image", this.designData.image);
       formData.append("editWhat", "rename");
       formData.append("user", this.$auth.user.name);
@@ -364,7 +366,19 @@ export default {
           this.$emit("updateHit", this.hit);
         })
         .catch(error => {
-          this.$swal("Something Went Wrong.", "Try Again", "error");
+           if (error.response) {
+      // Request made and server responded
+        console.log(error.response.data);
+          this.$swal(error.response.data.message, "Try Again", "error");
+
+    } else if (error.request) {
+      // The request was made but no response was received
+      this.$swal("No Reponse", "Try Again", "error");
+    } else {
+      // Something happened in setting up the request that triggered an Error
+      this.$swal(error.message, "Try Again", "error");
+    }
+        
         });
     },
     // Updating the hit of design

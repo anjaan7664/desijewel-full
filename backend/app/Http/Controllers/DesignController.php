@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Design;
 use Image;
+use Exception;
+use \Illuminate\Database\Eloquent\ModelNotFoundException;
 
 
 class DesignController extends Controller
@@ -83,16 +85,24 @@ class DesignController extends Controller
         $Sort = $request->input('Sort');
         $Tag = $request->input('Tag');
         $perPage = $request->input('perPage');
+        try {
+            Design::where('category', $Category)->firstOrFail();
+            if (!empty($Sub_Category)) {
+                $designs = Design::where('dp', '1')->where('category', $Category)->where('sub_category', $Sub_Category)->orderBy('hit', 'desc')->paginate($perPage);
+            } else {
 
-        Design::where('category', $Category)->firstOrFail();
-        if (!empty($Sub_Category)) {
-            $designs = Design::where('dp', '1')->where('category', $Category)->where('sub_category', $Sub_Category)->orderBy('hit', 'desc')->paginate($perPage);
-        } else {
+                $designs = Design::where('dp', '1')->where('category', $Category)->orderBy('hit', 'desc')->paginate($perPage);
+            }
+            return $designs;
+        } catch (Exception $e) {
+            if ($e instanceof ModelNotFoundException) {
 
-            $designs = Design::where('dp', '1')->where('category', $Category)->orderBy('hit', 'desc')->paginate($perPage);
+                return response()->json([
+                    'message' => 'Record not found',
+                ], 404);
+            }
         }
 
-        return $designs;
         // if ($designs !="[]") {
         // }else{
         //     return abort(404);
@@ -143,7 +153,7 @@ class DesignController extends Controller
                 $Category = 'desi-aad';
                 break;
             case 'm_aad':
-                $Category = 'm_aad';
+                $Category = 'mini-aad';
                 break;
             case 'chick':
                 $Category = 'chik-set';
@@ -224,58 +234,68 @@ class DesignController extends Controller
         // validate query 
 
         $image = $request->input('image');
+        try {
+            $design = Design::query()
+                ->where('image', $image)
+                ->orWhere('title', $image)
+                ->firstOrFail();
 
-        $design = Design::query()
-            ->where('image', $image)
-            ->firstOrFail();
-        $design->similar = 'center';
-        // $designs = Design::query()
-        //     ->where('category', $design->category)
-        //     ->where('id', '<=', $design->id)
-        //     ->orderByDesc('id')
-        //     ->limit(2)
-        //     ->union(
-        //         Design::query()
-        //             ->where('category', $design->category)
-        //             ->where('id', '>=', $design->id)
-        //             ->orderBy('id')
-        //             ->limit(3)
-        //     )
-        //     ->orderBy('id')
-        //     ->get();
-        $designs = Design::query()
-            ->where('id', '<', $design->id)
-            ->orderByDesc('id')
-            ->limit(2)
-            ->union(
-                Design::query()
-                    ->where('id', '>=', $design->id)
-                    ->orderBy('id')
-                    ->limit(3)
-            )
-            ->orderBy('id')
-            ->get();
-        $previous = Design::where('category', $design->category)
-            ->where('hit', '=', $design->hit)
-            ->where('id', '<', $design->id)
-            ->orderBy('id', 'asc')
+            $design->similar = 'center';
+            // $designs = Design::query()
+            //     ->where('category', $design->category)
+            //     ->where('id', '<=', $design->id)
+            //     ->orderByDesc('id')
+            //     ->limit(2)
+            //     ->union(
+            //         Design::query()
+            //             ->where('category', $design->category)
+            //             ->where('id', '>=', $design->id)
+            //             ->orderBy('id')
+            //             ->limit(3)
+            //     )
+            //     ->orderBy('id')
+            //     ->get();
+            $designs = Design::query()
+                ->where('id', '<', $design->id)
+                ->orderByDesc('id')
+                ->limit(2)
+                ->union(
+                    Design::query()
+                        ->where('id', '>=', $design->id)
+                        ->orderBy('id')
+                        ->limit(3)
+                )
+                ->orderBy('id')
+                ->get();
+            $previous = Design::where('category', $design->category)
+                ->where('hit', '=', $design->hit)
+                ->where('id', '<', $design->id)
+                ->orderBy('id', 'asc')
 
-            ->union(
-                Design::where('category', $design->category)
-                    ->where('hit', '<', $design->hit)
-                    ->orderBy('hit', 'desc')
-            )->limit(2)->get();
+                ->union(
+                    Design::where('category', $design->category)
+                        ->where('hit', '<', $design->hit)
+                        ->orderBy('hit', 'desc')
+                )->limit(2)->get();
 
 
 
-        $next     = Design::where('category', $design->category)
-            ->where('hit', '>=', $design->hit)
-            ->where('id', '!=', $design->id)
-            ->orderBy('hit')->orderBy('id')->limit(2)->get();
+            $next     = Design::where('category', $design->category)
+                ->where('hit', '>=', $design->hit)
+                ->where('id', '!=', $design->id)
+                ->orderBy('hit')->orderBy('id')->limit(2)->get();
 
-        $merger = array_merge($previous->toArray(), $next->toArray());
+            $merger = array_merge($previous->toArray(), $next->toArray());
 
-        return $design;
+            return $design;
+        } catch (Exception $e) {
+            if ($e instanceof ModelNotFoundException) {
+
+                return response()->json([
+                    'message' => 'Record not found',
+                ], 404);
+            }
+        }
     }
 
 
@@ -290,6 +310,9 @@ class DesignController extends Controller
     }
     public function edit(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'unique:designs',
+        ]);
         $image = $request->input('image');
         $user = $request->input('user');
         $response = "";
@@ -307,12 +330,12 @@ class DesignController extends Controller
                 $alt_hn = $request->input('alt_hn');
                 $img_type = $request->input('img_type');
                 rename(
-                    public_path('designs/images/' . $old_path . $image .'.'. $img_type),
-                    public_path('designs/images/' . $path . $image.'.' . $img_type)
+                    public_path('designs/images/' . $old_path . $image . '.' . $img_type),
+                    public_path('designs/images/' . $path . $image . '.' . $img_type)
                 );
                 rename(
-                    public_path('designs/thumb/' . $old_path . $image .'.'. $img_type),
-                    public_path('designs/thumb/' . $path . $image.'.' . $img_type)
+                    public_path('designs/thumb/' . $old_path . $image . '.' . $img_type),
+                    public_path('designs/thumb/' . $path . $image . '.' . $img_type)
                 );
                 $response =  Design::where('image', $image)
                     ->update(['category' => $move, 'alt' => $alt, 'alt_hn' => $alt_hn, 'comment' => ' ' . $user . ' moved ', 'path' => $path]);
@@ -343,9 +366,9 @@ class DesignController extends Controller
 
                 break;
             case 'rename':
-                $rename = $request->input('rename');
+                $rename = $request->input('title');
                 $response =  Design::where('image', $image)
-                    ->update(['rename' => $rename, 'comment' => ' ' . $user . ' rename ' . $rename]);
+                    ->update(['title' => $rename, 'comment' => ' ' . $user . ' rename ' . $rename]);
 
                 break;
         }

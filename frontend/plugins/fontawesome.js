@@ -33,12 +33,13 @@ import {
   faInstagram,
   faTwitter,
   faFacebookSquare,
-  faYoutube
+  faYoutube,
+  faWhatsapp
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faMapMarkerAlt, faPhoneSquareAlt, faEnvelope, faAddressBook, faArrowRight,
   faSignOutAlt, faBars, faLanguage, faUserCircle, faSearch, faCaretDown, faAngleRight, faChevronRight,
-  faSearchPlus,faInstagram, faTwitter, faFacebookSquare, faYoutube, faChevronUp, faCog, faCloudUploadAlt
+  faSearchPlus,faInstagram, faTwitter, faFacebookSquare, faYoutube, faChevronUp, faCog, faCloudUploadAlt, faWhatsapp
 )
 
 Vue.component('Fa', FontAwesomeIcon)

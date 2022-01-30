@@ -25,6 +25,7 @@
               src="/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
               class="w-full object-fill min-w-full"
+                 v-preview
             />
           </div>
 
@@ -32,10 +33,11 @@
         </div>
         <div
           v-for="design in DesignsList.data"
-          :key="design.id"
+          :key="design.id" 
           class="w-full p-2 md:w-1/3 md:p-6"
         >
           <CardsDesignCard :design-data="design" cat-metal="silver" />
+              
         </div>
       </div>
 

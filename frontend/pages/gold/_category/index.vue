@@ -8,64 +8,64 @@
 
     <div v-else class="">
       <!-- Showing Main Images -->
-      <div class="w-full text-center ">
+      <div class="w-full text-center">
         <h1 class="my-2 text-2xl md:my-6">
           Showing Image of
           <span class="font-bold capitalize">{{ Category }}</span>
         </h1>
-        <div class="flex-row justify-center flex">
-          <p class="h-full mx-4 my-auto text-2xl font-bold hidden md:block">
+        <div class="flex flex-row justify-center">
+          <p class="mx-4 my-auto hidden h-full text-2xl font-bold md:block">
             Sort By:
           </p>
           <ul class="flex flex-row self-center">
             <li
               @click="sorting('')"
-              class="px-6 py-2 mx-1 text-white bg-green-500 rounded-md cursor-pointer"
+              class="mx-1 cursor-pointer rounded-md bg-green-500 px-6 py-2 text-white"
             >
               All
             </li>
             <li
               :class="
                 sortingButton('desi')
-                  ? 'bg-purple-500 cursor-pointer'
-                  : 'bg-gray-500 cursor-not-allowed '
+                  ? 'cursor-pointer bg-purple-500'
+                  : 'cursor-not-allowed bg-gray-500 '
               "
               @click="
                 if (sortingButton('desi') == true) {
                   sorting('desi');
                 }
               "
-              class="px-4 md:px-6 py-2 mx-1 text-white rounded-md "
+              class="mx-1 rounded-md px-4 py-2 text-white md:px-6"
             >
               Desi
             </li>
             <li
               :class="
                 sortingButton('fancy')
-                  ? 'bg-yellow-500 cursor-pointer'
-                  : 'bg-gray-500 cursor-not-allowed '
+                  ? 'cursor-pointer bg-yellow-500'
+                  : 'cursor-not-allowed bg-gray-500 '
               "
               @click="
                 if (sortingButton('fancy') == true) {
                   sorting('fancy');
                 }
               "
-              class="px-3 md:px-6 py-2 mx-1 text-white rounded-md"
+              class="mx-1 rounded-md px-3 py-2 text-white md:px-6"
             >
               Fancy
             </li>
             <li
               :class="
                 sortingButton('kundan')
-                  ? 'bg-blue-500 cursor-pointer'
-                  : 'bg-gray-500 cursor-not-allowed '
+                  ? 'cursor-pointer bg-blue-500'
+                  : 'cursor-not-allowed bg-gray-500 '
               "
               @click="
                 if (sortingButton('kundan') == true) {
                   sorting('kundan');
                 }
               "
-              class="px-3 md:px-6 py-2 mx-1 text-white rounded-md"
+              class="mx-1 rounded-md px-3 py-2 text-white md:px-6"
             >
               Kundan
             </li>
@@ -75,26 +75,31 @@
       <div
         id="app"
         ref="divImage"
-        class="flex flex-wrap justify-between pt-4 overflow-hidden text-center rounded"
+        class="flex flex-wrap justify-between overflow-hidden rounded pt-4 text-center"
       >
-        <div class="w-full h-full p-2 md:w-1/3 md:p-6 relative">
+        <div class="relative h-full w-full p-2 md:w-1/3 md:p-6">
           <div v-if="categoryObject.silver_avail === 'yes'">
             <img
               src="/shoppers/shoppers_silver.webp"
               alt="Designing Jewel Contact Card"
-              title="Designing Jewel Contact Card"
-              class="w-full object-fill min-w-full"
+              class="w-full min-w-full object-fill"
+              v-preview
             />
           </div>
           <div v-else>
             <img
               src="/shoppers/shoppers1.webp"
               alt="Designing Jewel Contact Card"
-              title="Designing Jewel Contact Card"
-              class="w-full object-fill min-w-full"
+              class="w-full min-w-full object-fill"
+              v-preview
             />
           </div>
-          <h4>Contact for more info - "7597937664"</h4>
+          <h4 class="my-2">
+            Contact for more info -
+            <a href="tel:+919680398417" class="text-blue-600 underline">
+              +919680398417
+            </a>
+          </h4>
         </div>
         <div
           v-for="design in DesignsList.data"
@@ -116,10 +121,10 @@
             v-model.number="page"
           />
         </div>
-        <Accordion class="flex mt-4 w-full">
-          <AccordionItem class="text-center w-full">
+        <Accordion class="mt-4 flex w-full">
+          <AccordionItem class="w-full text-center">
             <template slot="accordion-trigger">
-              <p class="text-2xl mx-auto">Description</p>
+              <p class="mx-auto text-2xl">Description</p>
             </template>
             <template slot="accordion-content">
               <span class="mt-2"
@@ -134,10 +139,10 @@
           </AccordionItem>
         </Accordion>
       </client-only>
+
+      <HelpersRelatedCategory :category="Category"  metal="gold"/>
     </div>
-    <section class="w-full mx-auto mb-8">
-      <!-- <related-category :category="Category" /> -->
-    </section>
+ 
   </div>
 </template>
 
@@ -165,17 +170,17 @@ export default {
       body_part: [
         { icon: require("~/assets/img/svg/head.svg"), part: "head" },
         { icon: require("~/assets/img/svg/ear.svg"), part: "ear" },
-        { icon: require("~/assets/img/svg/nose.svg"), part: "nose" },
         { icon: require("~/assets/img/svg/neck.svg"), part: "neck" },
-        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" }
-      ]
+        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" },
+        { icon: require("~/assets/img/svg/nose.svg"), part: "others" },
+      ],
     };
   },
   computed: {
     DesignConfig() {
       const filters = {
         perPage: this.perPage,
-        page: this.page
+        page: this.page,
       };
       if (this.Category) {
         filters.Category = this.$route.params.category;
@@ -193,22 +198,28 @@ export default {
         filters.Tag = this.Tag;
       }
       return {
-        filters
+        filters,
       };
     },
-    categoryObject: function() {
-      return CategoryList.categories.find(i => i.url === this.Category && i.metal == "gold");
+    categoryObject: function () {
+      return CategoryList.categories.find(
+        (i) => i.url === this.Category && i.metal == "gold"
+      );
     },
     ...mapGetters("design", {
       // Commented when trying for ssr
-      DesignsList: ["DesignsList"]
-    })
+      DesignsList: ["DesignsList"],
+    }),
   },
 
   created() {},
 
   async fetch() {
-    await this.$store.dispatch("design/getDesigns", this.DesignConfig);
+    await this.$store
+      .dispatch("design/getDesigns", this.DesignConfig)
+      .catch((e) => {
+        this.$error({ statusCode: 404, message: "Page not found" });
+      });
   },
 
   methods: {
@@ -217,14 +228,14 @@ export default {
       await this.$fetch();
       this.$router.push({ query: { ...this.$route.query, page: this.page } });
     },
-    async sorting(sort) {
+    sorting(sort) {
       this.Sub_Category = sort;
       this.page = 1;
       this.onPageChange();
     },
-    sortingButton: function(sort) {
+    sortingButton: function (sort) {
       return this.categoryObject.sorting.includes(sort);
-    }
+    },
   },
   head() {
     return {
@@ -233,16 +244,16 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: this.categoryObject.description
+          content: this.categoryObject.description,
         },
         {
           hid: "keywords",
           name: "keywords",
-          content: this.categoryObject.keywords
-        }
-      ]
+          content: this.categoryObject.keywords,
+        },
+      ],
     };
-  }
+  },
 };
 </script>
 <style>

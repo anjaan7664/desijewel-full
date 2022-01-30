@@ -1,6 +1,6 @@
 <template id="app">
   <div class="">
-    <div class="border border-accent hidden mx-auto md:block mt-4">
+    <div class="border border-accent hidden mx-auto md:block mt-4 md:mt-1">
       <div class="flex flex-row p-2 px-6 border-black">
         <p class="w-1/6 h-full my-auto text-xl font-semibold text-black">
           Sort By Body Part
@@ -20,7 +20,7 @@
                 class="flex items-center w-full h-full px-3 py-2 border-2
                bg-white border-secondary rounded-sm outline-none focus:outline-none"
               >
-                <img :src="index.icon" :alt="index.part+' icon'" :title="index.part+' icon'" class="w-6" />
+                <img :src="index.icon" :alt="index.part+' icon'" class="w-6" />
                 <span
                   class="flex-1 pr-1 text-lg font-semibold capitalize text-black"
                   >{{ $t(index.part) }}</span
@@ -89,7 +89,7 @@
                           class="flex items-center w-full h-full px-3 py-2 border-2
                bg-white border-secondary rounded-sm outline-none focus:outline-none"
                         >
-                          <img :src="index.icon" :alt="index.part+' icon'" :title="index.part+' icon'"  class="w-6" />
+                          <img :src="index.icon" :alt="index.part+' icon'"  class="w-6" />
                           <span
                             class="flex-1 pr-1 text-lg font-semibold capitalize text-black"
                           >
@@ -152,9 +152,9 @@ export default {
       gold: [
         { icon: require("~/assets/img/svg/head.svg"), part: "head" },
         { icon: require("~/assets/img/svg/ear.svg"), part: "ear" },
-        { icon: require("~/assets/img/svg/nose.svg"), part: "nose" },
         { icon: require("~/assets/img/svg/neck.svg"), part: "neck" },
-        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" }
+        { icon: require("~/assets/img/svg/hand.svg"), part: "hand" },
+        { icon: require("~/assets/img/svg/others.svg"), part: "others" }
       ],
       silver: [
         { icon: require("~/assets/img/svg/hand.svg"), part: "hand" },

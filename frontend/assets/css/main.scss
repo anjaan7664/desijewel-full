@@ -18,6 +18,17 @@ a {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+.nuxt-link-exact-active {
+  color: rgb(85, 85, 85);
+}
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
 @font-face {
   font-family: 'Samarkan';
   font-display: swap;

@@ -29,7 +29,6 @@
             <img
               :src="require('/assets/img/icons/' + index.image)"
               :alt="index.name"
-              :title="index.name"
               class="object-contain w-3/5 ml-auto min-h-[8rem]"
             />
           </nuxt-link>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <the-header />
-    <Nuxt keep-alive class="max-size container m-auto mx-2 lg:mx-auto" />
+    <Nuxt  keep-alive class="max-size container m-auto mx-2 lg:mx-auto" />
 
     <!-- <back-to-top bottom="50px" right="30px">
         <div

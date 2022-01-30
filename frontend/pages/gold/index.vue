@@ -1,17 +1,31 @@
 <template>
   <div class="">
     <!-- Showing List Of Category -->
-    <HelpersCategory catMetal="gold" />
-    <CardsMetalCard catMetal="gold" />
+    <HelpersCategory :catMetal="catMetal" />
+    <CardsMetalCard :myCategory="myCategory" :catMetal="catMetal" />
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "App",
   components: {},
-  data: () => ({}),
-  created() {},
+  data: () => ({
+    catMetal:'gold'
+  }),
+  computed: {
+    ...mapGetters("design", {
+      designCategory: ["category"]
+    }),
+    myCategory() {
+      return this.designCategory.filter(i => i.metal === this.catMetal);
+    }
+  },
+  created() {
+  
+  },
   head: {
     title: "Catalogue of New and Latest Gold Jewellery",
     meta: [

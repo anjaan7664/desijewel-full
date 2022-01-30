@@ -1,13 +1,23 @@
 const redirects = [
   { from: '/gold/jodha_haar', to: '/gold/jodha-haar' },
   { from: '/gold/sohan_kanthi', to: '/gold/sohan-kanthi' },
+  { from: '/gold/sheesh_phool', to: '/gold/sheeshphool' },
   { from: '/gold/desi_aad', to: '/gold/desi-aad' },
-  { from: '/gold/m_aad', to: '/gold/m_aad' },
+  { from: '/gold/mini_aad', to: '/gold/mini-aad' },
   { from: '/gold/chick', to: '/gold/chik-set' },
   { from: '/gold/rakhdi_set', to: '/gold/rakhdi-set' },
   { from: '/gold/ladies_ring', to: '/gold/ladies-ring' },
   { from: '/gold/gents_ring', to: '/gold/gents-ring' },
   { from: '/gold/ram_navmi', to: '/gold/ram-navmi' },
+  { from: '/gold/bala+jhela', to: '/gold/ram-navmi' },
+  { from: '/desi/bor', to: '/gold/rakhdi' },
+  { from: '/desi/bajubandh', to: '/gold/baajubandh' },
+  { from: '/silver/fancy-paayal', to: '/silver/paayal' },
+  { from: '/silver/half-kandora', to: '/silver/kandora' },
+  { from: '/silver/bracelate', to: '/silver/bracelet' },
+  { from: '/silver/bartan', to: '/silver/utensil' },
+
+  
 ];
 
 module.exports = function (req, res, next) {

@@ -9,7 +9,6 @@
       loading="lazy"
         :src="require('/assets/img/icons/' + catData.image)"
         :alt="$t(catData.name)+' icon'"
-        :title="$t(catData.name)+' icon'"
         class="shadowed absolute p-2 mx-auto w-full h-full object-contain"
       />
     </div>

@@ -82,7 +82,7 @@
   "information": "INFORMATION",
   "about_us": "About Us",
   "project": "Project",
-  "contact_us": "Contact Us",
+  "contact_us": "CONTACT US",
   "phone": "Phone",
   "ok": "Ok",
   "cancel": "Cancel",
@@ -126,7 +126,7 @@
   "contact": "Contact",
   "sitemap": "Sitemap",
   "live_rate": "Live Rate",
-  "download_app": "Download App",
+  "download_app": "DOWNLOAD APP",
   "form": {
     "contact_us": "Contact Us",
     "email": "Email",

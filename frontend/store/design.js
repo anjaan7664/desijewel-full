@@ -4,9 +4,9 @@ export const state = () => ({
 
   designs: [],
   design: {},
+  errors: [],
   isDirect: false,
-  isLoaded: false,
-  isLoading: true,
+  isErrors: false,
   category: Category.categories,
 
 })
@@ -23,34 +23,37 @@ export const getters = {
   ComingFromDirect(state) {
     return state.isDirect;
   },
-  isLoading(state) {
-    return state.isLoading;
+  isErrors(state) {
+    return state.isErrors;
   },
   category(state) {
     return state.category;
   },
-  categoryObject: (state) => (url) =>{
-   return state.category.find(i => i.url === url);
+  categoryObject: (state) => (url) => {
+    return state.category.find(i => i.url === url);
   },
 
-  
+
 }
 export const actions = {
 
   async getDesigns({
     commit
   }, payload) {
-    commit('SET_LOADING', true);
+    return new Promise((resolve, reject) => {
 
-    await this.$axios.$get('designs', {
-        params: payload.filters
-      }).then((response) => {
-        commit('SET_DESIGNS', response)
-        commit('SET_LOADING', false)
-      })
-      .catch((error) => {
-        commit('SET_LOADING', false)
-      })
+       this.$axios.$get('designs', {
+          params: payload.filters
+        }).then((response) => {
+          commit('SET_DESIGNS', response)
+          resolve()
+        })
+        .catch((e) => {
+          console.log(e);
+          reject(e)
+        })
+    })
+
 
 
   },
@@ -98,7 +101,7 @@ export const mutations = {
   setCurrentPage(state, data) {
     state.designs.current_page = data
   },
-  SET_LOADING(state, data) {
-    state.isLoading = data
+  SET_ERRORS(state, data) {
+    state.isErrors = data
   }
 }

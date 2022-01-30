@@ -1,51 +1,59 @@
 <template>
-  <div>
-    <h2 class="text-center text-4xl my-4">
-      Explore Similar Jewellery
-    </h2>
-    <div class="flex flex-col md:flex-row">
-      <div v-for="(index, i) in relatedPicker" :key="i" class="m-3 flex-1">
-        <nuxt-link :to="localePath({ path: '/Gold/' + index.url })">
-          <img
-            class="object-cover h-full w-full"
-            :src="index.image"
-            style="aspect-ratio:1/1"
-          />
-          <p class="text-center text-xl font-semibold">
-            {{ $t(index.name) }}
-          </p>
-        </nuxt-link>
-      </div>
-    </div>
+  <div class="mt-6 ">
+    <h2 class="my-4 text-center text-green-600 text-3xl font-semibold">Explore Similar Jewellery</h2>
+    <CardsMetalCard :myCategory="myCategory" :catMetal="metal" />
   </div>
 </template>
 <script>
-import related from "~/assets/json/related.json";
 export default {
   name: "relatedCategory",
-  props: ["category"],
+  props: ["category", "metal"],
   data() {
     return {
-      catImage: related.aad
+      myCategory: [],
     };
   },
-  created() {
-    // this.randomize();
-  },
+  created() {},
   computed: {
-    relatedPicker() {
-      return this.catImage.splice(0, 4);
-    }
+     imageCategoryNew() {
+      return this.metal == "gold"
+        ? this.category
+        : this.category.replace("silver_", "");
+    },
   },
+  async fetch() {
+    var designCategory = await this.$store.getters["design/category"];
+    var result = designCategory.find((i) => i.url === this.imageCategoryNew && i.metal === this.metal);
+    var newRelatedArray = designCategory.filter(
+      (i) =>
+        i.part === result.part &&
+        i.metal === result.metal &&
+        i.url != result.url
+    );
+
+    this.myCategory = this.shuffle(newRelatedArray);
+  },
+
   methods: {
-    randomize() {
-      for (let i = this.catImage.length - 1; i > 0; i--) {
-        let randomIndex = Math.floor(Math.random() * i);
-        let temp = this.catImage[i];
-        this.$set(this.catImage, i, this.catImage[randomIndex]);
-        this.$set(this.catImage, randomIndex, temp);
+    shuffle(array) {
+      let currentIndex = array.length,
+        randomIndex;
+
+      // While there remain elements to shuffle...
+      while (currentIndex != 0) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex],
+          array[currentIndex],
+        ];
       }
-    }
-  }
+
+      return array.splice(0, 4);
+    },
+  },
 };
 </script>

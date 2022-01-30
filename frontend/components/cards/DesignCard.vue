@@ -9,7 +9,7 @@
         <nuxt-link
           :to="
             localePath({
-              path: '/'+catMetal+'/design/' + designData.image,
+              path:'/'+catMetal+'/design/' + (((designData.title) == '') ? designData.image : designData.title),
               query: { subCat: designData.sub_category }
             })
           "
@@ -18,7 +18,6 @@
             loading="lazy"
             :src="currentImage"
             :alt="designAlt"
-            :title="designAlt"
             class="lazy-img-fadein md:absolute h-full w-full object-cover rounded min-h-[16rem]
            transition duration-300 ease-in-out transform"
           />
