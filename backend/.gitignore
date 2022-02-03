@@ -5,6 +5,7 @@
 /vendor
 /public/designs
 /public
+/pulic/mydb
 .env
 .env.backup
 .phpunit.result.cache

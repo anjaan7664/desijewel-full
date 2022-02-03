@@ -155,6 +155,9 @@ class DesignController extends Controller
             case 'm_aad':
                 $Category = 'mini-aad';
                 break;
+            case 'bala_jhela':
+                    $Category = 'bala-jhela ';
+                    break;
             case 'chick':
                 $Category = 'chik-set';
                 break;
