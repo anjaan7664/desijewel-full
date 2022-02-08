@@ -222,7 +222,7 @@ class DesignController extends Controller
         $advertiser_array = array(
             'ad_url' => 'https://desijewel.in/shoppers/silver.jpg',
             'ad_desc' => "",
-            'ad_number' => "+917597937664",
+            'ad_number' => "+919680398417",
             'ad_name' => "Desi Jewellery",
             'ad_map' => "geo:25.9695727,72.9625279"
         );
