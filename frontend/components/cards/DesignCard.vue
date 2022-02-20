@@ -48,12 +48,12 @@
           <span >{{ designData.sub_category }}</span>
         </nuxt-link>
       </p>
-      <p v-if="$auth.loggedIn" class="absolute top-0 right-0 text-xl">
-        <span ref="designHit">{{ designData.hit }}</span>
+      <p  v-if="$auth.loggedIn && !$auth.user.role.includes('user') " class="absolute top-0 right-0 text-xl">
+        <span ref="designHit"> likes - {{ designData.hit }}</span>
       </p>
     </div>
     <AdminEdit
-      v-if="$auth.loggedIn"
+       v-if="$auth.loggedIn && !$auth.user.role.includes('user') "
       :designData="designData"
       @updateWeight="updateWeight"
       @updateHit="updateHit"

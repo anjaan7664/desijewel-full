@@ -1,32 +1,35 @@
 <template>
   <div>
+    <h1>Hello {{$auth.user.name}}</h1>
     <div class="flex min-h-[80vh] flex-col">
       <nuxt-link
+        v-if="$auth.user.role.includes('super') || $auth.user.role.includes('upload') || $auth.user.role.includes('admin')"
         :to="localePath('/admin/upload')"
-        class="text-center mt-3 block w-full rounded-lg bg-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-xl hover:bg-gray-600 hover:text-white"
+        class="mt-3 block w-full rounded-lg bg-gray-800 px-6 py-3 text-center text-lg font-semibold text-white shadow-xl hover:bg-gray-600 hover:text-white"
         role="menuitem"
       >
         Upload File
       </nuxt-link>
       <nuxt-link
+        v-if="$auth.user.role.includes('super')"
         :to="localePath('/admin/setting')"
-        class="text-center mt-3 block w-full rounded-lg bg-blue-800 px-6 py-3 text-lg font-semibold text-white shadow-xl hover:bg-blue-600 hover:text-white"
+        class="mt-3 block w-full rounded-lg bg-blue-800 px-6 py-3 text-center text-lg font-semibold text-white shadow-xl hover:bg-blue-600 hover:text-white"
         role="menuitem"
       >
-       Admin Setting
+        Admin Setting
       </nuxt-link>
-     
- <nuxt-link
+
+      <nuxt-link
+        v-if="$auth.user.role.includes('super')"
         :to="localePath('/admin/upld')"
-        class="text-center mt-3 block w-full rounded-lg bg-pink-800 px-6 py-3 text-lg font-semibold text-white shadow-xl hover:bg-pink-600 hover:text-white"
+        class="mt-3 block w-full rounded-lg bg-pink-800 px-6 py-3 text-center text-lg font-semibold text-white shadow-xl hover:bg-pink-600 hover:text-white"
         role="menuitem"
       >
-       Admin Uploaded
+        Admin Uploaded
       </nuxt-link>
-   
 
       <button
-         @click="logOut"
+        @click="logOut"
         class="mt-3 block w-full rounded-lg bg-green-800 px-6 py-3 text-lg font-semibold text-white shadow-xl hover:bg-green-600 hover:text-white"
       >
         Log out
@@ -44,15 +47,16 @@ export default {
   computed: {
     ...mapState(["auth"]),
   },
-created() {
-  
-  console.log(this.$store.getters['auth/token']);
-},
+  created() {
+    console.log(this.$store.getters["auth/token"]);
+  },
   methods: {
     logOut() {
       this.$auth.logout();
-    }
+    },
   },
-  created() {},
+  created() {
+    console.log(this.$auth.user.role);
+  },
 };
 </script>

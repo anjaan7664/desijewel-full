@@ -17,36 +17,48 @@
     </div>
     <div v-if="open.setting" class="flex flex-wrap">
       <button
+       v-if="$auth.user.role.includes('super') || $auth.user.role.includes('weight') || $auth.user.role.includes('admin')"
         @click="(open.weight = !open.weight), (open.setting = !open.setting)"
         class="btn-m btn bg-blue-500"
       >
         Weight
+        
       </button>
-      <button @click="moveDesign" class="btn-m btn bg-pink-500">
+      <button 
+             v-if="$auth.user.role.includes('super') || $auth.user.role.includes('admin')"
+      @click="moveDesign" class="btn-m btn bg-pink-500">
         Move
       </button>
-      <button @click="deleteDesign" class="btn-m btn bg-yellow-500">
+      <button   v-if="$auth.user.role.includes('super') || $auth.user.role.includes('admin')"
+      @click="deleteDesign" class="btn-m btn bg-yellow-500">
         Delete
       </button>
       <button
+             v-if="$auth.user.role.includes('super') || $auth.user.role.includes('weight') || $auth.user.role.includes('admin')"
         @click="(open.hit = !open.hit), (open.setting = !open.setting)"
         class="btn-m btn bg-green-500"
       >
         Likes
       </button>
-      <button @click="updateSubCat" class="btn-m btn bg-purple-500">
+      <button
+       v-if="$auth.user.role.includes('super') || $auth.user.role.includes('weight') || $auth.user.role.includes('admin')"
+       @click="updateSubCat" class="btn-m btn bg-purple-500">
         Type
       </button>
       <button
+      v-if="$auth.user.role.includes('super') "
         @click="(open.alt = !open.alt), (open.setting = !open.setting)"
         class="btn-m btn bg-indigo-500"
       >
         Alt
       </button>
-      <button @click="swipeDesign" class="btn-m btn bg-gray-500">
+      <button
+      v-if="$auth.user.role.includes('super') "
+       @click="swipeDesign" class="btn-m btn bg-gray-500">
         Swipe
       </button>
       <button
+      v-if="$auth.user.role.includes('super') "
         @click="(open.rename = !open.rename), (open.setting = !open.setting)"
         class="btn-m btn bg-yellow-500"
       >

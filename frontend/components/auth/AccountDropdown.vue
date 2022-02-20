@@ -32,6 +32,7 @@
         </nuxt-link>
         <nuxt-link 
          :to="localePath('/admin/upload')"
+         v-if="$auth.user.role.includes('super') || $auth.user.role.includes('upload')"
           href="#"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"
