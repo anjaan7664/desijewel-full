@@ -36,13 +36,18 @@ export const getters = {
 
 }
 export const actions = {
+  nuxtServerInit({
+    commit
+  }, {
+    req
+  }) {},
 
   async getDesigns({
     commit
   }, payload) {
     return new Promise((resolve, reject) => {
 
-       this.$axios.$get('designs', {
+      this.$axios.$get('designs', {
           params: payload.filters
         }).then((response) => {
           commit('SET_DESIGNS', response)

@@ -142,7 +142,7 @@ created() {
     async register() {
       let data;
       // Register the user.
-      // await this.$axios.$get("sanctum/csrf-cookie");
+      await this.$axios.$get("sanctum/csrf-cookie");
 
       try {
         const response = await await this.$axios.post("register", this.form);

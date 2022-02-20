@@ -34,6 +34,7 @@
           ><span ref="designWeight">{{ designData.weight }}</span>
         </li>
       </ul>
+      <p class="text-sm" v-if="adminAccess">{{designData.comment}}</p>
       <p class="absolute top-0 text-xl">
         <nuxt-link
           :to="
@@ -63,7 +64,7 @@
 <script>
 export default {
   name: "DesignCard",
-  props: ["designData","catMetal"],
+  props: ["designData","catMetal","adminAccess"],
   data() {
     return {
       currentImage:

@@ -7,6 +7,3 @@ use App\Http\Controllers\Auth\RegisterController;
 
 
 // Auth::routes();
-
-Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
-Route::post('/register', [RegisterController::class, 'register']);

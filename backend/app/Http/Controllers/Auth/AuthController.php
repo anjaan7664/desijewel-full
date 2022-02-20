@@ -43,17 +43,19 @@ class AuthController extends Controller
             'username' => 'required|string',
             'password' => 'required|string|min:6'
         ]);
+        $remember = $request->has('remember') ? true : false;
 
-        if (!Auth::attempt($attr)) {
-            return $this->error('Credentials not match', 401);
+        if (Auth::attempt($attr, $remember)) {
+
+            $token = auth()->user()->createToken('auth_token')->plainTextToken;
+            $response = [
+                'user' => auth()->user(),
+                'token' => $token
+            ];
+
+            return response($response);
         }
-        $token = auth()->user()->createToken('auth_token')->plainTextToken;
-        $response = [
-            'user' => auth()->user(),
-            'token' => $token
-        ];
-
-        return response($response);
+        return $this->error('Credentials not match', 401);
     }
 
     public function logout()
@@ -63,5 +65,11 @@ class AuthController extends Controller
         return [
             'message' => 'Tokens Revoked'
         ];
+    }
+    public function refresh(Request $request)
+    {
+        $user = $request->user();
+        $user->tokens()->delete();
+        return response()->json(['token' => $user->createToken($user->name)->plainTextToken]);
     }
 }

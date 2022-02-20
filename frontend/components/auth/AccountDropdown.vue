@@ -28,7 +28,7 @@
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"
         >
-          Your Profile
+          Admin
         </nuxt-link>
         <nuxt-link 
          :to="localePath('/admin/upload')"
@@ -58,7 +58,11 @@ export default {
       errors: {}
     };
   },
-
+  watch: {
+    $route() {
+      this.isOpen = false;
+    }
+  },
   methods: {
     async logout() {
       this.$auth

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <the-header />
+    <NavTheHeader />
     <Nuxt  keep-alive class="max-size container m-auto mx-2 lg:mx-auto" />
 
     <!-- <back-to-top bottom="50px" right="30px">
@@ -13,7 +13,7 @@
           />
         </div>
       </back-to-top> -->
-    <LazyTheFooter />
+    <LazyNavTheFooter />
   </div>
 </template>
 <style>

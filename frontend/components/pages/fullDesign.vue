@@ -167,7 +167,7 @@
                   <h3 class="text-lg">Product Description</h3>
                 </template>
                 <template slot="accordion-content">
-                  <span>{{ MainImg.alt }}</span>
+                  <span>{{ designAlt }}</span>
                 </template>
               </accordion-item>
 

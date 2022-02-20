@@ -12,6 +12,7 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('/designs', [DesignController::class, 'show']);
     Route::post('/android', [DesignController::class, 'android']);
     Route::get('/DisplayDesign', [DesignController::class, 'display']);
+    Route::get('/adminUploaded', [DesignController::class, 'adminUploaded']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
 
@@ -28,5 +29,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::get('/refresh', [AuthController::class, 'refresh']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });

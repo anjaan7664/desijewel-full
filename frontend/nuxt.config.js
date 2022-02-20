@@ -84,13 +84,13 @@ export default {
 
   auth: {
     strategies: {
+
       'laravelSanctum': {
         provider: 'laravel/sanctum',
         url: process.env.API_URL,
+
         cookie: {
-          cookie: {
-            name: 'login_token', // cookie name
-          }
+          name: 'XSRF-TOKEN',
         },
         endpoints: {
           login: {
@@ -100,13 +100,21 @@ export default {
             url: '/logout',
             method: 'post'
           },
+          refresh: {
+            url: '/refresh',
+            method: 'post'
+          },
           user: {
             url: '/user',
             method: 'get'
           }
         },
-        withCredentials: true // Send cookies to allow the server to access session
-      }
+        withCredentials: true
+
+      },
+
+
+
     },
     redirect: {
       login: '/auth/login',
@@ -167,7 +175,7 @@ export default {
     ],
     vueI18n: i18n
   },
- 
+
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID
   },

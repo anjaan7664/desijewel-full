@@ -18,17 +18,22 @@ class RegisterController extends Controller
 {
 
 
+    use RegistersUsers;
 
-    protected function registered(Request $request, $user)
-    {
-        $user->generateToken();
+    /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
 
-        return response()->json(['data' => $user->toArray()], 201);
-    }
     public function __construct()
     {
         $this->middleware('guest');
     }
+
+  
+
 
 
     /**
@@ -46,6 +51,15 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
+}
     /**
      * Create a new user instance after a valid registration.
      *

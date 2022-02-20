@@ -2,7 +2,7 @@
   <div class="min-h-[80vh]">
     <div class="w-full text-center">
       <label
-        class="w-64 flex flex-row items-center px-4 py-4 bg-purple-600 mt-2 
+        class="w-full flex flex-row items-center px-4 py-4 bg-purple-600 mt-2 
         rounded-md cursor-pointer 
         hover:bg-purple-400 text-3xl text-center
         duration-150 mx-auto "
@@ -25,15 +25,15 @@
     <client-only>
       <div class="flex flex-col md:flex-row gap-x-3">
         <v-select
-          placeholder="Select Category"
-          class="mt-2 md:w-1/2 text-xl"
+          placeholder="Select Category For All"
+          class="mt-2 md:w-1/2 text-xl bg-green-200 text-black"
           :options="category"
           v-model="parentDesignCategory"
           @input="updateCategory"
         ></v-select>
         <v-select
-          placeholder="Select Type"
-          class="mt-2 w-full md:w-1/2 text-xl"
+          placeholder="Select Type For All"
+          class="mt-2 w-full md:w-1/2 text-xl bg-green-200 text-black"
           :options="type"
           v-model="parentDesignType"
           @input="updateType"

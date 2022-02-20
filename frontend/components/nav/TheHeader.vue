@@ -66,13 +66,20 @@
                 {{ $t('contact') }}
               </nuxt-link>
             </li>
-            <li class="mx-2 py-2 lg:py-auto lg:mx-4 hidden lg:block">
+
+            <li v-if="this.$auth.loggedIn" class="mx-2 py-2 lg:py-auto lg:mx-4 hidden lg:block">
+              <nuxt-link :to="localePath('/admin')">
+                Admin
+              </nuxt-link>
+            </li>
+            <li v-else class="mx-2 py-2 lg:py-auto lg:mx-4 hidden lg:block">
               <nuxt-link :to="localePath('/about')">
                 {{$t('about')}}
               </nuxt-link>
             </li>
           </ul>
         </div>
+        
         <div class="h-full flex flex-col md:flex-row">
           <!-- Search Bar  -->
           <!-- <div

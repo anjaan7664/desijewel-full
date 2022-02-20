@@ -41,10 +41,10 @@
         </p>
         <div class="my-3 mt-4">
           <nuxt-link
-            :to="localePath('/About')"
+            :to="localePath('/gold')"
             class="text-center text-white text-2xl font-semibold animate-pulse cursor-pointer bg-pink-600 px-8 py-4 rounded-2xl
             hover:scale-x-110 hover:scale-y-105 transition duration-300 ease-out"
-            >Know More</nuxt-link
+            >See Designs</nuxt-link
           >
         </div>
       </div>

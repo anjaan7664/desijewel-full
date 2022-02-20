@@ -108,6 +108,32 @@ class DesignController extends Controller
         //     return abort(404);
         // }
     }
+    public function adminUploaded(Request $request)
+    {
+        // validate query 
+
+        $admin = $request->input('admin');
+
+        $perPage = $request->input('perPage');
+        try {
+
+            $designs = Design::where('dp', '1')->where('comment', 'like', '%' . $admin . '%')->orderBy('id', 'desc')->paginate($perPage);
+
+            return $designs;
+        } catch (Exception $e) {
+            if ($e instanceof ModelNotFoundException) {
+
+                return response()->json([
+                    'message' => 'Record not found',
+                ], 404);
+            }
+        }
+
+        // if ($designs !="[]") {
+        // }else{
+        //     return abort(404);
+        // }
+    }
     public function makeThumb(Request $request)
     {
         $designs = Design::where('dp', '1')->orderBy('hit', 'desc')->get();

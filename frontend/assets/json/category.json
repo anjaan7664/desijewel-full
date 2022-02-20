@@ -103,6 +103,21 @@
             "url": "bala",
             "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner,earring,kan,jhumka",
             "sorting": "desi, fancy, kundan"
+        }, 
+        {
+            "metal": "gold",
+            "path": "bala_jhela/",
+            "alt": "Desi Indian Rajasthani Gold Earring",
+            "alt_hn": "राजस्थानी देसी गोल्ड बाला/कानपता/झेला",
+            "title": "Desi Indian Rajasthani Gold Earring",
+            "description": "Designing Jewel brings you the Best Indian, Desi and Rajasthani unique Gold Jewellery design of Bangles with weight and price. Check out our latest design with the best price and quality.",
+            "silver_avail": "yes",
+            "image": "bala-jhela.webp",
+            "name": "category.bala-jhela",
+            "part": "ear",
+            "url": "bala-jhela",
+            "keywords":"emboss,ethnic,gold price,22ct,women,buy,jewellery,kundan,emboss,design,gold,jodhpur,pali,barmer,nagaur,bikaner,earring,kan,jhumka",
+            "sorting": "desi, fancy, kundan"
         },
         {
             "metal": "gold",
@@ -351,7 +366,7 @@
             "alt_hn": "राजस्थानी देसी गोल्ड रखडी-सेट",
             "title": "Desi Indian Rajasthani Gold Rakhdi-Set",
             "description": "Designing Jewel brings you the Best Indian, Desi and Rajasthani unique Gold Jewellery design of Rakhdi-Set with weight and price. Check out our latest design with the best price and quality.",
-            "silver_avail": "yes",
+            "silver_avail": "no",
             "image": "rakhdi-set.webp",
             "name": "category.rakhdi-set",
             "part": "head",
