@@ -1,36 +1,42 @@
 <template>
   <div class="w-full text-center md:my-16">
-    <h1 class="px-1 my-4 hmain">Check Our Designs</h1>
+    <h1 class="hmain my-4 px-1">Check Our Designs</h1>
     <!-- Gold Design  -->
     <div
       v-for="(cData, i) in catData"
       :key="i"
-      class="relative flex flex-col items-center mx-auto my-3 md:my-8 md:flex-row md:flex-wrap"
+      class="relative mx-auto my-3 flex flex-col items-center md:my-8 md:flex-row md:flex-wrap"
     >
-      <h1 class="relative md:w-full jewellery_design_tagline font-Samarkan">
+      <h1 class="jewellery_design_tagline font-Samarkan relative md:w-full">
         {{ cData.title }}
       </h1>
-      <div class="flex flex-col w-11/12 md:flex-row">
+      <div class="flex w-11/12 flex-col md:flex-row">
         <div
           v-for="index in cData.catDataMetal"
           :key="index.image"
-          class="flex flex-1 "
+          class="flex flex-1"
         >
           <nuxt-link
             :to="localePath(cData.url)"
-            class="w-full relative flex flex-row p-4 my-6 transition-shadow duration-300 bg-gray-200 border rounded-md hover:shadow-lg2 md:m-4 "
+            class="relative w-full h-full p-4"
           >
-            <p
-              class="absolute text-xl font-semibold md:2xl lg:text-xl top-4 left-4"
+            <div
+              class="shadow-neumorph relative m-2 flex transform flex-col rounded-2xl bg-gray-100 transition-all duration-300 md:m-4 md:hover:-translate-y-3"
             >
-              {{ index.name }}
-            </p>
-            <p class="absolute underline bottom-5 left-5">View All</p>
-            <img
-              :src="require('/assets/img/icons/' + index.image)"
-              :alt="index.name"
-              class="object-contain w-3/5 ml-auto min-h-[8rem]"
-            />
+              <div class="pb-1/1 relative">
+                <img
+                  loading="lazy"
+                  :src="require('/assets/img/icons/' + index.image)"
+                  :alt="index.name"
+                  class="shadowed absolute mx-auto h-full w-full object-contain p-2"
+                />
+              </div>
+              <div
+                class="mt-auto py-2 text-2xl font-semibold text-black md:text-xl lg:text-2xl"
+              >
+                <h2>{{ index.name }}</h2>
+              </div>
+            </div>
           </nuxt-link>
         </div>
       </div>
@@ -40,11 +46,12 @@
       >
         <fa class="my-auto" :icon="['fas', 'arrow-right']" />
       </router-link>
-    </div></div
-></template>
+    </div>
+  </div>
+</template>
 <script>
 export default {
   name: "checkDesigns",
-  props: ["catData"]
+  props: ["catData"],
 };
 </script>

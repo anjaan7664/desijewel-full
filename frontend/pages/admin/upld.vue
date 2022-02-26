@@ -75,7 +75,7 @@ export default {
       DesignConfig: {
         perPage: 21,
         page: parseInt(this.$route.query.page) || 1,
-        admin: "kishor",
+        admin: "",
         selectedInput: "",
       },
     };

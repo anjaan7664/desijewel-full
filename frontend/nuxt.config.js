@@ -85,31 +85,34 @@ export default {
   auth: {
     strategies: {
 
-      'laravelSanctum': {
-        provider: 'laravel/sanctum',
-        url: process.env.API_URL,
 
-        cookie: {
-          name: 'XSRF-TOKEN',
+      local: {
+        token: {
+          property: 'token',
+          type: 'Bearer',
+          global:false,
+          maxAge: 60 * 60 * 24 * 60, // 60 days
+        },
+        user: {
+          property: false, // <--- Default "user"
+          autoFetch: true
         },
         endpoints: {
           login: {
             url: '/login',
+            method: 'post',
+            propertyName: 'token'
           },
           logout: {
             url: '/logout',
             method: 'post'
           },
-          refresh: {
-            url: '/refresh',
-            method: 'post'
-          },
           user: {
             url: '/user',
-            method: 'get'
+            method: 'get',
+            propertyName: false
           }
-        },
-        withCredentials: true
+        }
 
       },
 
