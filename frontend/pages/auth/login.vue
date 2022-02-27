@@ -210,9 +210,8 @@ export default {
   methods: {
     async submit() {
       try {
-          console.log('dd');
-        await this.$axios.$get("sanctum/csrf-cookie");
-        let response = await this.$auth.loginWith("local", { data: this.form });
+ 
+        let response = await this.$auth.loginWith('laravelSanctum', { data: this.form });
         console.log(response.data);
       } catch (err) {
         console.log(err);

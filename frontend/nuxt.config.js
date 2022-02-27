@@ -86,22 +86,13 @@ export default {
     strategies: {
 
 
-      local: {
-        token: {
-          property: 'token',
-          type: 'Bearer',
-          global:false,
-          maxAge: 60 * 60 * 24 * 60, // 60 days
-        },
-        user: {
-          property: false, // <--- Default "user"
-          autoFetch: true
-        },
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+        url: process.env.API_URL,
         endpoints: {
           login: {
             url: '/login',
-            method: 'post',
-            propertyName: 'token'
+            method: 'post'
           },
           logout: {
             url: '/logout',
@@ -109,8 +100,7 @@ export default {
           },
           user: {
             url: '/user',
-            method: 'get',
-            propertyName: false
+            method: 'get'
           }
         }
 
